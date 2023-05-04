@@ -1,0 +1,33 @@
+.div{
+    background-color: var(--black);
+    height: 2800px;
+    color: var(--light-blue);
+    font-family: var(--font-family);
+    width: 800px;
+
+}
+
+.button{
+    height: 100px;
+    width: 100px;
+    background-color: red;
+}
+.button:hover{
+    background-color: var(--light-blue);
+    transition: var(--transition);
+}
+/*------------------------------------TABLET-------------------------------------*/
+@media screen and (max-width: 1024px) {
+    .div{
+        width: 199px;
+        height: 200px;
+      }
+}
+
+/*------------------------------------MOBILE-------------------------------------*/
+@media screen and (max-width: 600px){
+  .div{
+    width: 50px;
+    height: 50px;
+  }
+}
