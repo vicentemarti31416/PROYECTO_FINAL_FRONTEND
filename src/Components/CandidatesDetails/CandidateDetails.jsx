@@ -9,8 +9,7 @@ export const CandidatesDetails = ({ candidates }) => {
             <div className="persons" key={index}>
               <img className="image" src={cand.image} alt="candidate" />
               <h3>
-                {cand.name}
-                {cand.surname}
+                {cand.name} {cand.surname}
               </h3>
               <h3>{cand.profession}</h3>
 
