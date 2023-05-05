@@ -1,0 +1,25 @@
+/*------------------------------------TABLET-------------------------------------*/
+@media screen and (max-width: 1024px) {
+    
+}
+
+/*------------------------------------MOBILE-------------------------------------*/
+@media screen and (max-width: 600px){
+  .loginContainer {
+    background-color: var(--black);
+    color: var(--white);
+  }
+
+  /* .loginLabel {
+  } */
+
+  .loginErrorA {
+    color: greenyellow;
+  }
+
+  .loginLine {
+    border-bottom: 2px solid var(--white);
+    width: 80%;
+  }
+
+}
