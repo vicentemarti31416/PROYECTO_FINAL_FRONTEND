@@ -1,18 +1,35 @@
 import React from "react";
 import Welcome from "./Components/Welcome/Welcome";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CandidatesPage } from "./Pages/CandidatesPage/CandidatesPage";
+import OfferPage from "./Pages/OfferPage/OfferPage";
+import { OffersDetails } from "./Components/OffersDetails/OffersDetails";
+import { CandidatesDetails } from "./Components/CandidatesDetails/CandidateDetails";
+import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
+import LoginPage from "./Pages/Login/LoginPage";
+import { MessagePage } from "./Pages/MessagesPage/MessagePage";
+import HomePage from "./Pages/Homepage/HomePage";
+import CreatePage from "./Pages/CreatePage/CreatePage";
+import { Congrats } from "./Components/Congrats/Congrats";
 
 function App() {
-
-
   return (
     <div>
-    <Welcome></Welcome>
-    {/* <Congrats></Congrats> */}
-    {/* <LoginPage></LoginPage> */}
-    {/* <HomePage offers={offers} candidates={candidates}></HomePage> */}
-    {/* <Nav></Nav> */}
-    {/* <CandidatesPage candidates={candidates}></CandidatesPage>
-    <OffersPage offers={offers}></OffersPage> */}
+      <Router>
+      <Routes>
+        <Route path="/" element={<Welcome/>} />
+        <Route path="/home" element={<HomePage/>} />
+        <Route path="/candidates" element={<CandidatesPage/>} />
+        <Route path="/offers" element={<OfferPage/>} />
+        <Route path="/notifications" element={<NotificationsPage/>} />
+        <Route path="/create" element={<CreatePage/>} />
+        <Route path="/congrats" element={<Congrats/>} />
+        <Route path="/login" element={<LoginPage/>} />
+        <Route path="/message" element={<MessagePage/>} />
+        <Route path="/offersdetails" element={<OffersDetails/>} />
+        <Route path="/candidatedetails" element={<CandidatesDetails/>} />
+      </Routes>
+    </Router>
     </div>
   );
 }
