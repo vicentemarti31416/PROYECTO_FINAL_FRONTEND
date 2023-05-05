@@ -1,3 +1,4 @@
+
 import React from "react";
 
 export const CandidatesPage = ({ candidates }) => {
@@ -48,3 +49,4 @@ export const CandidatesPage = ({ candidates }) => {
     </div>
   );
 };
+

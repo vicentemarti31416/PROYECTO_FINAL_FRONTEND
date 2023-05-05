@@ -7,9 +7,9 @@ const HomePage = () => {
 
   return (
     <div className='div'>
-      PERRO
-      <button className="button"></button>
-    </div>
+      <img src="" alt="" ></img>
+      <input></input>
+     </div>
   )
 }
 
