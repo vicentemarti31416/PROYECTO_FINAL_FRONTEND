@@ -1,10 +1,9 @@
 import React from "react";
 import "./HomePage.css";
-// import Welcome from '../../Components/Welcome/Welcome'
-// import NAV
 
 
 const HomePage = ({ offers }) => {
+
   return (
     <div className="div">
       <button className="button"></button>

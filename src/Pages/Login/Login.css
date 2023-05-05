@@ -13,27 +13,21 @@
     flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
+    padding: 150px 0px 20px 0px;
   }
 
-  .loginImages {
-    margin-top: 100px;
-  }
-
-  .loginEmail {
-    margin-top: 30px;
-  }
-
-  .loginContraseña {
-    margin-top: 20px;
-  }
-
-  .loginComenzar {
-    margin-top: 20px;
+  .loginForm {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .loginEmail {
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
   }
 
   .loginContraseña {
@@ -47,7 +41,7 @@
 
   .loginLine {
     border-bottom: 2px solid var(--white);
-    width: 80%;
+    width: 70%;
   }
 
 }
