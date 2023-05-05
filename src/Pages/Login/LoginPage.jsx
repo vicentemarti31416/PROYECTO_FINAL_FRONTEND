@@ -15,12 +15,11 @@ const LoginPage = () => {
   return (
     <div className='loginContainer'>
         <div className='loginImages'>
-            <p>LoginPage</p>
             <img src={group7} alt='group7'></img>
         </div>
 
-        <div className='loginImputs'>
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <div className='loginInputs'>
+            <form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
                 <div className='loginEmail'>
                     <label className='loginLabel' htmlFor='email'>Email ID</label>
                     <input className='loginInput' type="text" id='email' placeholder="Email ID" {...register("email")} />

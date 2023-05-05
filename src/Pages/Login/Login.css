@@ -8,10 +8,38 @@
   .loginContainer {
     background-color: var(--black);
     color: var(--white);
+    font-family: var(--font-family);
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
   }
 
-  /* .loginLabel {
-  } */
+  .loginImages {
+    margin-top: 100px;
+  }
+
+  .loginEmail {
+    margin-top: 30px;
+  }
+
+  .loginContraseña {
+    margin-top: 20px;
+  }
+
+  .loginComenzar {
+    margin-top: 20px;
+  }
+
+  .loginEmail {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .loginContraseña {
+    display: flex;
+    flex-direction: column;
+  }
 
   .loginErrorA {
     color: greenyellow;
