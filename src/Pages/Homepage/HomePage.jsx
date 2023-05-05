@@ -1,19 +1,18 @@
-import React from 'react'
-import './HomePage.css'
-import Welcome from '../../Components/Welcome/Welcome'
+import React from "react";
+import "./HomePage.css";
 
-const HomePage = ({offers}) => {
+
+const HomePage = ({ offers }) => {
 
   return (
-    <div className='div'>
-      <Welcome></Welcome>
+    <div className="div">
       <button className="button"></button>
-      <img src="" alt="" ></img>
+      <img src="" alt=""></img>
       <input></input>
       <h2>Ofertas abiertas({offers})</h2>
-      
-     </div>
-  )
-}
+      {/* <Nav></Nav> */}
+    </div>
+  );
+};
 
-export default HomePage
+export default HomePage;
