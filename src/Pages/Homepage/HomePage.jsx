@@ -1,15 +1,20 @@
 import React from 'react'
 import './HomePage.css'
+import Welcome from '../../Components/Welcome/Welcome'
 
-const HomePage = () => {
+const HomePage = ({offers}) => {
 
 
 
   return (
     <div className='div'>
-      PERRO
+      <Welcome></Welcome>
       <button className="button"></button>
-    </div>
+      <img src="" alt="" ></img>
+      <input></input>
+      <h2>Ofertas abiertas({offers})</h2>
+      
+     </div>
   )
 }
 
