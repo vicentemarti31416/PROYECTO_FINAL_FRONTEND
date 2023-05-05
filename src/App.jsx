@@ -1,10 +1,12 @@
 import React from "react";
 import HomePage from "./Pages/Homepage/HomePage";
+import {Congrats} from "./Components/Congrats/Congrats";
 
 function App() {
   return (
     <div>
-    <HomePage></HomePage>
+    {/* <HomePage></HomePage> */}
+    <Congrats></Congrats>
     </div>
   );
 }

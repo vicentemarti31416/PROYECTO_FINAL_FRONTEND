@@ -1,0 +1,26 @@
+@media screen and (max-width: 1024px) {
+  .div {
+    width: 199px;
+    height: 200px;
+  }
+}
+
+/*------------------------------------MOBILE-------------------------------------*/
+@media screen and (max-width: 600px) {
+  .congratsContainer {
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .congratsImg{
+    max-width: 100%;
+  }
+  .img-congrats{
+    width: 100px;
+  }
+  .congratsText{
+    font-family: var(--font-family);
+    color: var(--white);
+  }
+}
