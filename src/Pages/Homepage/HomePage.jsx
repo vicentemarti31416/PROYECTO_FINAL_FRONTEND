@@ -8,10 +8,11 @@ const HomePage = () => {
 
   return (
     <div className='div'>
-      PERRO
       <Welcome></Welcome>
       <button className="button"></button>
-    </div>
+      <img src="" alt="" ></img>
+      <input></input>
+     </div>
   )
 }
 
