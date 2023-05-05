@@ -1,7 +1,11 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios"
 import { CandidatesPage } from "./Pages/CandidatesPage/CandidatesPage";
 import { OffersPage } from "./Pages/OffersPage/OffersPage";
+import HomePage from "./Pages/HomePage/HomePage";
+import Nav from "./Pages/nav/Nav";
+
 
 
 function App() {
@@ -40,6 +44,8 @@ function App() {
 
   return (
     <div>
+ <HomePage></HomePage>
+    <Nav></Nav>
     <CandidatesPage candidates={candidates}></CandidatesPage>
     <OffersPage offers={offers}></OffersPage>
     </div>
