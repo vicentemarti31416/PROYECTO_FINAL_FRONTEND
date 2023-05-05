@@ -3,7 +3,12 @@ import './createpage.css';
 
 function CreatePage() {
   return (
-    <div>CreatePage</div>
+    <div>CreatePage
+
+
+      <Nav></Nav>
+    </div>
+
   )
 }
 

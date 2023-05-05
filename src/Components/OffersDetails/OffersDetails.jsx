@@ -29,6 +29,7 @@ export const OffersDetails = ({ offers }) => {
           )}
         </div>
       </div>
+      <Nav></Nav>
     </div>
   );
 };
