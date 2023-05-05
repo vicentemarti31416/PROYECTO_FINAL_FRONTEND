@@ -1,10 +1,13 @@
 import React from 'react'
 import './NotificationsPage.css';
+import Nav from '../../Components/Nav/Nav';
 
 
 function NotificationsPage() {
   return (
-    <div>NotificationsPage</div>
+    <div>
+      <Nav></Nav>
+    </div>
   )
 }
 
