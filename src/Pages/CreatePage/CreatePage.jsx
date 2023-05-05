@@ -6,7 +6,7 @@ function CreatePage() {
     <div>CreatePage
 
 
-      <Nav></Nav>
+      {/* <Nav></Nav> */}
     </div>
 
   )
