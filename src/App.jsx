@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"
-
 import { CandidatesDetails } from "./Components/CandidatesDetails/CandidateDetails";
 import { OffersDetails } from "./Components/OffersDetails/OffersDetails";
 import { CandidatesPage } from "./Pages/CandidatesPage/CandidatesPage";
 import { OffersPage } from "./Pages/OffersPage/OffersPage";
-import HomePage from "./Pages/HomePage/HomePage";
-import Nav from "./Pages/nav/Nav";
-import React from "react";
 import LoginPage from "./Pages/Login/LoginPage";
-import HomePage from "./Pages/Homepage/HomePage";
 import {Congrats} from "./Components/Congrats/Congrats";
+import HomePage from "./Pages/Homepage/HomePage";
+import Welcome from "./Components/Welcome/Welcome";
 
 function App() {
   const [candidates, setCandidates] = useState([]);
@@ -48,15 +45,14 @@ function App() {
 
   return (
     <div>
+      {/* <Welcome></Welcome> */}
     <Congrats></Congrats>
-    <LoginPage></LoginPage>
-    <CandidatesDetails candidates={candidates}></CandidatesDetails>
-    <OffersDetails offers={offers}></OffersDetails>
-    <Welcome></Welcome>
-    <HomePage></HomePage>
-    <Nav></Nav>
-    <CandidatesPage candidates={candidates}></CandidatesPage>
-    <OffersPage offers={offers}></OffersPage>
+    {/* <LoginPage></LoginPage> */}
+    {/* <CandidatesDetails candidates={candidates}></CandidatesDetails> */}
+    {/* <OffersDetails offers={offers}></OffersDetails> */}
+    {/* <HomePage></HomePage> */}
+    {/* <CandidatesPage candidates={candidates}></CandidatesPage> */}
+    {/* <OffersPage offers={offers}></OffersPage> */}
     </div>
   );
 }
