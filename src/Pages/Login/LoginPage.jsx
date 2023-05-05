@@ -37,7 +37,7 @@ const LoginPage = () => {
         </div>
 
         <div className='loginError'>
-            <p>No puedes iniciar sesión?</p>
+            <p className='loginErrorP'>No puedes iniciar sesión?</p>
             <a className='loginErrorA' href='./'>Restablecer la contraseña</a>
         </div>
 

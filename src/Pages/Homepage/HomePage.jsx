@@ -4,8 +4,6 @@ import Welcome from '../../Components/Welcome/Welcome'
 
 const HomePage = ({offers}) => {
 
-
-
   return (
     <div className='div'>
       <Welcome></Welcome>
