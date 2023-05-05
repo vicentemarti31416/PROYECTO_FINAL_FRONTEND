@@ -8,8 +8,8 @@ import { OffersPage } from "./Pages/OffersPage/OffersPage";
 import HomePage from "./Pages/HomePage/HomePage";
 import Nav from "./Pages/nav/Nav";
 import React from "react";
+import LoginPage from "./Pages/Login/LoginPage";
 import HomePage from "./Pages/Homepage/HomePage";
-import Welcome from "./Pages/Homepage/HomePage";
 
 function App() {
   const [candidates, setCandidates] = useState([]);
@@ -47,6 +47,7 @@ function App() {
 
   return (
     <div>
+    <LoginPage></LoginPage>
     <CandidatesDetails candidates={candidates}></CandidatesDetails>
     <OffersDetails offers={offers}></OffersDetails>
     <Welcome></Welcome>
