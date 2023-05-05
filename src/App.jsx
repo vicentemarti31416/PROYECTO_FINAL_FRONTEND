@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"
-import { CandidatesPage } from "./Pages/CandidatesPage/CandidatesPage";
-import { OffersPage } from "./Pages/OffersPage/OffersPage";
+import { CandidatesDetails } from "./Components/CandidatesDetails/CandidateDetails";
+import { OffersDetails } from "./Components/OffersDetails/OffersDetails";
+
 
 
 function App() {
@@ -40,8 +41,8 @@ function App() {
 
   return (
     <div>
-    <CandidatesPage candidates={candidates}></CandidatesPage>
-    <OffersPage offers={offers}></OffersPage>
+    <CandidatesDetails candidates={candidates}></CandidatesDetails>
+    <OffersDetails offers={offers}></OffersDetails>
     </div>
   );
 }
