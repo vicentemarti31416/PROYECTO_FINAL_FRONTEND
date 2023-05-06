@@ -1,16 +1,32 @@
+@media screen and (max-width: 1024px) {
+  .div {
+    width: 199px;
+    height: 200px;
+  }
+}
+
+
+
 .Container-perfil{
   width: 100%;
-  height: 80vh;
-  background-color: var(----light-blue);
+  height: 100vh;
+  background:#f8fafb;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .name-perfil{
-  color: var(--blue);
+
+margin-top: 12px;
+font-size: medium;
+}
+.img-div-perfil{
+  margin: 12px;
+
+}
+.name-perfil{
+  color: var(--blue-letter);
 }
 
 .div-img-perfil {
@@ -20,7 +36,7 @@
 }
 
 .img-perfil {
-  width: 50px;
+  width: 133px;
   min-width: 100px;
   margin: auto;
   display: block;
@@ -28,44 +44,45 @@
 }
 
 .texto-perfil {
+  display: flex;
+  margin-bottom: 24px;
   color: var(--black);
-  margin-top: 160px;
+  margin-top: 86px;
+  justify-content: space-between;
+  height: 12px;
+  width: 214px;
+  margin-left: -166px;
 }
+
 
 .button-perfil {
   width: 100%;
-  height: auto;
+  height: 332px;
   display: flex;
   border: none;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  margin-top: 66px;
 }
-
 .botonera-perfil {
-  margin-top: 36px;
+  font-size: larger;
+  height: 98px;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
   color: var(--blue-letter);
-  height: auto;
   display: flex;
   background-color: transparent;
   border: none;
   box-shadow: 0 px rgba(0.20, 0.20, 0.2, 0.2);
   text-align: center;
-  padding: 29px 0;
-  margin-bottom: 10px;
-  flex-direction: column;
+  padding: 12px;
+  /* margin-bottom: 10px; */
+  justify-content: space-between;
+  align-items: center;
 }
 
-.botonera-perfil::after {
-  content: ">"; /* Agrega 4 espacios en blanco y la flecha después del texto */
-  margin-left: 5px; /* Agrega un espacio entre el texto y la flecha */
-  font-size: 12px; /* Tamaño de la flecha */
-  color: var(--blue-letter); /* Color de la flecha */
-  display: inline-block; /* Asegura que la flecha se muestre en línea con el texto */
-  transform: translateY(-1px); /* Desplaza la flecha ligeramente hacia arriba para que se ajuste mejor */
-}
 
 .botonera-perfil + .botonera-perfil {
   border-top: 1px solid #ccc;
@@ -74,9 +91,14 @@
 }
 
 .botonera-perfil:last-child {
+  padding: 20px;
   border-bottom:  1px solid #ccc;
 }
 
 
 
-
+@media screen and (min-width: 600px) {
+  .congratsText1 {
+    font-size: 3rem;
+  }
+}

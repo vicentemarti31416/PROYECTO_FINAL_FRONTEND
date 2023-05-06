@@ -18,7 +18,9 @@ function CreatePage() {
   </Link>
     <img alt="imagen"/>
   <button>Crear prueba</button>
+
       <Nav></Nav>
+    
     </div>
   )
 }
