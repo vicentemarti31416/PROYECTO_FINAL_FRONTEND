@@ -8,7 +8,7 @@ function CreatePage() {
   <div className='create'>
   <p>lorem lorem</p>
     <BlueBase></BlueBase>
-    <div>CreatePage
+    <div>CreatePage</div>
       <Nav></Nav>
     </div>
     </div>
