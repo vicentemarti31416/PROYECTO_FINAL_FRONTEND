@@ -7,20 +7,21 @@ import { TbAdjustmentsHorizontal } from 'react-icons/tb';
 import imagen1 from '../../assets/avatar1.jpg';
 import imagen2 from '../../assets/avatar3.jpg';
 import imagen3 from '../../assets/avatar4.jpg';
-import imagen5 from '../../assets/avatar2.jpg'
+import imagen5 from '../../assets/avatar2.jpg';
+import { Link } from 'react-router-dom';
 
 export const MessagePage = () => {
   return (
     <div className='fondo-message'>
       <div className='mensaje'>
-        <IoIosArrowBack /> Mensajes
+      <Link to={'/home'} ><IoIosArrowBack /></Link> Mensajes
       </div>
     
       <div className='Container-message'>
         <div className='Buscador'>
           <BiSearch className='lupa' />
           <label htmlFor='buscar'>Buscar</label>
-          <input className='dentro-buscador' type='text' id='buscar' />
+          <input className='dentro-buscador' type='text' id='buscar'/>
           <TbAdjustmentsHorizontal />
         </div>
                 

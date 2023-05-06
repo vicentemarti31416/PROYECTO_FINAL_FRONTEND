@@ -35,11 +35,12 @@ function App() {
         <Route path="/restablecerContrasenaEmail" element={<RestablecerContrasenaEmail/>} />
         <Route path="/restablecerContrasenaContrasena" element={<RestablecerContrasenaContrasena/>} />
         <Route path="/register" element={<RegisterForm/>} />
-        <Route path="/message" element={<MessagePage/>} />
+        <Route path="/messages" element={<MessagePage/>} />
         <Route path="/offersdetails" element={<OffersDetails/>} />
         <Route path="/Profile" element={<Perfil/>} />
         <Route path="/offers/:id" element={<OffersDetails/>} />
         <Route path="/candidates/:id" element={<CandidateDetails/>} />
+
       </Routes>
     </Router>
     </div>

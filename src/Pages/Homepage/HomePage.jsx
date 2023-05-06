@@ -19,7 +19,7 @@ const HomePage = ({ offers }) => {
             alt=""
           /></Link>
           <input className="homesearch" placeholder="Buscar"></input>
-          <BiChat className="chat"></BiChat>
+          <Link to={'/messages'} ><BiChat className="chat"></BiChat></Link>
         </div>
       </div>
       <div className="offers">
