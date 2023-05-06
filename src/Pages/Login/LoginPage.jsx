@@ -31,7 +31,9 @@ const LoginPage = () => {
                 </div>
 
                 <div>
-                    <button className='button-white'>Comenzar</button>
+                <Link to={'/home'}>
+                <button className='button-white'>Comenzar</button>
+                </Link>
                 </div>
             </form>
         </div>
