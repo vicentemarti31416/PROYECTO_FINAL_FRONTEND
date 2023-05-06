@@ -14,13 +14,6 @@ const Nav =()=>{
   
   
   return (
-    // <nav>
-    //  <a href="#HomePage" onClick={() => setActiveNav('#HomePage')} className={activeNav === '#HomePage' ? 'active' : ''}><BiHomeAlt/></a>
-    // <a href='#CandidatesPage' onClick={() => setActiveNav('#CandidatesPage')} className={activeNav === '#CandidatesPage' ? 'active' : ''}><FiUsers/></a>
-    //  <a href='#CreatePage' onClick={()=> setActiveNav ('#CreatePage')} className={activeNav === '#CreatePage' ? 'active' : ''}><BsPlusSquare/></a>
-    //  <a href='#NotificationsPage' onClick={()=> setActiveNav ('#NotificationsPage')} className={activeNav === '#NotificationsPage' ? 'active' : ''}><RiNotification3Line/></a>
-    //   <a href="#OffersPage" onClick={()=> setActiveNav('#OffersPage')} className={activeNav === '#OffersPage' ? 'active' : ''}><RiSuitcaseLine/></a>
-    // </nav>
 
     <nav>
       <Link to="/home" onClick={() => setActiveNav('#HomePage')} className={activeNav === '#HomePage' ? 'active' : ''}>

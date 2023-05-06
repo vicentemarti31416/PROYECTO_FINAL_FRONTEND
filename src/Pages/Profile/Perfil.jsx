@@ -3,12 +3,13 @@ import './Perfil.css';
 import imagen from "../../assets/avatar1.jpg";
 import {FcNext} from 'react-icons/fc';
 import { IoIosArrowBack } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 function Perfil() {
   return (
     <div className='Container-perfil'>
     
-    <h3 className='texto-perfil'><IoIosArrowBack></IoIosArrowBack>Perfil</h3>
+    <h3 className='texto-perfil'><Link to={'/home'}><IoIosArrowBack></IoIosArrowBack></Link>Perfil</h3>
       <div className="img-div-perfil">
         <img className="img-perfil" src={imagen} alt="congratulations" />
         <h3 className='name-perfil'>Silvia Fernández</h3>

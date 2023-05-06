@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+import './CandidateDetails.css';
 
 export const CandidateDetails = () => {
   const [candidate, setCandidate] = useState(null);
@@ -27,7 +29,9 @@ export const CandidateDetails = () => {
         <div className="candidates">
           {candidate && (
             <div className="persons">
-              <img className="image" src={candidate.image} alt="candidate" />
+            <Link to={"/candidates"}>
+            <img className="candimage" src={candidate.image} alt="candidate" />
+        </Link>
               <h3>
                 {candidate.name} {candidate.surname}
               </h3>

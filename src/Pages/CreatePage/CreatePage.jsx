@@ -1,28 +1,24 @@
-
 import React from "react";
 import "./createpage.css";
 import Nav from "../../Components/Nav/Nav";
-import BlueBase from "../../Components/BlueBase/BlueBase";
-import image from '../../assets/Meettalent.png'
+import image from "../../assets/Meettalent.png";
 import { Link } from "react-router-dom";
-
-
+import { AiOutlineFileText } from "react-icons/ai"
 
 function CreatePage() {
   return (
-    <div className='create'>
-    <BlueBase></BlueBase>
-<img className="hometitle" src={image} alt="" />
-    <Link to={"/createoffer"}>
-  <button className="buttoncrear">Crear oferta</button>
-  </Link>
-    <img alt="imagen"/>
-  <button>Crear prueba</button>
-
+    <div className="createpage">
+      <img className="createtitle" src={image} alt="" />
+      <div className="container">
+        <div className="circle"><AiOutlineFileText className="logo"/></div>
+        <Link to={"/createoffer"} className="createlink">
+          <button className="buttoncrear">Crear oferta</button>
+        </Link>
+        <button>Crear prueba</button>
+      </div>
       <Nav></Nav>
-    
     </div>
-  )
+  );
 }
 
 export default CreatePage;
