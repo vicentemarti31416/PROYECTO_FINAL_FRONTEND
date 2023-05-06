@@ -4,6 +4,8 @@ import { BiChat } from "react-icons/bi";
 import Nav from "../../Components/Nav/Nav";
 import image from "../../assets/Meettalent.png";
 import { Fetch } from "../../Components/Fetch/Fetch";
+import profile from "../../assets/avatar1.jpg";
+import { Link } from 'react-router-dom';
 
 const HomePage = ({ offers }) => {
   return (
@@ -11,11 +13,11 @@ const HomePage = ({ offers }) => {
       <div className="homehead">
         <img src={image} className="hometitle" alt="" />
         <div className="homenav">
-          <img
+        <Link to={'/profile'} ><img
             className="homeimg"
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/cb1f3775783531.5c56badd5e5ef.jpg"
+            src={profile}
             alt=""
-          ></img>
+          /></Link>
           <input className="homesearch" placeholder="Buscar"></input>
           <BiChat className="chat"></BiChat>
         </div>

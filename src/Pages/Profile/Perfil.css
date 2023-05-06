@@ -6,26 +6,26 @@
 }
 
 
-
-.Container-perfil{
+.Container-perfil {
   width: 100%;
   height: 100vh;
-  background:#f8fafb;
+  background-color: var(--white);
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.name-perfil{
-
-margin-top: 12px;
-font-size: medium;
+.name-perfil {
+  margin-top: 12px;
+  font-size: medium;
 }
-.img-div-perfil{
+
+.img-div-perfil {
   margin: 12px;
 
 }
-.name-perfil{
+
+.name-perfil {
   color: var(--blue-letter);
 }
 
@@ -41,6 +41,7 @@ font-size: medium;
   margin: auto;
   display: block;
   border-radius: 60%;
+  object-fit: cover;
 }
 
 .texto-perfil {
@@ -49,9 +50,9 @@ font-size: medium;
   color: var(--black);
   margin-top: 86px;
   justify-content: space-between;
-  height: 12px;
-  width: 214px;
-  margin-left: -166px;
+  height: 20px;
+  width: 200px;
+  margin-left: -150px;
 }
 
 
@@ -66,6 +67,7 @@ font-size: medium;
   align-content: flex-start;
   margin-top: 66px;
 }
+
 .botonera-perfil {
   font-size: larger;
   height: 98px;
@@ -84,15 +86,15 @@ font-size: medium;
 }
 
 
-.botonera-perfil + .botonera-perfil {
+.botonera-perfil+.botonera-perfil {
   border-top: 1px solid #ccc;
   margin-top: -1px;
-  
+
 }
 
 .botonera-perfil:last-child {
   padding: 20px;
-  border-bottom:  1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 
