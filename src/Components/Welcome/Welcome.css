@@ -1,43 +1,59 @@
-.container {
-  height: 100%;
-  
-}
-/* html,
-body {
-  position: relative;
-  height: 100%;
-}
 
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-} */
-
-.swiper {
-  width: 100%;
-  height: 100%;
-  
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  /* background: #fff; */
-  background-color: var(--black);
-
-  /* Center slide text vertically */
+.Welcome {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.swiper-slide img {
-  display: block;
+.welcomeContainer{
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+ 
+}
+
+.welcomeContainer-black {
+  background-color: var(--black);
+ 
+}
+
+.welcomeImg {
+  max-width: 100%;
+}
+.img-welcome {
+  margin: auto;
+  display: block;
+}
+.img-welcome2 img{
+  margin: auto;
+  box-shadow: 3%slategrey;
+  display: block;
+  border-radius: 15px;
+}
+
+.welcomeText {
+  font-family: var(--font-family);
+  color: var(--white);
+}
+
+.welcomeText1{
+  font-family: var(--font-family);
+  color: var(--blue);
+  text-align: center;
+
+  font-size: 18pt;
+}
+.welcomeText2{
+  font-size: 18pt;
+    min-width: 200px;
+  margin: 50px;
+}
+
+@media screen and (min-width: 600px) {
+  .welcomeText1 {
+    font-size: 3rem;
+  }
 }

@@ -1,10 +1,8 @@
 import React from "react";
 import "./HomePage.css";
-import { OffersDetails } from "../../Components/OffersDetails";
+// import { OffersDetails } from "../../Components/OffersDetails";
 import { BiChat } from "react-icons/bi";
 import Nav from "../../Components/Nav/Nav"
-
-
 const HomePage = ({ offers }) => {
   return (
     <div className="homecontainer">

@@ -11,7 +11,7 @@ import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import HomePage from "./Pages/HomePage/HomePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
 import { Congrats } from "./Components/Congrats/Congrats";
-import { OffersPage } from "./Pages/OffersPage/OffersPage";
+
 
 function App() {
   return (
