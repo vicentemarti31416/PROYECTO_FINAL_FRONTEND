@@ -1,51 +1,56 @@
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";// Import Swiper React components
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "./Welcome.css";
-import { Pagination } from "swiper"; // import required modules
+import React from 'react';
+import Slider from '../Slider/Slider';
 import group7 from '../../assets/group7.png'
+import welcome1 from '../../assets/welcome1.png'
+import welcome2 from '../../assets/welcome2.png'
+import welcome3 from '../../assets/welcome3.png'
+import whitelogo from '../../assets/whitelogo.png'
+import logoT from '../../assets/logoT.png'
+import './Welcome.css'
 
-export default function Welcome() {
 
-    const [clickCount, setClickCount] = useState(0);
+function Welcome() {
+    const pages = [
+        <div className="welcomeContainer welcomeContainer-black ">
+                <img cassName="img-welcome" alt="group7" src={group7} />
+        </div>,
 
-    const handleClick = () => {
-        setClickCount(clickCount + 1);
-    };
+        <div className="welcomeContainer welcomeContainer-black" >
+                <a className="welcomeText">saltar</a>
+                <img className="img-welcome " src={logoT} alt="logo" />
+                <p className="welcomeText1">Nos encanta verte por</p>
+                <img className="img-welcome " src={whitelogo} alt="logo" />
+                <p className="welcomeText">Atrae y enamora a los mejores candidatos</p>
+                <button className="button-white">Comenzar</button>
+        </div>,
+
+        <div className="welcomeContainer" >
+                <a className="welcomeText">saltar</a>
+                <img className ="img-welcome" src={welcome1} alt="logo" />
+                <p className="welcomeText1">Meettalent es una herramienta que te ayuda a conectar con el mejor talento</p>
+                <button className="button-black">Continuar</button>
+        </div>,
+
+        <div className="welcomeContainer" >
+                <a className="welcomeText">saltar</a>
+                <img className="img-welcome2" src={welcome2} alt="logo" />
+                <p className="welcomeText1">Crear eventos únicos para interactuar con los candidatos desde cualquier lugar</p>
+                <button className="button-black">Continuar</button>
+        </div>,
+
+        <div className="welcomeContainer" >
+            <a className="welcomeText">saltar</a>
+            <img className="img-welcome " src={welcome3} alt="logo" />
+            <p className="welcomeText1">Agilizar tus procesos de selección de una manera sencilla, potente y rápida</p>
+            <button className="button-black">Unirme ahora</button>  
+        </div>
+    ];
+
     return (
-        <>
-            <div className="container">
-                <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-
-                    <SwiperSlide>
-                        <div className="" >
-                            <img alt="group7" src={group7} />
-                        </div>
-                        <div className="" >
-                            <p>Nos encanta verte por</p>
-                            <img alt="group7" src={group7} />
-                        </div>
-                        <div className="" >
-                            <p>Atrae y enamora a los mejores candidatos</p>
-                        </div>
-                        <div>
-                            <button onClick={handleClick}>Haz clic aquí</button>
-                            <p>Has hecho clic {clickCount} veces.</p>
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
-                    <SwiperSlide>Slide 6</SwiperSlide>
-                    <SwiperSlide>Slide 7</SwiperSlide>
-                    <SwiperSlide>Slide 8</SwiperSlide>
-                    <SwiperSlide>Slide 9</SwiperSlide>
-                </Swiper>
-            </div>
-        </>
+        <div>
+            <Slider pages={pages} />
+        </div>
     );
 }
+
+export default Welcome;

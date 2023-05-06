@@ -1,9 +1,9 @@
 import React from "react";
 import "./HomePage.css";
+import { OffersDetails } from "../../Components/OffersDetails";
 import { BiChat } from "react-icons/bi";
 import Nav from "../../Components/Nav/Nav"
 import { Fetch } from "../../Components/Fetch/Fetch";
-
 
 
 const HomePage = ({ offers }) => {
