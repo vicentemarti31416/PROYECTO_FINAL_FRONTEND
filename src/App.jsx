@@ -9,8 +9,9 @@ import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import  LoginPage  from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
-import { Congrats } from "./Components/Congrats/Congrats";
 import HomePage from "./Pages/Homepage/HomePage";
+import { Congrats } from "./Components/Congrats/Congrats";
+
 
 function App() {
   return (

@@ -1,7 +1,8 @@
 import React from 'react';
 import './createpage.css';
 import Nav from "../../Components/Nav/Nav"
-import BlueBase  from '../../Components/BlueBase/BlueBase';
+import BlueBase from '../../Components/BlueBase/BlueBase';
+
 
 function CreatePage() {
   return (
@@ -10,6 +11,7 @@ function CreatePage() {
     <BlueBase></BlueBase>
     <div>CreatePage</div>
       <Nav></Nav>
+    </div>
     </div>
   )
 }
