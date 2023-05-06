@@ -20,14 +20,14 @@ const LoginPage = () => {
 
         <div className='loginInputs'>
             <form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
-                <div className='loginEmail'>
+                <div className='loginImput pt50'>
                     <label className='loginLabel' htmlFor='email'>Email ID</label>
-                    <input className='button-blue' type="text" id='email' placeholder="Email ID" {...register("email")} />
+                    <input className='button-blue' type="email" id='email' placeholder="Email ID" {...register("email")} />
                 </div>
 
-                <div className='loginContraseña'>
-                    <label className='loginLabel' htmlFor='contraseña'>Contraseña</label>
-                    <input className='button-blue' type="text" id='contraseña' placeholder="Contraseña" {...register("contraseña")} />
+                <div className='loginImput'>
+                    <label className='loginLabel' htmlFor='password'>Contraseña</label>
+                    <input className='button-blue' type="password" id='password' placeholder="Contraseña" {...register("contraseña")} />
                 </div>
 
                 <div>
@@ -38,8 +38,7 @@ const LoginPage = () => {
 
         <div className='loginError'>
             <p className='loginErrorP'>No puedes iniciar sesión?</p>
-            {/* <a className='loginErrorA' href='./'>Restablecer la contraseña</a> */}
-            <Link to={'/RestablecerContrasenaEmail'} className='loginErrorA'>Restablecer la contraseña</Link>
+            <Link to={'/RestablecerContrasenaEmail'} className='loginErrorLink'>Restablecer la contraseña</Link>
         </div>
 
         <div className='loginLine'>
@@ -47,7 +46,7 @@ const LoginPage = () => {
         </div>
 
         <div className='loginNew'>
-            <h3><a className='loginWhite' href='./'>Crear nueva cuenta</a></h3>
+            <Link to={'/register'} className='loginWhite'><h3>Crear nueva cuenta</h3></Link>
         </div>
     </div>
   )

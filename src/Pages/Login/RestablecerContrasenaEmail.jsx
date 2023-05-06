@@ -13,7 +13,7 @@ const RestablecerContrasenaEmail = () => {
   }  
 
   return (
-    <div className='loginContainer'>
+    <div className='loginContainer loginContainerRest'>
         <div className='loginRetroceder'>
           <img src={flechaRetroceder} className='imgFlecha' alt=''></img>
           <Link to={'/login'} className='loginWhite'>Restablecer contraseña</Link>
@@ -21,14 +21,14 @@ const RestablecerContrasenaEmail = () => {
 
         <div className='loginInputsRest'>
             <form className='loginFormRest' onSubmit={handleSubmit(onSubmit)}>
-                <div className='loginEmail'>
-                    <label className='loginLabel' htmlFor='email'>Email ID</label>
-                    <input className='button-blue' type="text" id='email' placeholder="Email ID" />
+                <div className='loginImput pt50'>
+                    <label className='loginLabelRest' htmlFor='email'>Email ID</label>
+                    <input className='button-blue' type="email" id='email' placeholder="Email ID" />
                 </div>
 
-                <div className='loginContraseña'>
-                    <label className='loginLabel' htmlFor='contraseña'>Confirmar</label>
-                    <input className='button-blue' type="text" id='contraseña' placeholder="Confirmar email" {...register("email")} />
+                <div className='loginImput'>
+                    <label className='loginLabelRest' htmlFor='emailConfirm'>Confirmar</label>
+                    <input className='button-blue' type="email" id='emailConfirm' placeholder="Confirmar email" {...register("email")} />
                 </div>
 
                 <div>
