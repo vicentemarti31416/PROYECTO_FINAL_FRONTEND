@@ -8,9 +8,10 @@ import { CandidatesDetails } from "./Components/CandidatesDetails/CandidateDetai
 import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import  LoginPage  from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
-import HomePage from "./Pages/Homepage/HomePage";
+import HomePage from "./Pages/HomePage/HomePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
 import { Congrats } from "./Components/Congrats/Congrats";
+import { OffersPage } from "./Pages/OffersPage/OffersPage";
 
 function App() {
   return (
