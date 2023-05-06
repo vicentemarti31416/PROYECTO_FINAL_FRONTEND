@@ -3,9 +3,88 @@
 @media screen and (max-width: 1024px) {
 
 }
+.homecontainer{
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--white);
 
+}
+
+.homehead{
+    display: flex;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px;
+
+}
+
+.hometitle{
+    height: 40px;
+    width: 300px;
+}
+
+.homeimg{
+    height: 45px;
+    width: 45px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.homenav{
+    min-width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homesearch{
+    padding-left: 20px;
+    font-size: 15px;
+    font-family: var(--font-family);
+    min-width: 60%;
+    height: 35px;
+    border-radius: 6px;
+    background-color: var(--light-blue);
+
+}
+
+.chat{
+    height: 30px;
+    width: 30px;
+    color: var(--blue-letter)
+}
+
+.offers{
+    margin-top: 60px;
+    color: var(--blue-letter);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+
+
+
+}
+
+.homeoffer{
+    min-height: 250px;
+    min-width: 300px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 
+    0 0 10px #b7b7b724,
+    0 0 20px #b7b7b724,
+    0 0 30px #b7b7b724,
+    0 0 40px #b7b7b724;
+}
 /*------------------------------------MOBILE-------------------------------------*/
-@media screen and (max-width: 600px){
+@media screen and (min-width: 500px){
  
   
 }

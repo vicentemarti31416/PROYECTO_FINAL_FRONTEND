@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css';
 import group7 from '../../assets/group7.png';
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 
 
 const LoginPage = () => {
@@ -22,16 +22,16 @@ const LoginPage = () => {
             <form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
                 <div className='loginEmail'>
                     <label className='loginLabel' htmlFor='email'>Email ID</label>
-                    <input className='loginInput' type="text" id='email' placeholder="Email ID" {...register("email")} />
+                    <input className='button-blue' type="text" id='email' placeholder="Email ID" {...register("email")} />
                 </div>
 
                 <div className='loginContraseña'>
                     <label className='loginLabel' htmlFor='contraseña'>Contraseña</label>
-                    <input className='loginInput' type="text" id='contraseña' placeholder="Contraseña" {...register("contraseña")} />
+                    <input className='button-blue' type="text" id='contraseña' placeholder="Contraseña" {...register("contraseña")} />
                 </div>
 
                 <div>
-                    <button className='loginComenzar'>Comenzar</button>
+                    <button className='button-white'>Comenzar</button>
                 </div>
             </form>
         </div>

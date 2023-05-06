@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Nav from "../../Components/Nav/Nav"
+
 
 export const CandidatesPage = () => {
   const [candidates, setCandidates] = useState([]);
@@ -41,7 +43,7 @@ export const CandidatesPage = () => {
           </div>
         </div>
       </div>
-      {/* <Nav></Nav> */}
+      <Nav></Nav>
     </div>
 
   );
