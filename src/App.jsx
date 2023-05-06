@@ -28,6 +28,7 @@ function App() {
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/message" element={<MessagePage/>} />
         <Route path="/offers/:id" element={<OffersDetails/>} />
+        <Route path="/offers/:id" render={(props) => <OffersDetails {...props} />} />
         <Route path="/candidatedetails" element={<CandidatesDetails/>} />
       </Routes>
     </Router>

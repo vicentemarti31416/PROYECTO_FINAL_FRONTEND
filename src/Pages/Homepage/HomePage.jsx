@@ -1,16 +1,17 @@
 import React from "react";
 import "./HomePage.css";
-import { OffersDetails } from "../../Components/OffersDetails";
 import { BiChat } from "react-icons/bi";
-import Nav from "../../Components/Nav/Nav"
+import Nav from "../../Components/Nav/Nav";
+import image from "../../assets/land.png";
 import { Fetch } from "../../Components/Fetch/Fetch";
+
 
 
 const HomePage = ({ offers }) => {
   return (
     <div className="homecontainer">
       <div className="homehead">
-        <img src="../../assets/land.png" className="hometitle" alt="" />
+        <img src={image} className="hometitle" alt="" />
         <div className="homenav">
           <img
             className="homeimg"
