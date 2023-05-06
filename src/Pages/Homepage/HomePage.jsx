@@ -3,9 +3,8 @@ import "./HomePage.css";
 import { OffersDetails } from "../../Components/OffersDetails/OffersDetails";
 import { BiChat } from "react-icons/bi";
 import Nav from "../../Components/Nav/Nav";
+import image from "../../assets/Meettalent.png";
 import { Fetch } from "../../Components/Fetch/Fetch";
-
-
 
 const HomePage = ({ offers }) => {
   return (
@@ -24,9 +23,10 @@ const HomePage = ({ offers }) => {
       </div>
       <div className="offers">
         <h2>Ofertas abiertas({offers})</h2>
-       <Fetch></Fetch>
-        <div className="homeoffer"></div>
-          <Nav></Nav>
+        <div className="homeoffers">
+          <Fetch></Fetch>
+        </div>
+        <Nav></Nav>
       </div>
     </div>
   );

@@ -1,0 +1,26 @@
+.job-offer{
+    min-height: 250px;
+    max-height: 400px;
+    min-width: 80%;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 
+    0 0 10px #b7b7b734,
+    0 0 20px #b7b7b734,
+    0 0 30px #b7b7b734,
+    0 0 40px #b7b7b734;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.offerdisplay{
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    justify-content: space-around;
+    margin: 20px auto;
+}
