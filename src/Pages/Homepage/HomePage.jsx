@@ -1,5 +1,8 @@
 import React from "react";
 import "./HomePage.css";
+import Nav from "../../Components/Nav/Nav"
+
+
 
 
 const HomePage = ({ offers }) => {
@@ -10,7 +13,7 @@ const HomePage = ({ offers }) => {
       <img src="" alt=""></img>
       <input></input>
       <h2>Ofertas abiertas({offers})</h2>
-      {/* <Nav></Nav> */}
+      <Nav></Nav>
     </div>
   );
 };
