@@ -60,10 +60,10 @@
 
   font-size: 20px;
   font-family: var(--font-family);
-  width: 100%;
+  width: 90%;
   height: 50px;
   border-radius: 11px;
-  background-color: var(--blue-botton);
+  background-color:#d8eef7;
   color: var(--blue-letter);
 }
 
