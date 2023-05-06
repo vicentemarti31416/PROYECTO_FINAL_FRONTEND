@@ -1,14 +1,11 @@
-import React from 'react'
+import React from 'react';
 import './createpage.css';
 
 function CreatePage() {
   return (
-    <div>CreatePage
-
-
-      {/* <Nav></Nav> */}
+    <div>
+      CreatePage
     </div>
-
   )
 }
 
