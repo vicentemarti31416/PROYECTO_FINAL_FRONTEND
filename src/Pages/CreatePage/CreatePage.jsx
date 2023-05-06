@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import './createpage.css';
 import Nav from "../../Components/Nav/Nav"
 import BlueBase from '../Components/BlueBase/BlueBase';
@@ -11,7 +11,6 @@ function CreatePage() {
     <div>CreatePage
       <Nav></Nav>
     </div>
-
   )
 }
 
