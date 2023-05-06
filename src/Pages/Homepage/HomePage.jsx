@@ -1,7 +1,9 @@
 import React from "react";
 import "./HomePage.css";
-// import { OffersDetails } from "../../Components/OffersDetails";
+import { OffersDetails } from "../../Components/OffersDetails";
 import { BiChat } from "react-icons/bi";
+import Nav from "../../Components/Nav/Nav"
+
 
 const HomePage = ({ offers }) => {
   return (
@@ -22,9 +24,8 @@ const HomePage = ({ offers }) => {
         <h2>Ofertas abiertas({offers})</h2>
         {/* <OffersDetails></OffersDetails> */}
         <div className="homeoffer"></div>
+              <Nav></Nav>
       </div>
-
-      {/* <Nav></Nav> */}
     </div>
   );
 };

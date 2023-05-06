@@ -1,13 +1,15 @@
 import React from 'react'
 import './createpage.css';
-// import BlueBase from '../Components/BlueBase/BlueBase';
+import Nav from "../../Components/Nav/Nav"
+import BlueBase from '../Components/BlueBase/BlueBase';
 
 function CreatePage() {
   return (
-    <div className='create'>
+  <div className='create'>
   <p>lorem lorem</p>
     {/* <BlueBase></BlueBase> */}
-      {/* <Nav></Nav> */}
+    <div>CreatePage
+      <Nav></Nav>
     </div>
 
   )
