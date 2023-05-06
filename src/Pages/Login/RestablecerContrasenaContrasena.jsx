@@ -13,7 +13,7 @@ const RestablecerContrasenaContrasena = () => {
   }  
 
   return (
-    <div className='loginContainer'>
+    <div className='loginContainer loginContainerRest'>
 
         <div className='loginRetroceder'>
           <img src={flechaRetroceder} className='imgFlecha' alt=''></img>
@@ -22,19 +22,19 @@ const RestablecerContrasenaContrasena = () => {
 
         <div className='loginInputsRest'>
             <form className='loginFormRest' onSubmit={handleSubmit(onSubmit)}>
-                <div className='loginEmail'>
-                    <label className='loginLabel' htmlFor='email'>Nueva contraseña</label>
-                    <input className='button-blue' type="text" id='email' placeholder="Nueva contraseña" />
+                <div className='loginImput pt50'>
+                    <label className='loginLabelRest' htmlFor='password'>Nueva contraseña</label>
+                    <input className='button-blue' type="password" id='password' placeholder="Nueva contraseña" />
                 </div>
 
-                <div className='loginContraseña'>
-                    <label className='loginLabel' htmlFor='contraseña'>Confirmar</label>
-                    <input className='button-blue' type="text" id='contraseña' placeholder="Confirmar contraseña" {...register("contraseña")} />
+                <div className='loginImput'>
+                    <label className='loginLabelRest' htmlFor='passwordConfirm'>Confirmar</label>
+                    <input className='button-blue' type="password" id='passwordConfirm' placeholder="Confirmar contraseña" {...register("contraseña")} />
                 </div>
 
                 <div>
                     <button className='button-white'>
-                      <Link to='/RestablecerContrasenaContrasena'>Guardar</Link>
+                      <Link to='/login'>Guardar</Link>
                     </button>
                 </div>
             </form>

@@ -60,9 +60,10 @@
   }
   
   .welcome__text--2 {
+  font-family: var(--font-family);
+  color: var(--white);
+  text-align: center;
   font-size: 18pt;
-  min-width: 200px;
-  margin: 50px;
   }
   
   .slider__circles {
@@ -81,7 +82,7 @@
   }
   
   .slider__circle.active {
-    background-color: #333;
+    background-color: var(--blue);
   }
 
   @media screen and (min-width: 600px) {
