@@ -11,7 +11,8 @@ import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import HomePage from "./Pages/HomePage/HomePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
 import { Congrats } from "./Components/Congrats/Congrats";
-import { OffersPage } from "./Pages/OffersPage/OffersPage";
+import RestablecerContrasenaEmail from "./Pages/Login/RestablecerContrasenaEmail";
+import RestablecerContrasenaContrasena from "./Pages/Login/RestablecerContrasenaContrasena";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         <Route path="/create" element={<CreatePage/>} />
         <Route path="/congrats" element={<Congrats/>} />
         <Route path="/login" element={<LoginPage/>} />
+        <Route path="/restablecerContrasenaEmail" element={<RestablecerContrasenaEmail/>} />
+        <Route path="/restablecerContrasenaContrasena" element={<RestablecerContrasenaContrasena/>} />
         <Route path="/message" element={<MessagePage/>} />
         <Route path="/offers/:id" element={<OffersDetails/>} />
         {/* <Route path="/offers/:id" render={(props) => <OffersDetails {...props} />} /> */}

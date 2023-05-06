@@ -1,8 +1,8 @@
 import React from "react";
 import "./HomePage.css";
-import { OffersDetails } from "../../Components/OffersDetails";
+import { OffersDetails } from "../../Components/OffersDetails/OffersDetails";
 import { BiChat } from "react-icons/bi";
-import Nav from "../../Components/Nav/Nav"
+import Nav from "../../Components/Nav/Nav";
 
 
 const HomePage = ({ offers }) => {
@@ -22,7 +22,7 @@ const HomePage = ({ offers }) => {
       </div>
       <div className="offers">
         <h2>Ofertas abiertas({offers})</h2>
-        {/* <OffersDetails></OffersDetails> */}
+        <OffersDetails></OffersDetails>
         <div className="homeoffer"></div>
               <Nav></Nav>
       </div>
