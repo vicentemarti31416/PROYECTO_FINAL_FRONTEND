@@ -2,7 +2,7 @@ import React from "react";
 import imagen from "../../assets/congratulations.png";
 import './Congrats.css'
 
-export const Congrats = (gi) => {
+export const Congrats = () => {
   return (
     <div className="congratsContainer">
       <div className="congratsImg">
@@ -16,3 +16,5 @@ export const Congrats = (gi) => {
     </div>
   );
 };
+
+export default Congrats 
