@@ -6,12 +6,11 @@ import {OffersPage} from "./Pages/OffersPage/OffersPage";
 import { OffersDetails } from "./Components/OffersDetails/OffersDetails";
 import { CandidatesDetails } from "./Components/CandidatesDetails/CandidateDetails";
 import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
-import LoginPage from "./Pages/Login/LoginPage";
+import  LoginPage  from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import HomePage from "./Pages/Homepage/HomePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
 import { Congrats } from "./Components/Congrats/Congrats";
-
 
 function App() {
   return (

@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Montserrat:wght@300;400;700&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Montserrat:wght@300;400;700&display=swap');
+
 
 * {
   margin: 0;
@@ -8,13 +10,16 @@
   list-style: none;
   text-decoration: none;
   font-family: var(--font-family);
+
 }
+
 
 :root {
   --black: #0d202a;
-  --white: #f8fafb;
+  --white: #f6f9fa;
   --blue: #00b3cd;
-  --light-blue: #d8eef7;
+  --light-blue: #cde7f3;
+
   --grey-letter: #d2d4d6;
   --blue-letter: #2b81a8;
   --blue-botton: #effaff;
@@ -23,7 +28,6 @@
   --yellow: #ffd71f;
   --light-green: #00ffa1;
   --dark-green: #44af69;
-
   --font-family: "Montserrat", Amatic, sans-serif;
   --transition: all 200ms ease;
 }
@@ -69,9 +73,8 @@ html {
 }
 
 /*------------------------------------TABLET-------------------------------------*/
-@media screen and (max-width: 1024px) {
-}
+
+@media screen and (max-width: 1024px) {}
 
 /*------------------------------------MOBILE-------------------------------------*/
-@media screen and (max-width: 600px) {
-}
+@media screen and (max-width: 600px) {}
