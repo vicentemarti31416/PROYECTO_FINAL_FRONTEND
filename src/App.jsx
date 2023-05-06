@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CandidatesPage } from "./Pages/CandidatesPage/CandidatesPage";
 import {OffersPage} from './Pages/OffersPage/OffersPage';
 import { OffersDetails } from "./Components/OffersDetails/OffersDetails";
-import { CandidateDetails, } from "./Components/CandidatesDetails/CandidateDetails";
 import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import LoginPage from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
@@ -16,6 +15,7 @@ import RestablecerContrasenaEmail from "./Pages/Login/RestablecerContrasenaEmail
 import RestablecerContrasenaContrasena from "./Pages/Login/RestablecerContrasenaContrasena";
 import RegisterForm from "./Pages/Login/RegisterForm";
 import { CreateOffer } from "./Pages/CreatePage/CreateOffer";
+import { CandidateDetails } from "./Components/CandidateDetails/CandidateDetails";
 
 
 function App() {
@@ -37,7 +37,6 @@ function App() {
         <Route path="/register" element={<RegisterForm/>} />
         <Route path="/message" element={<MessagePage/>} />
         <Route path="/offersdetails" element={<OffersDetails/>} />
-        <Route path="/candidatedetails" element={<CandidatesDetails/>} />
         <Route path="/Profile" element={<Perfil/>} />
         <Route path="/offers/:id" element={<OffersDetails/>} />
         <Route path="/candidates/:id" element={<CandidateDetails/>} />

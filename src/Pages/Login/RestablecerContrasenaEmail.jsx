@@ -15,7 +15,7 @@ const RestablecerContrasenaEmail = () => {
   return (
     <div className='loginContainer'>
         <div className='loginRetroceder'>
-          <img src={flechaRetroceder} className='imgFlecha'></img>
+          <img src={flechaRetroceder} className='imgFlecha' alt=''></img>
           <Link to={'/login'} className='loginWhite'>Restablecer contraseña</Link>
         </div>
 
