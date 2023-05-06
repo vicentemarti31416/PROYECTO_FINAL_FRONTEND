@@ -1,5 +1,6 @@
 import React from "react";
 import "./HomePage.css";
+import { OffersDetails } from "../../Components/OffersDetails/OffersDetails";
 import { BiChat } from "react-icons/bi";
 import Nav from "../../Components/Nav/Nav";
 import image from "../../assets/Meettalent.png";
