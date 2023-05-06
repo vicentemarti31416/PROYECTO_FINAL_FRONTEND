@@ -12,7 +12,6 @@ function CreatePage() {
     <div>CreatePage</div>
       <Nav></Nav>
     </div>
-    </div>
   )
 }
 
