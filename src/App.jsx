@@ -2,16 +2,16 @@ import React from "react";
 import Welcome from "./Components/Welcome/Welcome";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CandidatesPage } from "./Pages/CandidatesPage/CandidatesPage";
+import {OffersPage} from "./Pages/OffersPage/OffersPage";
 import { OffersDetails } from "./Components/OffersDetails/OffersDetails";
 import { CandidatesDetails } from "./Components/CandidatesDetails/CandidateDetails";
 import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
-import LoginPage from "./Pages/Login/LoginPage";
+import  LoginPage  from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import HomePage from "./Pages/HomePage/HomePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
 import { Congrats } from "./Components/Congrats/Congrats";
 import { OffersPage } from "./Pages/OffersPage/OffersPage";
-
 
 function App() {
   return (
@@ -27,7 +27,8 @@ function App() {
         <Route path="/congrats" element={<Congrats/>} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/message" element={<MessagePage/>} />
-        <Route path="/offersdetails" element={<OffersDetails/>} />
+        <Route path="/offers/:id" element={<OffersDetails/>} />
+        {/* <Route path="/offers/:id" render={(props) => <OffersDetails {...props} />} /> */}
         <Route path="/candidatedetails" element={<CandidatesDetails/>} />
       </Routes>
     </Router>
