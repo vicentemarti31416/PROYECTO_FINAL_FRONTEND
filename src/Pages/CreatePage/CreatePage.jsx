@@ -1,19 +1,19 @@
-import React from 'react';
-import './createpage.css';
-import Nav from "../../Components/Nav/Nav"
-import BlueBase from '../../Components/BlueBase/BlueBase';
-
+import React from "react";
+import "./createpage.css";
+import Nav from "../../Components/Nav/Nav";
+import BlueBase from "../../Components/BlueBase/BlueBase";
+import image from '../../assets/Meettalent.png'
 
 function CreatePage() {
   return (
-  <div className='create'>
-  <p>lorem lorem</p>
-    <BlueBase></BlueBase>
-    <div>CreatePage</div>
+    <div className="create">
+      <img className="hometitle" src={image} alt="" />
+      <BlueBase></BlueBase>
+      <div className="buttoncrear">Crear oferta</div>
+      <div>Crear prueba</div>
       <Nav></Nav>
     </div>
-    </div>
-  )
+  );
 }
 
-export default CreatePage
+export default CreatePage;
