@@ -9,7 +9,7 @@ import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import  LoginPage  from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
-import HomePage from "./Pages/Homepage/HomePage";
+import HomePage from "./Pages/HomePage/HomePage";
 import { Congrats } from "./Components/Congrats/Congrats";
 import RestablecerContrasenaEmail from "./Pages/Login/RestablecerContrasenaEmail";
 import RestablecerContrasenaContrasena from "./Pages/Login/RestablecerContrasenaContrasena";
