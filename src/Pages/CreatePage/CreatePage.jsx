@@ -3,6 +3,7 @@ import './createpage.css';
 import Nav from "../../Components/Nav/Nav"
 import BlueBase from '../../Components/BlueBase/BlueBase';
 
+
 function CreatePage() {
   return (
   <div className='create'>
@@ -10,6 +11,7 @@ function CreatePage() {
     <BlueBase></BlueBase>
     <div>CreatePage</div>
       <Nav></Nav>
+    </div>
     </div>
   )
 }

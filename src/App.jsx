@@ -8,11 +8,12 @@ import { CandidatesDetails } from "./Components/CandidatesDetails/CandidateDetai
 import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import  LoginPage  from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
-import HomePage from "./Pages/HomePage/HomePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
+import HomePage from "./Pages/Homepage/HomePage";
 import { Congrats } from "./Components/Congrats/Congrats";
 import RestablecerContrasenaEmail from "./Pages/Login/RestablecerContrasenaEmail";
 import RestablecerContrasenaContrasena from "./Pages/Login/RestablecerContrasenaContrasena";
+import RegisterForm from "./Pages/Login/RegisterForm";
 
 function App() {
   return (
@@ -29,9 +30,10 @@ function App() {
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/restablecerContrasenaEmail" element={<RestablecerContrasenaEmail/>} />
         <Route path="/restablecerContrasenaContrasena" element={<RestablecerContrasenaContrasena/>} />
+        <Route path="/register" element={<RegisterForm/>} />
         <Route path="/message" element={<MessagePage/>} />
         <Route path="/offers/:id" element={<OffersDetails/>} />
-        {/* <Route path="/offers/:id" render={(props) => <OffersDetails {...props} />} /> */}
+        <Route path="/offers/:id" render={(props) => <OffersDetails {...props} />} />
         <Route path="/candidatedetails" element={<CandidatesDetails/>} />
       </Routes>
     </Router>

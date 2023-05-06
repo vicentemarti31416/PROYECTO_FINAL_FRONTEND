@@ -3,13 +3,15 @@ import "./HomePage.css";
 import { OffersDetails } from "../../Components/OffersDetails/OffersDetails";
 import { BiChat } from "react-icons/bi";
 import Nav from "../../Components/Nav/Nav";
+import { Fetch } from "../../Components/Fetch/Fetch";
+
 
 
 const HomePage = ({ offers }) => {
   return (
     <div className="homecontainer">
       <div className="homehead">
-        <img src="../../assets/land.png" className="hometitle" alt="" />
+        <img src={image} className="hometitle" alt="" />
         <div className="homenav">
           <img
             className="homeimg"
@@ -22,9 +24,9 @@ const HomePage = ({ offers }) => {
       </div>
       <div className="offers">
         <h2>Ofertas abiertas({offers})</h2>
-        <OffersDetails></OffersDetails>
+       <Fetch></Fetch>
         <div className="homeoffer"></div>
-              <Nav></Nav>
+          <Nav></Nav>
       </div>
     </div>
   );
