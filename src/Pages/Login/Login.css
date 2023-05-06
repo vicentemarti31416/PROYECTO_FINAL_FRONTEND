@@ -14,14 +14,18 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 150px 0px 20px 0px;
+    padding-top: 50px;
+  }
+
+  .loginImages {
+    padding-top: 100px;
   }
 
   .loginForm {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
   }
 
   .loginEmail {
@@ -42,6 +46,35 @@
   .loginLine {
     border-bottom: 2px solid var(--white);
     width: 70%;
+  }
+
+  .loginNew {
+    padding: 20px 0px 40px 0px;
+    color: white;
+  }
+
+  .loginWhite {
+    color: white;
+  }
+
+  .loginInputsRest {
+    padding: 200px 0px 220px 0px;
+  }
+
+  .loginFormRest {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .imgFlecha {
+    height: 20px;
+  }
+
+  .loginRetroceder {
+    display: flex;
+    gap: 10px;
   }
 
 }
