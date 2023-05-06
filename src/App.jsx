@@ -11,6 +11,8 @@ import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import HomePage from "./Pages/Homepage/HomePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
 import { Congrats } from "./Components/Congrats/Congrats";
+import RegisterForm from "./Pages/Login/RegisterForm";
+
 
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
         <Route path="/create" element={<CreatePage/>} />
         <Route path="/congrats" element={<Congrats/>} />
         <Route path="/login" element={<LoginPage/>} />
+        <Route path="/register" element={<RegisterForm/>} />
         <Route path="/message" element={<MessagePage/>} />
         <Route path="/offersdetails" element={<OffersDetails/>} />
         <Route path="/candidatedetails" element={<CandidatesDetails/>} />
