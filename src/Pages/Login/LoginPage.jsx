@@ -2,7 +2,7 @@ import React from 'react';
 import './Login.css';
 import group7 from '../../assets/group7.png';
 import { useForm } from "react-hook-form";
-
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
 
@@ -38,7 +38,8 @@ const LoginPage = () => {
 
         <div className='loginError'>
             <p className='loginErrorP'>No puedes iniciar sesión?</p>
-            <a className='loginErrorA' href='./'>Restablecer la contraseña</a>
+            {/* <a className='loginErrorA' href='./'>Restablecer la contraseña</a> */}
+            <Link to={'/RestablecerContrasenaEmail'} className='loginErrorA'>Restablecer la contraseña</Link>
         </div>
 
         <div className='loginLine'>
@@ -46,7 +47,7 @@ const LoginPage = () => {
         </div>
 
         <div className='loginNew'>
-            <button className='loginNewButton'>Crear nueva cuenta</button>
+            <h3><a className='loginWhite' href='./'>Crear nueva cuenta</a></h3>
         </div>
     </div>
   )

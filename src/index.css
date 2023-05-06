@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Montserrat:wght@300;400;700&display=swap');
 
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +9,6 @@
   list-style: none;
   text-decoration: none;
   font-family: var(--font-family);
-
 }
 
 :root {
@@ -26,6 +26,9 @@
   --dark-green: #44af69;
   --font-family: "Montserrat", Amatic, sans-serif;
   --transition: all 200ms ease;
+  --dark-blue-letter: #0B4F6E;
+  
+
 }
 
 .button-black {
@@ -53,7 +56,6 @@
   cursor: pointer;
 }
 
-
 .button-blue {
 
   font-size: 20px;
@@ -76,7 +78,10 @@ html {
 
 /*------------------------------------TABLET-------------------------------------*/
 
-@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 1024px) {
+}
 
 /*------------------------------------MOBILE-------------------------------------*/
-@media screen and (max-width: 600px) {}
+@media screen and (max-width: 600px) {
+}
+

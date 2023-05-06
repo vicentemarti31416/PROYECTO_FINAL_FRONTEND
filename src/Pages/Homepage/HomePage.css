@@ -19,13 +19,12 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 40px;
 
 }
 
 .hometitle{
-    height: 40px;
-    width: 300px;
+    height: 60px;
 }
 
 .homeimg{
@@ -61,27 +60,22 @@
 }
 
 .offers{
-    margin-top: 60px;
+    margin-top: 40px;
     color: var(--blue-letter);
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
     align-items: center;
+    width: 100%
 
 
 
 }
 
-.homeoffer{
-    min-height: 250px;
-    min-width: 300px;
-    background-color: white;
-    border-radius: 6px;
-    box-shadow: 
-    0 0 10px #b7b7b724,
-    0 0 20px #b7b7b724,
-    0 0 30px #b7b7b724,
-    0 0 40px #b7b7b724;
+.homeoffers{
+    height: 500px;
+    width: 90%;
+    overflow-y: scroll;
 }
 /*------------------------------------MOBILE-------------------------------------*/
 @media screen and (min-width: 500px){

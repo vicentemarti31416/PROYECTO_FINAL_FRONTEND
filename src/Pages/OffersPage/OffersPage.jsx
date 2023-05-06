@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Nav from "../../Components/Nav/Nav";
 import { Link } from "react-router-dom";
+import './OffersPage.css'
+
 
 export const OffersPage = () => {
   const [offers, setOffers] = useState([]);
@@ -23,6 +25,7 @@ export const OffersPage = () => {
 
   return (
     <div className="page1">
+      <input placeholder="putita"></input>
       <div className="container1">
         <div className="offers1">
           {offers && offers.length > 0 ? (

@@ -1,43 +1,91 @@
-.container {
-  height: 100%;
-  
-}
-/* html,
-body {
-  position: relative;
-  height: 100%;
-}
-
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-} */
-
-.swiper {
-  width: 100%;
-  height: 100%;
-  
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  /* background: #fff; */
-  background-color: var(--black);
-
-  /* Center slide text vertically */
+.welcome {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
+  }
+  
+  .welcome__container--black {
+  background-color: var(--black);
+  }
+  
+  .welcome__container {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  }
+  
+  .welcome__img {
+  width: 500px;
+  height: 300px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .img-welcome {
+  margin: auto;
+  display: block;
+  max-width: 100%;
+  max-height: 50%;
+  height: auto;
+  }
+  
+  .img-welcome2 {
+    margin: auto;
+    display: block;
+    box-shadow: 0 0 10px 5px slategrey;
+    border-radius: 15px;
+  }
+  
+  .welcome__text {
+  font-family: var(--font-family);
+  color: var(--white);
+  text-align: center;
+  }
+  
+  .welcome__text--1 {
+  font-family: var(--font-family);
+  color: var(--dark-blue-letter);
+  text-align: center;
+  font-size: 18pt;
+  }
+
+  .welcome__text--bold{
+    font-weight: 700;
+    color: var(--blue);
+  }
+  
+  .welcome__text--2 {
+  font-size: 18pt;
+  min-width: 200px;
+  margin: 50px;
+  }
+  
+  .slider__circles {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .slider__circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .slider__circle.active {
+    background-color: #333;
+  }
+
+  @media screen and (min-width: 600px) {
+  .welcome__text--1 {
+  font-size: 3rem;
+  }
+  }
