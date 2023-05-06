@@ -1,6 +1,8 @@
 import React from "react";
 import "./Register.css";
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
+
 
 const RegisterForm = () => {
   const { register, handleSubmit } = useForm();
@@ -87,7 +89,7 @@ const RegisterForm = () => {
           </div>
       </div>
         </form>
-      <button className="button-black">continuar</button>
+      <button className="button-black"><Link className="loginWhite" to={'/congrats'}>Continuar</Link></button>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import imagen from "../../assets/congratulations.png";
 import './Congrats.css'
+import { Link } from "react-router-dom";
 
 export const Congrats = () => {
   return (
@@ -11,7 +12,7 @@ export const Congrats = () => {
       <div className="congratsText">
         <h1 className="congratsText1">¡ Enhorabuena !</h1>
         <p className="congratsText2">Acabas de registrarte en meettalent</p>
-        <button className="button-white">Comenzar</button>
+        <button className="button-white"><Link to={'/login'}>Comenzar</Link></button>
       </div>
     </div>
   );
