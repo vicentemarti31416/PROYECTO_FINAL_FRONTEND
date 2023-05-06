@@ -18,7 +18,7 @@
   --light-blue: #cde7f3;
   --grey-letter: #d2d4d6;
   --blue-letter: #2b81a8;
-  --blue-botton: #effaff;
+  --blue-botton: #c0e9fc;
   --grey-dark: #6d7278;
   --grey-normal: #979797;
   --yellow: #ffd71f;
@@ -32,7 +32,6 @@
 }
 
 .button-black {
-
   text-align: center;
   font-size: 20px;
   font-family: var(--font-family);
@@ -49,6 +48,7 @@
   font-size: 20px;
   font-family: var(--font-family);
   width: 90%;
+
   height: 50px;
   border-radius: 11px;
   background-color: var(--white);
@@ -57,7 +57,6 @@
 }
 
 .button-blue {
-
   font-size: 20px;
   font-family: var(--font-family);
   width: 90%;

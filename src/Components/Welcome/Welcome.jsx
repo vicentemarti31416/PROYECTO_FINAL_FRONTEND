@@ -58,16 +58,16 @@ function Welcome() {
             <Link to={'/login'} className="welcome__text--1">saltar</Link>
             <img className="img-welcome" src={welcom3} alt="" />
             <p className="welcome__text--1">Agilizar tus procesos de selección de una manera sencilla, potente y rápida</p>
-            <Link to={'/login'}><button className="button-black">Unirme ahora</button></Link>
+            <Link to={'/login'} className="button-black"><button className="button-black" >Unirme ahora</button></Link>
         </div>
     ];
 
     return (
         <div>
-         
+
             <div class="slider__container">
                 <div class="slider">
-                {pages[currentPage]}
+                    {pages[currentPage]}
                 </div>
                 <div class="slider__circles">
                     <span class="slider__circle"></span>
