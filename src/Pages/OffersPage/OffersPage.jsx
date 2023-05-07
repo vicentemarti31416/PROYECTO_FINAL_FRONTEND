@@ -25,14 +25,14 @@ export const OffersPage = () => {
 
   return (
     <div className="page1">
-      <h3 className="texto-candi">
+      <h3 className="texto-offer">
         <Link to={"/home"}>
           <IoIosArrowBack></IoIosArrowBack>
         </Link>
         Ofertas
       </h3>
       <div className="container-black">
-        <div className="offers1">
+        <div className="offerslist">
           {offers && offers.length > 0 ? (
             offers.map((offer, index) => (
               <div className="job-offer" key={index}>

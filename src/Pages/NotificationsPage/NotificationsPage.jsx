@@ -35,8 +35,8 @@ function NotificationsPage() {
         </Link>
         Notificaciones
       </h3>
-      {/* mapeo */}
-      <div className="container">
+            <div className="container-black">
+     {/*  <div className="container">  */}
         {notification.map((notif, index) => (
           <div className="job-news" key={index}>
             <h1>{notif.author}</h1>
