@@ -65,14 +65,14 @@ function Welcome() {
     return (
         <div>
 
-            <div class="slider__container">
-                <div class="slider">
+            <div className="slider__container">
+                <div className="slider">
                     {pages[currentPage]}
                 </div>
-                <div class="slider__circles">
-                    <span class="slider__circle"></span>
-                    <span class="slider__circle"></span>
-                    <span class="slider__circle"></span>
+                <div className="slider__circles">
+                    <span className="slider__circle"></span>
+                    <span className="slider__circle"></span>
+                    <span className="slider__circle"></span>
                     {/* <!-- Se agregarían más elementos span si se necesitan más círculos --> */}
                 </div>
             </div>

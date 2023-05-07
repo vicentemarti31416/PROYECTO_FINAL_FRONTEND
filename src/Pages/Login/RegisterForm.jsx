@@ -1,8 +1,7 @@
 import React from "react";
 import "./Register.css";
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
   const {
@@ -110,9 +109,13 @@ const RegisterForm = () => {
               </span>
             )}
           </div>
-      </div>
-        </form>
-      <button className="button-black"><Link className="loginWhite" to={'/congrats'}>Continuar</Link></button>
+        </div>
+      </form>
+      <button className="button-black">
+        <Link className="loginWhite" to={"/congrats"}>
+          Continuar
+        </Link>
+      </button>
     </div>
   );
 };

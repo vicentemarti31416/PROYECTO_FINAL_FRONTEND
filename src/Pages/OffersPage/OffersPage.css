@@ -5,19 +5,6 @@
   }
 }
 
-
-.job-offer {
-  min-height: 250px;
-  min-width: 300px;
-  background-color: white;
-  border-radius: 6px;
-  box-shadow:
-    0 0 10px #b7b7b724,
-    0 0 20px #b7b7b724,
-    0 0 30px #b7b7b724,
-    0 0 40px #b7b7b724;
-}
-
 .contenedor-blanco:hover {
   box-shadow: 0 5px 12px rgba(217, 230, 217, 0.733);
   transform: translateY(-4px);
@@ -35,10 +22,4 @@
   .congratsText1 {
     font-size: 3rem;
   }
-}
-
-.offerslist {
-  height: 500px;
-  width: 90%;
-  overflow-y: scroll;
 }
