@@ -15,7 +15,7 @@ export default function Enviados() {
         <IoIosArrowBack /> Mensajes
       </div>
     
-      <div className='Container-message'>
+      <div className='container-black'>
         <div className='Buscador'>
           <BiSearch className='lupa' />
           <label htmlFor='buscar'>Buscar</label>

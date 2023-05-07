@@ -14,19 +14,6 @@
 }
 
 
-.container {
-    border-radius: 29px;
-    margin-top: 80px;
-    width: 100%;
-    height: 70vh;
-    background-color: var(--black);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-
-
 .buttoncrear {
     height: 30px;
     width: 200px;

@@ -1,0 +1,10 @@
+.texto-noti {
+    display: flex;
+    margin-bottom: 24px;
+    color: var(--black);
+    margin-top: 86px;
+    justify-content: space-between;
+    height: 20px;
+    width: 240px;
+    margin-left: 20px;
+  }

@@ -9,7 +9,7 @@ function CreatePage() {
   return (
     <div className="createpage">
       <img className="createtitle" src={image} alt="" />
-      <div className="container">
+      <div className="container-black">
         <div className="circle"><AiOutlineFileText className="logo"/></div>
         <Link to={"/createoffer"} className="createlink">
           <button className="buttoncrear">Crear oferta</button>
