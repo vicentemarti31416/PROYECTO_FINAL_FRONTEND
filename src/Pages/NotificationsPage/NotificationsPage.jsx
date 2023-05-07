@@ -14,7 +14,7 @@ function NotificationsPage() {
         </Link>
         Notificaciones
       </h3>
-      <div className="container">
+      <div className="container-black">
       <Nav></Nav>
       </div>
     </div>
