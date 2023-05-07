@@ -9,3 +9,19 @@
     0 0 30px #b7b7b724,
     0 0 40px #b7b7b724;
 }
+
+.texto-offer {
+    display: flex;
+    color: var(--black);
+    justify-content: space-between;
+    height: 20px;
+    width: 210px;
+    margin-left: 20px;
+    margin-top: 90px;
+}
+
+.offerslist{
+    height: 500px;
+    width: 90%;
+    overflow-y: scroll;
+}

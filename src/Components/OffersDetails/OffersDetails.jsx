@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "../Nav/Nav";
 import { useParams } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export const OffersDetails = () => {
   const [offer, setOffer] = useState(null);
@@ -20,7 +22,13 @@ export const OffersDetails = () => {
 
   return (
     <div className="page">
-      <div className="container">
+          <h3 className="texto-candi">
+        <Link to={"/home"}>
+          <IoIosArrowBack></IoIosArrowBack>
+        </Link>
+        Ofertas
+      </h3>
+      <div className="container-black">
         <div className="offers">
           {offer ? (
             <div className="job-offer">
