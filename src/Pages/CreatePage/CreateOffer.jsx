@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+
 
 export const CreateOffer = () => {
   const { register, handleSubmit } = useForm();
@@ -15,24 +17,51 @@ export const CreateOffer = () => {
   };
 
   const sheets = [
-
     //primera página
     <div className="">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h4 className="">Duplicar oferta</h4>
         <div>
-          <button className="button-white" onClick={() => handleButton("administrativo")}>Administrativo</button>
-          <button className="button-white" onClick={() => handleButton("projectmanager")}>Project Manager</button>
-          <button className="button-white" onClick={() => handleButton("programador")}>Programador</button>
-          <button className="button-white" onClick={() => handleButton("mkdigital")}>Especialista en marketing digital</button>
+          <button
+            className="button-white"
+            onClick={() => handleButton("administrativo")}
+          >
+            Administrativo
+          </button>
+          <button
+            className="button-white"
+            onClick={() => handleButton("projectmanager")}
+          >
+            Project Manager
+          </button>
+          <button
+            className="button-white"
+            onClick={() => handleButton("programador")}
+          >
+            Programador
+          </button>
+          <button
+            className="button-white"
+            onClick={() => handleButton("mkdigital")}
+          >
+            Especialista en marketing digital
+          </button>
           <p>Selected job: {jobTitle}</p>
         </div>
         <div className="">
           <h4 className="">Titulo de la nueva oferta</h4>
-          <input className='' type="text" id='title' placeholder="Escribe el título" {...register("jobTitle")} />
+          <input
+            className=""
+            type="text"
+            id="title"
+            placeholder="Escribe el título"
+            {...register("jobTitle")}
+          />
           <p>¿Cómo crear un título efectivo?</p>
         </div>
-        <button onClick={handleNextClick} className="button-black">Comenzar</button>
+        <button onClick={handleNextClick} className="button-black">
+          Comenzar
+        </button>
       </form>
     </div>,
 
@@ -40,66 +69,91 @@ export const CreateOffer = () => {
     <div className="">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="">
-          <label htmlFor="city">Ciudad</label>
-          <select {...register("city")}>
-            <option value="madrid">Madrid</option>
-            <option value="barcelona">Barcelona</option>
-            <option value="valencia">Valencia</option>
-            <option value="sevilla">Sevilla</option>
-            <option value="zaragoza">Zaragoza</option>
-            <option value="málaga">Málaga</option>
-            <option value="murcia">Murcia</option>
-            <option value="palma">Palma</option>
-            <option value="bilbao">Bilbao</option>
-            <option value="alicante">Alicante</option>
-            <option value="córdoba">Córdoba</option>
-            <option value="valladolid">Valladolid</option>
-            <option value="vigo">Vigo</option>
-            <option value="gijón">Gijón</option>
-            <option value="granada">Granada</option>
-            <option value="la coruña">La Coruña</option>
-            <option value="vitoria">Vitoria</option>
-            <option value="elche">Elche</option>
-            <option value="oviedo">Oviedo</option>
-            <option value="badalona">Badalona</option>
-            <option value="cartagena">Cartagena</option>
-            <option value="mostoles">Móstoles</option>
-            <option value="jerez de la frontera">Jerez de la Frontera</option>
-            <option value="getafe">Getafe</option>
-            <option value="almería">Almería</option>
-            <option value="sabadell">Sabadell</option>
-            <option value="pamplona">Pamplona</option>
+          <select {...register("city")} defaultValue="">
+            <option value="" disabled>
+              Ciudad
+            </option>
+            {[
+              "A Coruña",
+              "Alicante",
+              "Almería",
+              "Badalona",
+              "Barcelona",
+              "Bilbao",
+              "Cartagena",
+              "Córdoba",
+              "Elche",
+              "Getafe",
+              "Gijón",
+              "Granada",
+              "Jerez de la Frontera",
+              "Málaga",
+              "Madrid",
+              "Murcia",
+              "Mostoles",
+              "Oviedo",
+              "Palma",
+              "Pamplona",
+              "Sevilla",
+              "Sabadell",
+              "Valencia",
+              "Valladolid",
+              "Vigo",
+              "Vitoria",
+              "Zaragoza",
+            ]
+              .sort()
+              .map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
           </select>
         </div>
 
         <div className="">
-          <label htmlFor="country">País</label>
-          <select {...register("country")}>
-            <option value="españa">España</option>
-            <option value="armenia">Armenia</option>
-            <option value="francia">Francia</option>
-            <option value="italia">Italia</option>
-            <option value="alemania">Alemania</option>
-            <option value="reino-unido">Reino Unido</option>
-            <option value="portugal">Portugal</option>
-            <option value="estados-unidos">Estados Unidos</option>
-            <option value="mexico">México</option>
-            <option value="argentina">Argentina</option>
-            <option value="colombia">Colombia</option>
-            <option value="australia">Australia</option>
-            <option value="brasil">Brasil</option>
-            <option value="canada">Canadá</option>
-            <option value="china">China</option>
-            <option value="japon">Japón</option>
-            <option value="rusia">Rusia</option>
-            <option value="sudafrica">Sudáfrica</option>
-            <option value="suecia">Suecia</option>
+          <select {...register("country")} defaultValue="">
+            <option value="" disabled>
+              Ubicacion
+            </option>
+            {[
+              "Alemania",
+              "Argentina",
+              "Armenia",
+              "Australia",
+              "Brasil",
+              "Canadá",
+              "China",
+              "Colombia",
+              "España",
+              "Estados Unidos",
+              "Francia",
+              "Italia",
+              "Japón",
+              "México",
+              "Portugal",
+              "Reino Unido",
+              "Rusia",
+              "Sudáfrica",
+              "Suecia",
+              "Suiza",
+              "Ucrania",
+              "Venezuela",
+            ]
+              .sort()
+              .map((country) => (
+                <option key={country} value={country}>
+                  {country}
+                </option>
+              ))}
           </select>
         </div>
 
         <div className="">
-          <label htmlFor="availability">Disponibilidad</label>
-          <select {...register("availability")}>
+          <select {...register("availability")} defaultValue="">
+            <option value="" disabled>
+              Disponibilidad
+            </option>
             <option value="full-time">Tiempo completo</option>
             <option value="part-time">Medio tiempo</option>
             <option value="week-end">Fines de semana</option>
@@ -110,9 +164,11 @@ export const CreateOffer = () => {
         </div>
 
         <div>
-          <h4 className="">   Condiciones </h4>
-          <label htmlFor="salary">Salario anual</label>
-          <select {...register("salary")}>
+          <h4 className=""> Condiciones </h4>
+          <select {...register("salary")} defaultValue="">
+            <option value="" disabled>
+              Salario anual
+            </option>
             <option value="16000-20000">16000-20000€</option>
             <option value="20000-30000">20000-30000€</option>
             <option value="30000-40000">30000-40000€</option>
@@ -120,8 +176,10 @@ export const CreateOffer = () => {
         </div>
 
         <div className="">
-          <label htmlFor="work-schedule">Tipo de jornada</label>
-          <select {...register("work-schedule")}>
+          <select {...register("work-schedule")} defaultValue="">
+            <option value="" disabled>
+              Tipo de jornada
+            </option>
             <option value="morning">Mañana</option>
             <option value="afternoon">Tarde</option>
             <option value="evening">Noche</option>
@@ -129,8 +187,10 @@ export const CreateOffer = () => {
         </div>
 
         <div className="">
-          <label htmlFor="contract-type">Tipo de contrato</label>
-          <select {...register("contract-type")}>
+          <select {...register("contract-type")} defaultValue="">
+            <option value="" disabled>
+              Tipo de contrato
+            </option>
             <option value="temporary">Temporal</option>
             <option value="permanent">Permanente</option>
             <option value="freelance">Freelance</option>
@@ -139,10 +199,11 @@ export const CreateOffer = () => {
             <option value="practice">Contrato en prácticas</option>
           </select>
         </div>
-        <button onClick={handleNextClick} className="button-black">Continuar</button>
+        <button onClick={handleNextClick} className="button-black">
+          Continuar
+        </button>
       </form>
     </div>,
-
 
     //tercera página
     <div className="">
@@ -150,11 +211,18 @@ export const CreateOffer = () => {
         <h4 className="">Requisitos de candidato</h4>
         <div className="">
           <p className="">Descripción de requisitos</p>
-          <input {...register("requiresDescription")} type="text" placeholder="Descripción..." />
+          <input
+            {...register("requiresDescription")}
+            type="text"
+            placeholder="Descripción..."
+          />
         </div>
         <div className="">
-          <label htmlFor="questions">Añadir preguntas</label>
-          <select {...register("questions")}>
+          {/* <label htmlFor="questions">Añadir preguntas</label> */}
+          <select {...register("questions")} defaultValue="">
+            <option value="" disabled>
+              Preguntas
+            </option>
             <option value="question1">Pregunta 1</option>
             <option value="question2">Pregunta 2</option>
             <option value="question3">Pregunta 3</option>
@@ -164,8 +232,11 @@ export const CreateOffer = () => {
         </div>
         <h4 className="">Codificaciones internas</h4>
         <div className="">
-          <label htmlFor="keywords">Añadir palabras clave</label>
-          <select {...register("keywords")}>
+          {/* <label htmlFor="keywords">Añadir palabras clave</label> */}
+          <select {...register("keywords")} defaultValue="">
+            <option value="" disabled>
+              Palabras clave
+            </option>
             <option value="keyword1">Palabra clave 1</option>
             <option value="keyword2">Palabra clave 2</option>
             <option value="keyword3">Palabra clave 3</option>
@@ -173,10 +244,14 @@ export const CreateOffer = () => {
             <option value="keyword5">Palabra clave 5</option>
           </select>
         </div>
-        <button onClick={handleNextClick} className="button-black">Continuar</button>
+        <Link to={"/congrats2"}>
+        <button onClick={handleNextClick} className="button-black">
+          Continuar
+        </button>
+        </Link>
       </form>
-    </div>
-  ]
+    </div>,
+  ];
 
   return (
     <div className="">

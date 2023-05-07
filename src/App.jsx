@@ -8,14 +8,16 @@ import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import LoginPage from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
-import HomePage from "./Pages/HomePage/HomePage";
+import HomePage from "./Pages/Homepage/HomePage";
 import { Congrats } from "./Components/Congrats/Congrats";
+
 import Perfil from "./Pages/Profile/Perfil";
 import RestablecerContrasenaEmail from "./Pages/Login/RestablecerContrasenaEmail";
 import RestablecerContrasenaContrasena from "./Pages/Login/RestablecerContrasenaContrasena";
 import RegisterForm from "./Pages/Login/RegisterForm";
 import { CreateOffer } from "./Pages/CreatePage/CreateOffer";
 import { CandidateDetails } from "./Components/CandidateDetails/CandidateDetails";
+import Congrats2 from "./Components/Congrats/Congrats2";
 
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
         <Route path="/create" element={<CreatePage/>} />
         <Route path="/createoffer" element={<CreateOffer/>} />
         <Route path="/congrats" element={<Congrats/>} />
+        <Route path="/congrats2" element={<Congrats2/>} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/restablecerContrasenaEmail" element={<RestablecerContrasenaEmail/>} />
         <Route path="/restablecerContrasenaContrasena" element={<RestablecerContrasenaContrasena/>} />
