@@ -1,36 +1,32 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from "react";
 import { SearchContext } from "../../App";
-import { useLocation } from 'react-router-dom';
-import { BiSearch } from 'react-icons/bi';
+import { useLocation } from "react-router-dom";
+import { BiSearch } from "react-icons/bi";
+import { TbAdjustmentsHorizontal } from "react-icons/tb";
+
 
 export default function Searcher() {
+  const location = useLocation();
+  console.log(location.pathname);
 
+  const { searchText, setSearchText } = useContext(SearchContext);
 
-    const location = useLocation()
-    console.log(location.pathname);
+  useEffect(() => {
+    setSearchText("");
+  }, [location.pathname]);
 
-    const { searchText, setSearchText } = useContext(SearchContext);
-
-    useEffect(() => {
-        setSearchText("");
-    }, [location.pathname]);
-
-    return (
-        <div className="">
-            <div className="">
-                {/* {(location.pathname === '/candidates' || location.pathname === '/offers') && */}
-                    <div className="">
-                        <BiSearch className="lupa" />
-                        <input
-                            className=""
-                            type="text"
-                            id="buscar"
-                            placeholder="Buscar"
-                        onChange={(e) => setSearchText(e.target.value)}
-                        />
-                    </div>
-            </div>
-        </div>
-
-    )
+  return (
+    //   location.pathname === '/candidates' || location.pathname === '/offers') && 
+      <div className="Buscador">
+          <BiSearch className="lupa" />
+          <input
+            className="dentro-buscador"
+            type="text"
+            id="buscar"
+            placeholder="Buscar"
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <TbAdjustmentsHorizontal />
+        </div> 
+  );
 }
