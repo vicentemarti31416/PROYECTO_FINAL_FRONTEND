@@ -5,7 +5,7 @@ import Nav from "../../Components/Nav/Nav";
 import image from "../../assets/Meettalent.png";
 import { Fetch } from "../../Components/Fetch/Fetch";
 import profile from "../../assets/avatar1.jpg";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 
 const HomePage = ({ offers }) => {
@@ -14,16 +14,20 @@ const HomePage = ({ offers }) => {
       <div className="homehead">
         <img src={image} className="hometitle" alt="" />
         <div className="homenav">
-        <Link to={'/profile'} ><img
-            className="homeimg"
-            src={profile}
-            alt=""
-          /></Link>
+          <Link to={"/profile"}>
+            <img className="homeimg" src={profile} alt="" />
+          </Link>
           <div className="buscadorhome">
-          <BiSearch className="lupa" />
-          <input className="homesearch dentro-buscador" type="text" placeholder="Buscar"></input>
-        </div>
-          <Link to={'/messages'} ><BiChat className="chat"></BiChat></Link>
+            <BiSearch className="lupa" />
+            <input
+              className="homesearch dentro-buscador"
+              type="text"
+              placeholder="Buscar"
+            ></input>
+          </div>
+          <Link to={"/messages"}>
+            <BiChat className="chat"></BiChat>
+          </Link>
         </div>
       </div>
       <div className="offers">

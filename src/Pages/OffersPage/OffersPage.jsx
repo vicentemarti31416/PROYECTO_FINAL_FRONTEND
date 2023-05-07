@@ -6,6 +6,7 @@ import "./OffersPage.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
+import { Fetch } from "../../Components/Fetch/Fetch";
 import { BiLockOpenAlt } from "react-icons/bi";
 import { SearchContext } from '../../App';
 import Searcher from "../../Components/Searcher/Searcher";
@@ -28,9 +29,10 @@ export const OffersPage = () => {
   useEffect(() => {
     getOffers();
   }, []);
+  
   return (
     <div className="page">
-      <h3 className="backheader ">
+      <h3 className="backheader">
         <Link to={"/home"}>
           <IoIosArrowBack></IoIosArrowBack>
         </Link>
@@ -47,7 +49,19 @@ export const OffersPage = () => {
             type="text"
             id="buscar"
             placeholder="Buscar"
-          /> */}
+             /> */}
+
+          />
+          <TbAdjustmentsHorizontal/>
+        </div>
+        <div className="botones-principales">
+          <button className="botonera-message-1">Abiertas</button>
+          <button className="botonera-message-1">Cerradas</button>
+        </div>
+        <div className="homeoffers">
+          <Fetch></Fetch>
+
+{/*
           <TbAdjustmentsHorizontal />
         </div>
         <div className="offerslist">
@@ -71,6 +85,8 @@ export const OffersPage = () => {
           ) : (
             <p>No hay ofertas disponibles.</p>
           )}
+          */}
+
         </div>
       </div>
       <Nav />

@@ -4,6 +4,7 @@ import Nav from "../Nav/Nav";
 import { useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import "./OffersDetails.css";
 
 export const OffersDetails = () => {
   const [offer, setOffer] = useState(null);
@@ -22,11 +23,12 @@ export const OffersDetails = () => {
 
   return (
     <div className="page">
-          <h3 className="texto-candi">
-        <Link to={"/home"}>
+      <h3 className="backheader">
+        <Link to={"/offers"}>
           <IoIosArrowBack></IoIosArrowBack>
         </Link>
-        Ofertas
+        Detalle de la oferta
+        <div></div>
       </h3>
       <div className="container-black">
         <div className="offers">
@@ -35,17 +37,21 @@ export const OffersDetails = () => {
               <h3>{offer.position}</h3>
               <h4>{offer.company}</h4>
               <p>
-                <strong>Descripción:</strong> {offer.description}
+                <strong>Descripción:</strong>
               </p>
+              <p> {offer.description}</p>
               <p>
-                <strong>Requisitos:</strong> {offer.requirements}
+                <strong>Requisitos:</strong>
               </p>
+              <p> {offer.requirements}</p>
               <p>
-                <strong>Salario:</strong> {offer.salary}
+                <strong>Salario:</strong>
               </p>
+              <p> {offer.salary}</p>
               <p>
-                <strong>Ubicación:</strong> {offer.location}
+                <strong>Ubicación:</strong>
               </p>
+              <p> {offer.location}</p>
             </div>
           ) : (
             <p>Cargando...</p>
