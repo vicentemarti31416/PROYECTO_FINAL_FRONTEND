@@ -1,3 +1,11 @@
+@media screen and (max-width: 1024px) {
+    .div {
+      width: 199px;
+      height: 200px;
+    }
+  }
+
+
 .job-offer{
     min-height: 250px;
     min-width: 300px;
@@ -9,3 +17,31 @@
     0 0 30px #b7b7b724,
     0 0 40px #b7b7b724;
 }
+
+.contenedor-blanco{
+  margin-top: 42px;
+  height: 211px;
+  width: 330px;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+
+}
+
+.contenedor-blanco:hover{
+  box-shadow: 0 5px 12px rgba(217, 230, 217, 0.733);
+    transform: translateY(-4px);
+}
+.candado-abierto{
+  padding-left: 278px;
+  width: 33px;
+  height: 37px;
+  color:var(--blue);
+  margin: 9px;
+}
+
+@media screen and (min-width: 600px) {
+    .congratsText1 {
+      font-size: 3rem;
+    }
+  }

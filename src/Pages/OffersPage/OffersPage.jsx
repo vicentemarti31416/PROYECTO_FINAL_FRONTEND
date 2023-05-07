@@ -4,6 +4,9 @@ import Nav from "../../Components/Nav/Nav";
 import { Link } from "react-router-dom";
 import "./OffersPage.css";
 import { IoIosArrowBack } from "react-icons/io";
+import { BiSearch } from 'react-icons/bi';
+import { TbAdjustmentsHorizontal } from 'react-icons/tb';
+import {BiLockOpenAlt} from 'react-icons/bi';
 
 export const OffersPage = () => {
   const [offers, setOffers] = useState([]);
@@ -22,16 +25,28 @@ export const OffersPage = () => {
   useEffect(() => {
     getOffers();
   }, []);
+return (
+  <div className="page1">
+    <h3 className="texto-candi">
+      <Link to={"/home"}>
+        <IoIosArrowBack />
+      </Link>
+      Ofertas
+    </h3>
+    <div className="container-black">
+      <div className="Buscador">
+        <BiSearch className="lupa" />
+        <label htmlFor="buscar">Buscar</label>
+        <input className="dentro-buscador" type="text" id="buscar" />
+        <TbAdjustmentsHorizontal />
+      </div>
 
-  return (
-    <div className="page1">
-      <h3 className="texto-candi">
-        <Link to={"/home"}>
-          <IoIosArrowBack></IoIosArrowBack>
-        </Link>
-        Ofertas
-      </h3>
-      <div className="container-black">
+      <div className="botones-principales">
+        <button className="botonera-message-1">Abiertas</button>
+        <button className="botonera-message-1">Cerradas</button>
+      </div>
+      <div className="contenedor-blanco">
+      <BiLockOpenAlt className="candado-abierto"/>
         <div className="offers1">
           {offers && offers.length > 0 ? (
             offers.map((offer, index) => (
@@ -50,7 +65,8 @@ export const OffersPage = () => {
           )}
         </div>
       </div>
-      <Nav></Nav>
     </div>
-  );
-};
+    <Nav />
+  </div>
+);
+          }
