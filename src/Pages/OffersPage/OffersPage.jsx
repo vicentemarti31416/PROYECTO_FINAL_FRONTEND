@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Nav from "../../Components/Nav/Nav";
 import { Link } from "react-router-dom";
@@ -7,8 +7,11 @@ import { IoIosArrowBack } from "react-icons/io";
 import { BiSearch } from "react-icons/bi";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import { BiLockOpenAlt } from "react-icons/bi";
+import { SearchContext } from '../../App';
+import Searcher from "../../Components/Searcher/Searcher";
 
 export const OffersPage = () => {
+  const {searchText, setSearchText} = useContext(SearchContext);
   const [offers, setOffers] = useState([]);
 
   const getOffers = () => {
@@ -36,13 +39,15 @@ export const OffersPage = () => {
       </h3>
       <div className="container-black">
         <div className="Buscador">
-          <BiSearch className="lupa" />
+
+        <Searcher></Searcher>
+          {/* <BiSearch className="lupa" />
           <input
             className="dentro-buscador"
             type="text"
             id="buscar"
             placeholder="Buscar"
-          />
+          /> */}
           <TbAdjustmentsHorizontal />
         </div>
         <div className="offerslist">
@@ -51,7 +56,7 @@ export const OffersPage = () => {
             <button className="botonera-message-1">Cerradas</button>
           </div>
           {offers && offers.length > 0 ? (
-            offers.map((offer, index) => (
+            offers.filter((dataSearch)=> dataSearch.position.toLowerCase().includes(searchText)).map((offer, index) => (
               <div className="job-offer" key={index}>
                 <Link to={`/offers/${offer._id}`}>
                   <BiLockOpenAlt className="candado-abierto" />
