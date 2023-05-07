@@ -28,12 +28,13 @@ export const CandidatesPage = () => {
   }, []);
 
   return (
-    <div className="candpage">
-      <h3 className="texto-candi">
+    <div className="page">
+      <h3 className="backheader">
         <Link to={"/home"}>
           <IoIosArrowBack></IoIosArrowBack>
         </Link>
         Candidatos
+        <div></div>
       </h3>
       <div className="container-black">
         <div className="Buscador">

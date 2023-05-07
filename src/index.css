@@ -29,7 +29,11 @@
   --transition: all 200ms ease;
   --dark-blue-letter: #0B4F6E;
   
+}
 
+.page {
+  width: 100%;
+  height: 80vh;
 }
 
 .button-black {
@@ -116,7 +120,25 @@ html {
   bottom: 0;
 }
 
+.backheader {
+  display: flex;
+  margin-bottom: 24px;
+  color: var(--black);
+  margin-top: 90px;
+  justify-content: space-between;
+  height: 20px;
+  width: 80%;
+margin-left:  auto;
+margin-right:  auto;
+}
 
+.botones-principales {
+  gap: 26px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 41px;
+  color: #8c8c8c;
+}
 
 /*------------------------------------TABLET-------------------------------------*/
 

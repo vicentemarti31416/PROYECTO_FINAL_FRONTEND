@@ -13,18 +13,24 @@ import { Link } from 'react-router-dom';
 export const MessagePage = () => {
   return (
     <div className='fondo-message'>
-      <div className='mensaje'>
-      <Link to={'/home'} ><IoIosArrowBack /></Link> Mensajes
-      </div>
-    
+      <h3 className="backheader ">
+        <Link to={"/home"}>
+          <IoIosArrowBack></IoIosArrowBack>
+        </Link>
+        Mensajes
+        <div></div>
+      </h3>
       <div className='container-black'>
-        <div className='Buscador'>
-          <BiSearch className='lupa' />
-          <label htmlFor='buscar'>Buscar</label>
-          <input className='dentro-buscador' type='text' id='buscar'/>
+      <div className="Buscador">
+          <BiSearch className="lupa" />
+          <input
+            className="dentro-buscador"
+            type="text"
+            id="buscar"
+            placeholder="Buscar"
+          />
           <TbAdjustmentsHorizontal />
-        </div>
-                
+        </div>       
         <div className='botones-principales'>
           <button className='botonera-message-1'>(1)Recibidos</button>
           <button className='botonera-message-1'>Enviados</button>
@@ -53,9 +59,8 @@ export const MessagePage = () => {
               <p>tú: Te informamos que existen otros candidatos cuyos perfiles se ajustan más a nuestras...</p>
             </div>
           </div>
-        
         <div className='botonera-message-2' id='jose'>
-            <div className='botonera-message-2-img'><img classname='imagen-mensajes'src={imagen5} alt="avatar" /></div>
+            <div className='botonera-message-2-img'><img className='imagen-mensajes'src={imagen5} alt="avatar" /></div>
             <div className='botonera-message-2-info'>
               <p>Lara</p>
               <p>Muchas gracias por la información. Una pena no haber encajado en el perfil...</p>

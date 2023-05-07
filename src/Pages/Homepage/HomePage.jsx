@@ -6,6 +6,7 @@ import image from "../../assets/Meettalent.png";
 import { Fetch } from "../../Components/Fetch/Fetch";
 import profile from "../../assets/avatar1.jpg";
 import { Link } from 'react-router-dom';
+import { BiSearch } from "react-icons/bi";
 
 const HomePage = ({ offers }) => {
   return (
@@ -18,7 +19,10 @@ const HomePage = ({ offers }) => {
             src={profile}
             alt=""
           /></Link>
-          <input className="homesearch" placeholder="Buscar"></input>
+          <div className="buscadorhome">
+          <BiSearch className="lupa" />
+          <input className="homesearch dentro-buscador" type="text" placeholder="Buscar"></input>
+        </div>
           <Link to={'/messages'} ><BiChat className="chat"></BiChat></Link>
         </div>
       </div>
