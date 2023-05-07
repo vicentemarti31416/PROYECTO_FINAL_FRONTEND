@@ -18,6 +18,7 @@
     0 0 40px #b7b7b724;
 }
 
+
 .contenedor-blanco{
   margin-top: 42px;
   height: 211px;
@@ -45,3 +46,20 @@
       font-size: 3rem;
     }
   }
+
+.texto-offer {
+    display: flex;
+    color: var(--black);
+    justify-content: space-between;
+    height: 20px;
+    width: 210px;
+    margin-left: 20px;
+    margin-top: 90px;
+}
+
+.offerslist{
+    height: 500px;
+    width: 90%;
+    overflow-y: scroll;
+}
+

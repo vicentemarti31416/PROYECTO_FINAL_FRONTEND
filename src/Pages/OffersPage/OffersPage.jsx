@@ -41,6 +41,7 @@ return (
         <TbAdjustmentsHorizontal />
       </div>
 
+
       <div className="botones-principales">
         <button className="botonera-message-1">Abiertas</button>
         <button className="botonera-message-1">Cerradas</button>
@@ -48,6 +49,18 @@ return (
       <div className="contenedor-blanco">
       <BiLockOpenAlt className="candado-abierto"/>
         <div className="offers1">
+
+  return (
+    <div className="page1">
+      <h3 className="texto-offer">
+        <Link to={"/home"}>
+          <IoIosArrowBack></IoIosArrowBack>
+        </Link>
+        Ofertas
+      </h3>
+      <div className="container-black">
+        <div className="offerslist">
+
           {offers && offers.length > 0 ? (
             offers.map((offer, index) => (
               <div className="job-offer" key={index}>
