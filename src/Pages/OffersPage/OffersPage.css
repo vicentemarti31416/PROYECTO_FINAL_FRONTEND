@@ -1,25 +1,7 @@
 @media screen and (max-width: 1024px) {
-  .div {
-    width: 199px;
-    height: 200px;
-  }
-}
 
-.contenedor-blanco:hover {
-  box-shadow: 0 5px 12px rgba(217, 230, 217, 0.733);
-  transform: translateY(-4px);
-}
-
-.candado-abierto {
-  padding-left: 278px;
-  width: 33px;
-  height: 37px;
-  color: var(--blue);
-  margin: 9px;
 }
 
 @media screen and (min-width: 600px) {
-  .congratsText1 {
-    font-size: 3rem;
-  }
+
 }
