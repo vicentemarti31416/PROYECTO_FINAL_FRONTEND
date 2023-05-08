@@ -1,14 +1,4 @@
-.offerglobal{
-    position: relative;
-}
-
-.locklogo{
- position: absolute;
- font-size: 30px;
- color: var(--blue);
-}
-
-.offerdisplay{
+.offerdisplay {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -17,10 +7,23 @@
     gap: 40px;
     justify-content: space-around;
     margin: 20px auto;
-    /* height: 100vh; */
+    height: 100%;
+
 }
 
-.job-offer-detail{
+.offerglobal {
+    position: relative;
+}
+
+.locklogo {
+    position: absolute;
+    font-size: 30px;
+    color: var(--blue);
+    right: 30px;
+    top: 20px;
+}
+
+.job-offer-detail {
     height: 300px;
     width: 90%;
     background-color: white;
@@ -28,5 +31,10 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+}
+
+.linkdiv{
+    display: flex;
     justify-content: center;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./HomePage.css";
 import { BiChat } from "react-icons/bi";
 import Nav from "../../Components/Nav/Nav";
@@ -10,8 +10,10 @@ import { BiSearch } from "react-icons/bi";
 import Searcher from "../../Components/Searcher/Searcher";
 import { AbiertoContext } from "../../Components/Fetch/AbiertoContext";
 
-const HomePage = ({ offers }) => {
+const HomePage = () => {
   const [abierto, setAbierto] = useState({});
+  // const [cantidadOfertas] = useContext();
+
 
   return (
     <div className="homecontainer">
@@ -31,7 +33,11 @@ const HomePage = ({ offers }) => {
         </div>
       </div>
       <div className="offers">
-        <h2>Ofertas abiertas({offers})</h2>
+        <h2>Ofertas abiertas
+        (
+          {/* {cantidadOfertas} */}
+          )
+        </h2>
         <div className="homeoffers">
           <AbiertoContext.Provider value={{ abierto, setAbierto }}>
             <Fetch></Fetch>

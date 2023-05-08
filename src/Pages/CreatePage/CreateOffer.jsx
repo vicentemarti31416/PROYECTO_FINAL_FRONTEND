@@ -70,7 +70,7 @@ export const CreateOffer = () => {
 
   const sheets = [
     //primera página
-    <div className="">
+    <div className="container-black">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h4 className="">Duplicar oferta</h4>
 
