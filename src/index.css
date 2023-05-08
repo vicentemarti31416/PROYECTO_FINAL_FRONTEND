@@ -166,6 +166,10 @@ html {
   overflow-y: scroll;
 }
 
+input::placeholder {
+  text-indent: 10px
+}
+
 /*------------------------------------TABLET-------------------------------------*/
 
 @media screen and (max-width: 1024px) {
