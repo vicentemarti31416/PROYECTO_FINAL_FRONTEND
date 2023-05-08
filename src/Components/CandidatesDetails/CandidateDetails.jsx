@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import './CandidateDetails.css';
 import { IoIosArrowBack } from "react-icons/io";
+import { FilterModal } from "../FilterModal/FilterModal";
 
 export const CandidateDetails = () => {
   const [candidate, setCandidate] = useState(null);
@@ -74,6 +75,7 @@ export const CandidateDetails = () => {
             </div>
           )}
         </div>
+       
       </div>
 
   );
