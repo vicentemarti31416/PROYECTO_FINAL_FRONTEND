@@ -6,7 +6,7 @@ import{BsPlusSquare}from 'react-icons/bs';
 import{RiNotification3Line}from 'react-icons/ri';
 import{RiSuitcaseLine}from 'react-icons/ri';
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 const Nav =()=>{
