@@ -168,6 +168,10 @@ html {
   margin-top: 20px;
 }
 
+input::placeholder {
+  text-indent: 10px
+}
+
 /*------------------------------------TABLET-------------------------------------*/
 
 @media screen and (max-width: 1024px) {

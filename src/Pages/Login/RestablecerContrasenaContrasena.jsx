@@ -20,40 +20,38 @@ const RestablecerContrasenaContrasena = () => {
         </Link>
       </div>
 
-      <div className="loginInputsRest">
-        <form className="loginFormRest" onSubmit={handleSubmit(onSubmit)}>
-          <div className="loginImput pt50">
-            <label className="loginLabelRest" htmlFor="password">
-              Nueva contraseña
-            </label>
-            <input
-              className="button-blue"
-              type="password"
-              id="password"
-              placeholder="Nueva contraseña"
-            />
-          </div>
+      <form className="loginForm loginFormRest" onSubmit={handleSubmit(onSubmit)}>
+        <div className="loginBloque">
+          <label className="loginLabelRest" htmlFor="password">
+            Nueva contraseña
+          </label>
+          <input
+            className="button-blue"
+            type="password"
+            id="password"
+            placeholder="Nueva contraseña"
+          />
+        </div>
 
-          <div className="loginImput">
-            <label className="loginLabelRest" htmlFor="passwordConfirm">
-              Confirmar
-            </label>
-            <input
-              className="button-blue"
-              type="password"
-              id="passwordConfirm"
-              placeholder="Confirmar contraseña"
-              {...register("contraseña")}
-            />
-          </div>
+        <div className="loginBloque">
+          <label className="loginLabelRest" htmlFor="passwordConfirm">
+            Confirmar
+          </label>
+          <input
+            className="button-blue"
+            type="password"
+            id="passwordConfirm"
+            placeholder="Confirmar contraseña"
+            {...register("contraseña")}
+          />
+        </div>
 
-          <div>
-            <button className="button-white">
-              <Link to="/login">Guardar</Link>
-            </button>
-          </div>
-        </form>
-      </div>
+        <div className="loginBloque">
+          <button className="button-white">
+            <Link to="/login">Guardar</Link>
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
