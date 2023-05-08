@@ -6,10 +6,11 @@ import { SearchContext } from "../../App";
 import { BiLockAlt } from "react-icons/bi";
 import { BiLockOpenAlt } from "react-icons/bi";
 
-export const Fetch = (  ) => {
+export const Fetch = () => {
   const [offers, setOffers] = useState([]);
   const { searchText, setSearchText } = useContext(SearchContext);
   const [abierto, setAbierto] = useState({});
+  // const [cantidadOfertas] = useContext(offers.length);
 
   useEffect(() => {
     axios
@@ -17,7 +18,8 @@ export const Fetch = (  ) => {
       .then((res) => {
         setOffers(res.data);
         const initialAbiertoState = res.data.reduce((acc, offer) => {
-          acc[offer._id] = localStorage.getItem(`abierto_${offer._id}`) === "true";
+          acc[offer._id] =
+            localStorage.getItem(`abierto_${offer._id}`) === "true";
           return acc;
         }, {});
         setAbierto(initialAbiertoState);
@@ -49,10 +51,13 @@ export const Fetch = (  ) => {
           )
           .map((offer, index) => (
             <div className="offerglobal" key={offer._id}>
-              <div className="locklogo" onClick={() => toggleAbierto(offer._id)}>
+              <div
+                className="locklogo"
+                onClick={() => toggleAbierto(offer._id)}
+              >
                 {abierto[offer._id] ? <BiLockOpenAlt /> : <BiLockAlt />}
               </div>
-              <Link to={`/offers/${offer._id}`}>
+              <Link className="linkdiv" to={`/offers/${offer._id}`}>
                 <div className="job-offer-detail">
                   <div></div>
                   <h3>{offer.position}</h3>
