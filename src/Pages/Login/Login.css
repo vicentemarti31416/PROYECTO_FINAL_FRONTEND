@@ -1,12 +1,4 @@
 
-
-/*------------------------------------TABLET-------------------------------------*/
-@media screen and (max-width: 1024px) {
-    
-}
-
-/*------------------------------------MOBILE-------------------------------------*/
-@media screen and (max-width: 600px){
   .loginContainer {
     background-color: var(--black);
     color: var(--white);
@@ -15,8 +7,12 @@
     flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
+  justify-content: center;
+
     gap: 20px;
     padding-top: 50px;
+    width: 100%;
+  height: 100vh;
   }
 
   .loginContainerRest {
@@ -35,6 +31,14 @@
     flex-wrap: nowrap;
     flex-direction: column;
     gap: 30px;
+  }
+
+  .loginInputs {
+    display: block;
+    width: 100%;
+    margin: auto;
+    margin-left: 20px;
+    align-items: center;
   }
 
   .loginImput {
@@ -83,6 +87,7 @@
 
   .loginLabel {
     font-weight:bold;
+    margin-left: 20px;
   }
 
   .loginLabelRest {
@@ -93,5 +98,3 @@
   .pt50 {
     padding-top: 50px;
   }
-
-}
