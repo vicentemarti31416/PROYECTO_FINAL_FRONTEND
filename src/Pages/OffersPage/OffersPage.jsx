@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import Nav from "../../Components/Nav/Nav";
 import { Link } from "react-router-dom";
 import "./OffersPage.css";
@@ -8,11 +7,14 @@ import { Fetch } from "../../Components/Fetch/Fetch";
 import Searcher from "../../Components/Searcher/Searcher";
 import { BiSearch } from "react-icons/bi";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
-
+import { AbiertoContext } from "../../Components/Fetch/AbiertoContext";
 
 export const OffersPage = () => {
+
+  const [abierto, setAbierto] = useState({});
+
   return (
-    <div className="page">
+    <div className="page user home">
       <h3 className="backheader">
         <Link to={"/home"}>
           <IoIosArrowBack></IoIosArrowBack>
@@ -31,7 +33,9 @@ export const OffersPage = () => {
           <button className="botonera-message-1">Cerradas</button>
         </div>
         <div className="homeoffers">
-          <Fetch></Fetch>
+          <AbiertoContext.Provider value={{ abierto, setAbierto }}>
+            <Fetch></Fetch>
+          </AbiertoContext.Provider>
         </div>
       </div>
       <Nav />
