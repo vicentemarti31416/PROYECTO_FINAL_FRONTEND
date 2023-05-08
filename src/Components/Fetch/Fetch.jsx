@@ -6,7 +6,7 @@ import { SearchContext } from "../../App";
 import { BiLockAlt } from "react-icons/bi";
 import { BiLockOpenAlt } from "react-icons/bi";
 
-export const Fetch = () => {
+export const Fetch = (  ) => {
   const [offers, setOffers] = useState([]);
   const { searchText, setSearchText } = useContext(SearchContext);
   const [abierto, setAbierto] = useState({});
