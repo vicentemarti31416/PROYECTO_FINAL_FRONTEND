@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Fetch.css";
 import { BiLockOpenAlt } from "react-icons/bi";
+import { SearchContext } from "../../App";
 
 export const Fetch = () => {
   const [offers, setOffers] = useState([]);
+  const { searchText, setSearchText } = useContext(SearchContext);
 
   const getOffers = () => {
     axios
@@ -25,20 +27,24 @@ export const Fetch = () => {
   return (
     <div className="offerdisplay">
       {offers && offers.length > 0 ? (
-        offers.map((offer, index) => (
-          <div className="job-offer-detail" key={index}>
-            <Link to={`/offers/${offer._id}`}>
-              <div>
-                <BiLockOpenAlt />
-              </div>
-              <h3>{offer.position}</h3>
-              <h4>{offer.company}</h4>
-              <div>
-                <strong>Requisitos:</strong> {offer.requirements}
-              </div>
-            </Link>
-          </div>
-        ))
+        offers
+          .filter((dataSearch) =>
+            dataSearch.position.toLowerCase().includes(searchText)
+          )
+          .map((offer, index) => (
+            <div className="job-offer-detail" key={index}>
+              <Link to={`/offers/${offer._id}`}>
+                <div>
+                  <BiLockOpenAlt />
+                </div>
+                <h3>{offer.position}</h3>
+                <h4>{offer.company}</h4>
+                <div>
+                  <strong>Requisitos:</strong> {offer.requirements}
+                </div>
+              </Link>
+            </div>
+          ))
       ) : (
         <p>No hay ofertas disponibles.</p>
       )}

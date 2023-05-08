@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./HomePage.css";
 import { BiChat } from "react-icons/bi";
 import Nav from "../../Components/Nav/Nav";
@@ -7,8 +7,12 @@ import { Fetch } from "../../Components/Fetch/Fetch";
 import profile from "../../assets/avatar1.jpg";
 import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
+import Searcher from "../../Components/Searcher/Searcher";
+
 
 const HomePage = ({ offers }) => {
+
+
   return (
     <div className="homecontainer">
       <div className="homehead">
@@ -19,11 +23,7 @@ const HomePage = ({ offers }) => {
           </Link>
           <div className="buscadorhome">
             <BiSearch className="lupa" />
-            <input
-              className="homesearch dentro-buscador"
-              type="text"
-              placeholder="Buscar"
-            ></input>
+            <Searcher></Searcher>
           </div>
           <Link to={"/messages"}>
             <BiChat className="chat"></BiChat>
