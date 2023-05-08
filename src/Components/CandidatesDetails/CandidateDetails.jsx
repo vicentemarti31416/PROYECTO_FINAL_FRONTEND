@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import './CandidateDetails.css';
+import { IoIosArrowBack } from "react-icons/io";
 
 export const CandidateDetails = () => {
   const [candidate, setCandidate] = useState(null);
@@ -24,15 +25,22 @@ export const CandidateDetails = () => {
   },);
 
   return (
-    <div className="page">
-      <div className="container">
-        <div className="candidates">
-          {candidate && (
-            <div className="persons">
-            <Link to={"/candidates"}>
-            <img className="candimage" src={candidate.image} alt="candidate" />
+    <div className="page page-negativo">
+    <h3 className="backheader backheader-negativo">
+        <Link to={"/candidates"}>
+          <IoIosArrowBack className="white"></IoIosArrowBack>
         </Link>
-              <h3>
+        Candidatos
+        <div></div>
+      </h3>
+
+
+      <div className="container">
+
+          {candidate && (
+            <div className="">
+            <img className="cand-image" src={candidate.image} alt="candidate" />
+              <h3 >
                 {candidate.name} {candidate.surname}
               </h3>
               <h3>{candidate.profession}</h3>
@@ -67,6 +75,6 @@ export const CandidateDetails = () => {
           )}
         </div>
       </div>
-    </div>
+
   );
 };

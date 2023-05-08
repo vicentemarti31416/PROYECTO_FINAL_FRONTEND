@@ -34,7 +34,7 @@ export const CandidatesPage = () => {
           <IoIosArrowBack></IoIosArrowBack>
         </Link>
         Candidatos
-        <div></div>
+        {/* <div></div> */}
       </h3>
       <div className="container-black">
         <div className="Buscador">
