@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 
 export const CreateOffer = () => {
@@ -16,38 +18,44 @@ export const CreateOffer = () => {
     setJobTitle(value);
   };
 
+  const [offers, setOffers] = useState([]);
+
+  const getOffers = () => {
+    axios
+      .get("http://localhost:8000/offers")
+      .then((res) => {
+        setOffers(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    getOffers();
+  }, []);
+
   const sheets = [
     //primera página
     <div className="">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h4 className="">Duplicar oferta</h4>
+
         <div>
-          <button
-            className="button-white"
-            onClick={() => handleButton("administrativo")}
-          >
-            Administrativo
-          </button>
-          <button
-            className="button-white"
-            onClick={() => handleButton("projectmanager")}
-          >
-            Project Manager
-          </button>
-          <button
-            className="button-white"
-            onClick={() => handleButton("programador")}
-          >
-            Programador
-          </button>
-          <button
-            className="button-white"
-            onClick={() => handleButton("mkdigital")}
-          >
-            Especialista en marketing digital
-          </button>
-          <p>Selected job: {jobTitle}</p>
-        </div>
+  {Array.isArray(offers) && offers.length > 0 ? (
+    offers.map((offer, index) => (
+      <div key={index}>
+        <button className="button-white" onClick={() => handleButton(offer.position)}>
+          {offer.position}
+        </button>
+      </div>
+    ))
+  ) : (
+    <p>No hay ofertas disponibles</p>
+  )}
+</div>
+
+
         <div className="">
           <h4 className="">Titulo de la nueva oferta</h4>
           <input
