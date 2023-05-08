@@ -12,7 +12,7 @@ export const Congrats2 = () => {
       <div className="congratsText">
         <h1 className="congratsText1">¡ Enhorabuena !</h1>
         <p className="congratsText2">Acabas de publicar una oferta</p>
-        <button className="button-white"><Link to={'/login'}>Ver oferta publicada</Link></button>
+        <button className="button-white"><Link to={'/offers'}>Ver oferta publicada</Link></button>
       </div>
     </div>
   );

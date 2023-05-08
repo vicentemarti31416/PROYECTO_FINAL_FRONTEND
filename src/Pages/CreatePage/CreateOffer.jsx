@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 
-
 export const CreateOffer = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
@@ -13,6 +12,21 @@ export const CreateOffer = () => {
     const sheet = currentSheet === sheets.length - 1 ? 0 : currentSheet + 1;
     setCurrentSheet(sheet);
   };
+
+  const { getValues } = useForm();
+  const handleCreateOffer = () => {
+    const { position, company, description, requirements, salary, location } = getValues();
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ position, company, description, requirements, salary, location })
+    };
+  
+    fetch('/offers', requestOptions)
+      .then(response => response.json())
+      .then(data => console.log(data));
+  }
+  
   const [jobTitle, setJobTitle] = useState("");
   const handleButton = (value) => {
     setJobTitle(value);
@@ -253,8 +267,8 @@ export const CreateOffer = () => {
           </select>
         </div>
         <Link to={"/congrats2"}>
-        <button onClick={handleNextClick} className="button-black">
-          Continuar
+        <button onClick={handleCreateOffer} className="button-black">
+          Crear oferta
         </button>
         </Link>
       </form>
@@ -262,9 +276,12 @@ export const CreateOffer = () => {
   ];
 
   return (
+    <>    
+    
     <div className="">
       <h3>Descripción de la oferta</h3>
       {sheets[currentSheet]}
     </div>
+  </>
   );
 };
