@@ -8,7 +8,7 @@ import { BiLockOpenAlt } from "react-icons/bi";
 
 export const Fetch = () => {
   const [offers, setOffers] = useState([]);
-  const { searchText, setSearchText } = useContext(SearchContext);
+  const { searchText } = useContext(SearchContext);
   const [abierto, setAbierto] = useState({});
   // const [cantidadOfertas] = useContext(offers.length);
 
@@ -46,8 +46,8 @@ export const Fetch = () => {
     <div className="offerdisplay">
       {offers && offers.length > 0 ? (
         offers
-          .filter((dataSearch) =>
-            dataSearch.position.toLowerCase().includes(searchText)
+          .filter((dataPosition) =>
+          dataPosition.position && dataPosition.position.toLowerCase().includes(searchText)
           )
           .map((offer, index) => (
             <div className="offerglobal" key={offer._id}>
