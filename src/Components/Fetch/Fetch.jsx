@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Fetch.css";
 
-export const Fetch = () => {
+export const Fetch = (  ) => {
   const [offers, setOffers] = useState([]);
 
   const getOffers = () => {
