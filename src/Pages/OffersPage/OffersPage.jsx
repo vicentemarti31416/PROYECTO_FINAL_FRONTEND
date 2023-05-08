@@ -3,12 +3,12 @@ import Nav from "../../Components/Nav/Nav";
 import { Link } from "react-router-dom";
 import "./OffersPage.css";
 import { IoIosArrowBack } from "react-icons/io";
-import { BiSearch } from "react-icons/bi";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
-import { BiLockOpenAlt } from "react-icons/bi";
-import { SearchContext } from '../../App';
 import Searcher from "../../Components/Searcher/Searcher";
 import { AbiertoContext } from "../../Components/Fetch/AbiertoContext";
+import { Fetch } from "../../Components/Fetch/Fetch";
+import { BiSearch } from "react-icons/bi";
+
 
 
 export const OffersPage = () => {
@@ -25,16 +25,9 @@ export const OffersPage = () => {
         <div></div>
       </h3>
       <div className="container-black">
-        <div className="Buscador">
-
-        <Searcher></Searcher>
-          {/* <BiSearch className="lupa" />
-          <input
-            className="dentro-buscador"
-            type="text"
-            id="buscar"
-            placeholder="Buscar"
-          /> */}
+      <div className="Buscador">
+          <BiSearch className="lupa" />
+          <Searcher></Searcher>
           <TbAdjustmentsHorizontal />
         </div>
         <div className="botones-principales">
