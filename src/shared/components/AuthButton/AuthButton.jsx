@@ -12,21 +12,33 @@ export default function AuthButton() {
   const userJSON = localStorage.getItem("name");
   const user = userJSON ? JSON.parse(userJSON) : null;
 
-  const signOut = () => {
+/*  const signOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("name");
     localStorage.removeItem("email_verified");
     setJwt(null);
     navigate("/");
   };
-  return jwt && user ? (
-      <div className="userInfo">
-        <p>Welcome! {user}</p>
-        <button onClick={signOut} className="button-signOut">Sign out</button>
+  return jwt && user ? (<div className="userInfo"> <p>Welcome! {user}</p> <button onClick={signOut} className="button-signOut">Sign out</button>
       </div>
   ) : (
       <div className="userInfo">
         <p>You are not logged in.</p>
       </div>
   );
+*/
+    let navigate = useNavigate();
+
+    const userJSON = localStorage.getItem("name");
+    const user = userJSON ? JSON.parse(userJSON) : null;
+    
+    const signOut = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('name');
+        localStorage.removeItem('email_verified');
+        localStorage.clear();
+        setJwt(null);
+        navigate("/");
+    }
+    return jwt && user ? (<p> Welcome! {user} <button onClick={signOut}>Sign out</button></p>) : (<p>You are not logged in.</p>);
 }
