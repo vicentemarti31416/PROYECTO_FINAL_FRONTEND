@@ -31,6 +31,7 @@ function AppContent() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const [searchText, setSearchText] = useState("");
+  const [oferta, setOferta] = useState({});
 
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID Token" + response.credential);
@@ -87,8 +88,9 @@ function AppContent() {
   }, [jwt]);
 
   return (
+
     <JwtContext.Provider value={{ jwt, setJwt }}>
-    <SearchContext.Provider value={{ searchText, setSearchText }}>
+      <SearchContext.Provider value={{ searchText, setSearchText, oferta, setOferta }}>
       <div className="App">
         <div className="App-header">
           <AuthButton />
@@ -112,7 +114,6 @@ function AppContent() {
               <Route path="/offers/:id" element={<RequireAuth><OffersDetails /></RequireAuth>} />
               <Route path="/candidates/:id" element={<RequireAuth><CandidateDetails /></RequireAuth>} />
           </Routes>
-
           {!jwt && <div id="signInDiv"></div>}
         </div>
       </div>
