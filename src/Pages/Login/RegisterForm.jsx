@@ -23,12 +23,18 @@ const RegisterForm = () => {
   }, [isAuthenticated, navigate]);
 
   const onSubmit = (formData) => {
-    console.log(formData)
-      API
-      .post('user/register', formData)
+    console.log(formData);
+    //if (formData.password === formData.repeatPassword) {
+    API.post("user/register", formData)
+
       .then((res) => {
-        console.log('User registered successfully with response:', res.data, 'Full AxiosResponse:', res);
-        navigate('/login');
+        console.log(
+          "User registered successfully with response:",
+          res.data,
+          "Full AxiosResponse:",
+          res
+        );
+        navigate("/login");
       })
       .catch((error) => console.log(error));
     /*} else {
@@ -38,6 +44,7 @@ const RegisterForm = () => {
 
   return (
     <div className="register_container">
+
       <h3>Crear Cuenta</h3>
       <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
         <div className="register">
@@ -55,7 +62,7 @@ const RegisterForm = () => {
             {errors.nombre && (
               <span className="error-message">Campo requerido</span>
             )}
-          </div> 
+          </div>
           <div className="register-div">
             <label className="register-label" htmlFor="nif">
               NIF
@@ -85,20 +92,19 @@ const RegisterForm = () => {
             {errors.email && (
               <span className="error-message">Campo requerido</span>
             )}
-          </div> 
+          </div>
           <div className="register-div">
             <label className="register-label" htmlFor="password">
               Contraseña
             </label>
             <div>
-            <input 
-          
-              className="register-input"
-              type="password"
-              id="password"
-              placeholder="Contraseña"
-              {...register("password", { required: true })}
-            />
+              <input
+                className="register-input"
+                type="password"
+                id="password"
+                placeholder="Contraseña"
+                {...register("password", { required: true })}
+              />
             </div>
             {errors.contraseña && (
               <span className="error-message">Campo requerido</span>
@@ -121,14 +127,17 @@ const RegisterForm = () => {
           </div>
           <div className="register-div1">
             <label className="register-label" htmlFor="checkbox">
-              Al crear una cuenta, 
+              Al crear una cuenta,{" "}
               <Link to={"/"} className="textBlue">
-                acepta los términos y condiciones 
-              </Link> 
-              
-              relacionados con <Link to={"/"} className="textBlue">meeTTalent</Link> 
+                acepta los términos y condiciones{" "}
+              </Link>
+              relacionados con{" "}
+              <Link to={"/"} className="textBlue">
+                meeTTalent
+              </Link>
             </label>
-            <input className="checkbox"
+            <input
+              className="checkbox"
               type="checkbox"
               {...register("terminos", { required: true })}
             />
@@ -138,8 +147,10 @@ const RegisterForm = () => {
               </span>
             )}
           </div>
+          <button type="submit" className="button-black">
+            Continuar
+          </button>
         </div>
-        <button type="submit" className="button-black">Continuar</button>
       </form>
     </div>
   );

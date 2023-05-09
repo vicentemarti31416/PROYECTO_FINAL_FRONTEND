@@ -47,14 +47,14 @@ const LoginPage = () => {
                 <form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
                     <div className='loginImput pt50'>
                         <label className='loginLabel' htmlFor='email'>Email ID</label>
-                        <input className='button-blue' type="email" id='email' placeholder="Email ID" {...register("email")} />
+                        <input className='button-blue button100' type="email" id='email' placeholder="Email ID" {...register("email")} />
                     </div>
                     <div className='loginImput'>
                         <label className='loginLabel' htmlFor='password'>Contraseña</label>
-                        <input className='button-blue' type="password" id='password' placeholder="Contraseña" {...register("password")} />
+                        <input className='button-blue button100' type="password" id='password' placeholder="Contraseña" {...register("password")} />
                     </div>
                     <div>
-                        <button className='button-white' type='submit'>Comenzar</button>
+                        <button className='button-white button100' type='submit'>Comenzar</button>
                     </div>
                 </form>
             </div>

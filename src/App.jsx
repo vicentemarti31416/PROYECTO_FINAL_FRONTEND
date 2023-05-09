@@ -23,6 +23,7 @@ import Congrats2 from "./Components/Congrats/Congrats2";
 import AuthButton from "./shared/components/AuthButton/AuthButton";
 import { AuthProvider } from "./shared/components/AuthProvider/AuthProvider";
 
+
 export const SearchContext = React.createContext();
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;

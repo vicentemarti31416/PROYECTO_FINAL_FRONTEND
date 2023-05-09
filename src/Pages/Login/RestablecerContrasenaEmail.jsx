@@ -40,6 +40,7 @@ const RestablecerContrasenaEmail = () => {
         </Link>
         <p>Restablecer contraseña</p>
       </div>
+      
       <div className="loginInputsRest">
         <form
           className="loginForm loginFormRest"
@@ -50,7 +51,7 @@ const RestablecerContrasenaEmail = () => {
               Email ID
             </label>
             <input
-              className="button-blue"
+              className="button-blue button100"
               type="email"
               id="email"
               placeholder="Email ID"
@@ -62,7 +63,7 @@ const RestablecerContrasenaEmail = () => {
               Confirmar
             </label>
             <input
-              className="button-blue"
+              className="button-blue button100"
               type="email"
               id="emailConfirm"
               placeholder="Confirmar email"
@@ -70,7 +71,7 @@ const RestablecerContrasenaEmail = () => {
             />
           </div>
           <div className="loginBloque">
-            <button type="submit" className="button-white">
+            <button type="submit" className="button-white button100">
               Enviar enlace
             </button>
           </div>
