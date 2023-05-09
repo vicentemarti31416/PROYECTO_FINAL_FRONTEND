@@ -20,7 +20,6 @@ import RegisterForm from "./Pages/Login/RegisterForm";
 import { CreateOffer } from "./Pages/CreatePage/CreateOffer";
 import { CandidateDetails } from "./Components/CandidatesDetails/CandidateDetails";
 import Congrats2 from "./Components/Congrats/Congrats2";
-import AuthButton from "./shared/components/AuthButton/AuthButton";
 
 export const SearchContext = React.createContext();
 
@@ -93,7 +92,6 @@ function AppContent() {
       <SearchContext.Provider value={{ searchText, setSearchText, oferta, setOferta }}>
       <div className="App">
         <div className="App-header">
-          <AuthButton />
           <Routes>
               <Route path="/" element={<Welcome />} />
               <Route path="/home" element={<RequireAuth><HomePage /></RequireAuth>} />
