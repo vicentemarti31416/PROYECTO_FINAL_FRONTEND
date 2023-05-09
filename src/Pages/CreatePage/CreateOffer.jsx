@@ -151,7 +151,9 @@ export const CreateOffer = () => {
         </div>
 
         <div className="">
+
           <select {...register("country")} value={selectedCountry} onChange={handleCountryChange}> defaultValue="">
+
             <option value="" disabled>
               Ubicacion
             </option>

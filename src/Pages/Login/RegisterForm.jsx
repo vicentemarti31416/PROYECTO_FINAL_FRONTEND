@@ -3,6 +3,8 @@ import "./Register.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import {AiOutlineEye} from "react-icons/ai";
+import { API } from '../../shared/services/api';
+
 
 const RegisterForm = () => {
   const {
@@ -11,8 +13,17 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (dataF) => {
-    console.log(dataF);
+  const onSubmit = (formData) => {
+    if (formData.password === formData.repeatPassword) {
+      API
+      .post('user/register', formData)
+      .then((res) => {
+        console.log('User registered successfully with response:', res.data, 'Full AxiosResponse:', res);
+      })
+      .catch((error) => console.log(error));
+    } else {
+      console.log("Las contraseñas no coinciden")
+    }
   };
 
   return (
