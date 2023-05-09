@@ -9,10 +9,10 @@ import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import Searcher from "../../Components/Searcher/Searcher";
 import { AbiertoContext } from "../../Components/Fetch/AbiertoContext";
+import { TbAdjustmentsHorizontal } from "react-icons/tb";
 
 const HomePage = () => {
   const [abierto, setAbierto] = useState({});
-  // const [cantidadOfertas] = useContext();
 
 
   return (
@@ -24,7 +24,7 @@ const HomePage = () => {
             <img className="homeimg" src={profile} alt="" />
           </Link>
           <div className="buscadorhome">
-            <BiSearch className="lupa" />
+            <BiSearch className="lupa"/>
             <Searcher></Searcher>
           </div>
           <Link to={"/messages"}>

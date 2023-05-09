@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { SearchContext } from "../../App";
 import { useLocation } from "react-router-dom";
 import { FilterModal } from "../FilterModal/FilterModal";
-
-
+import { TbAdjustmentsHorizontal } from "react-icons/tb";
 
 export default function Searcher() {
   const location = useLocation();
@@ -11,7 +10,6 @@ export default function Searcher() {
 
   const { searchText, setSearchText } = useContext(SearchContext);
   const [open, setOpen] = useState(false);
-  
   const handleFilterClick = () => {
     setOpen(true);
   };
@@ -22,31 +20,25 @@ export default function Searcher() {
 
   return (
     <>
-      {(location.pathname === "/candidates" ||
+      {(location.pathname === "/home" ||
         location.pathname === "/offers" ||
         location.pathname === "/candidates") && (
-          <input
-            className="dentro-buscador"
-            type="text"
-            id="buscar"
-            placeholder="Buscar"
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-        )}
+        <input
+          className="dentro-buscador"
+          type="text"
+          id="buscar"
+          placeholder="Buscar"
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+      )}
       <div>
-        <button onClick={handleFilterClick} className=''>Filtro</button>
+        <TbAdjustmentsHorizontal
+          onClick={handleFilterClick}
+          className=""
+        ></TbAdjustmentsHorizontal>
         <FilterModal isOpen={open} />
       </div>
-      {(location.pathname === '/candidates' || location.pathname === '/offers' || location.pathname === '/candidates') &&  (<input
-    className="dentro-buscador"
-    type="text"
-    id="buscar"
-    placeholder="Buscar"
-    onChange={(e) => setSearchText(e.target.value)}
-  />)}
 
     </>
-  )
-
-  
+  );
 }

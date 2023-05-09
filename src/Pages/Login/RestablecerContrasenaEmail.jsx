@@ -21,7 +21,9 @@ const RestablecerContrasenaEmail = () => {
           Restablecer contraseña
         </p>
       </div>
-
+      <div className="loginInputsRest">
+        <form className="loginFormRest" onSubmit={handleSubmit(onSubmit)}>
+          <div className="loginImput pt50">
         <form className="loginForm loginFormRest" onSubmit={handleSubmit(onSubmit)}>
           <div className="loginBloque">
             <label className="loginLabelRest" htmlFor="email">
