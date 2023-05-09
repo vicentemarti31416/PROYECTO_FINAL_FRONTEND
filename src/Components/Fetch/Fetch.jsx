@@ -6,6 +6,7 @@ import { SearchContext } from "../../App";
 import { BiLockAlt, BiMap } from "react-icons/bi";
 import { BiLockOpenAlt } from "react-icons/bi";
 import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineEye } from "react-icons/ai";
 
 export const Fetch = () => {
   const [offers, setOffers] = useState([]);
@@ -13,13 +14,13 @@ export const Fetch = () => {
   const [abierto, setAbierto] = useState({});
   // const [cantidadOfertas] = useContext(offers.length);
 
-  const percent = Math.round(Math.random() * 100);
+
 
   useEffect(() => {
     axios
       .get("http://localhost:8000/offers")
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data);
         setOffers(res.data);
         const initialAbiertoState = res.data.reduce((acc, offer) => {
           acc[offer._id] =
@@ -50,10 +51,12 @@ export const Fetch = () => {
     <div className="offerdisplay">
       {offers && offers.length > 0 ? (
         offers
-          .filter((dataPosition) =>
-          dataPosition.position && dataPosition.position.toLowerCase().includes(searchText)
+          .filter(
+            (dataPosition) =>
+              dataPosition.position &&
+              dataPosition.position.toLowerCase().includes(searchText)
           )
-          .map((offer, index) => (
+          .map((offer, index) => {   const percent = Math.round(Math.random() * 100); return (
             <div className="lockposition" key={offer._id}>
               <div
                 className="locklogo"
@@ -71,7 +74,10 @@ export const Fetch = () => {
                   <div>
                     1 <AiOutlineUser className="logouser" />
                   </div>
-                  <div>02/02/2023</div>
+                  <div>
+                    <AiOutlineEye /><span> </span>
+                     02/02/2023
+                  </div>
                 </div>
                 <div className="line"></div>
                 <div className="process">
@@ -111,7 +117,7 @@ export const Fetch = () => {
                 <div></div>
               </Link>
             </div>
-          ))
+          )})
       ) : (
         <p>No hay ofertas disponibles.</p>
       )}

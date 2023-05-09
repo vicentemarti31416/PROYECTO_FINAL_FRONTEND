@@ -1,10 +1,7 @@
 import React from "react";
 import "./Register.css";
 import { useForm } from "react-hook-form";
-
-import { useNavigate } from "react-router-dom";
-
-import {AiOutlineEye} from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
 
 import { API } from '../../shared/services/api';
 

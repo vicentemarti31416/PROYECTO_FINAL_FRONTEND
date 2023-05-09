@@ -31,7 +31,6 @@ export const OffersPage = (openModal, closeModal) => {
             openModal={openModal}
             closeModal={closeModal}>
           </Searcher>
-          <TbAdjustmentsHorizontal />
         </div>
         <div className="botones-principales">
           <button className="botonera-message-1">Abiertas</button>
