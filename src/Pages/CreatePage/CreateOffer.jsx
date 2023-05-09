@@ -1,12 +1,16 @@
 import React, { useState, useEffect} from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom"; // Importar useHistory
 import { Link } from "react-router-dom";
 import axios from "axios";
 import flechaRetrocederNegra from "../../assets/flechaRetrocederNegra.png";
 import vectorX from "../../assets/vectorX.png";
 
+
 export const CreateOffer = () => {
- 
+  // const history = useHistory(); // Inicializar useHistory
+  const navigate = useNavigate(); // Inicializar useNavigate
+
   const [currentSheet, setCurrentSheet] = useState(0);
   const [jobTitle, setJobTitle] = useState("");
 
@@ -19,6 +23,7 @@ export const CreateOffer = () => {
     setCurrentSheet(sheet);
   };
 
+  
   const handleCreateOffer = () => {
     const requestOptions = {
       method: 'POST',
@@ -34,7 +39,8 @@ export const CreateOffer = () => {
         return response.json();
       })
       .then(data => {
-        console.log("pusheado", data);
+        console.log(data);
+        navigate('/congrats2');
         // Mostrar mensaje de éxito al usuario
       })
       .catch(error => {
@@ -45,7 +51,8 @@ export const CreateOffer = () => {
   
   const onSubmit = (data) => {
     handleCreateOffer();
-    console.log("hola holita", data);
+    console.log(data);
+    // history.push("/congrats2"); // Redirigir al usuario a la nueva página
   };
   
   const handleButton = (value) => {
@@ -68,8 +75,6 @@ export const CreateOffer = () => {
   }, []);
 
 
-        
-  
   return (
     <>
       <div className="">
@@ -248,7 +253,7 @@ export const CreateOffer = () => {
             <option value="practice">Contrato en prácticas</option>
           </select>
         </div>
-        <button onClick={handleNextClick} className="button-black">
+        <button onClick={handleNextClick} className="button-black" >
           Continuar
         </button>
         {/* <button type="submit"> siguiente</button> */}
@@ -288,7 +293,7 @@ export const CreateOffer = () => {
           </select>
         </div>
 
-          <button type="submit" className="button-black">
+          <button type="submit" className="button-black" >
             Crear oferta
           </button>
       
@@ -297,8 +302,7 @@ export const CreateOffer = () => {
         </form>
 
       </div>
-      {sheets[currentSheet]}
-    </div>
+      
   </>
   );
 };
