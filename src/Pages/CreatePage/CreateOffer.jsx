@@ -1,42 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom"; // Importar useHistory
 import { Link } from "react-router-dom";
 import axios from "axios";
 import flechaRetrocederNegra from "../../assets/flechaRetrocederNegra.png";
 import vectorX from "../../assets/vectorX.png";
-
 export const CreateOffer = () => {
+  // const history = useHistory(); // Inicializar useHistory
+  const navigate = useNavigate(); // Inicializar useNavigate
+  
   const [selectedCountry, setSelectedCountry] = useState("");
   const [currentSheet, setCurrentSheet] = useState(0);
   const [jobTitle, setJobTitle] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [offers, setOffers] = useState([]);
+  
+  
   const { register, handleSubmit, getValues  } = useForm();
+  
+ 
   const onSubmit = (data) => console.log(data);
-
+  
+  
+  
   const handleCountryChange = (event) => {
     setSelectedCountry(event.target.value);
   };
 
+  
   const handleNextClick = () => {
     const sheet = currentSheet === sheets.length - 1 ? 0 : currentSheet + 1;
     setCurrentSheet(sheet);
   };
 
   const handleCreateOffer = (e) => {
-    e.preventDefault()
-
-    const { position, company, description, requirements, salary, location, city } = getValues();
-
-    const offerData = {
-      position,
-      company,
-      description,
-      requirements,
-      salary,
-      location: selectedCountry,
-      city: selectedCity
-    }
 
     const requestOptions = {
       method: 'POST',
@@ -45,9 +42,30 @@ export const CreateOffer = () => {
     };
 
     fetch('http://localhost:8000/offers', requestOptions)
-      .then(response => response.json())
-      .then(data => console.log(data));
-  }
+
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        navigate('/congrats2');
+        // Mostrar mensaje de éxito al usuario
+      })
+      .catch(error => {
+        console.error(error);
+        // Mostrar mensaje de error al usuario
+      });
+  };
+  
+  const onSubmit = (data) => {
+    handleCreateOffer();
+    console.log(data);
+    // history.push("/congrats2"); // Redirigir al usuario a la nueva página
+  };
+  
 
   const handleButton = (value) => {
     setJobTitle(value);
@@ -69,11 +87,17 @@ export const CreateOffer = () => {
     getOffers();
   }, []);
 
-  const sheets = [
-    //primera página
-    <div className="container-black">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h4 className="create-white">Duplicar oferta</h4>
+  return (
+    <>
+      <div className="">
+        <h3>Descripción de la oferta</h3>
+        <form onSubmit={handleSubmit(onSubmit)}>
+
+        {currentSheet == 0 &&
+        <div className="container-black">
+      
+        <h4 className="">Duplicar oferta</h4>
+
 
         <div>
   {Array.isArray(offers) && offers.length > 0 ? (
@@ -241,7 +265,7 @@ export const CreateOffer = () => {
             <option value="practice">Contrato en prácticas</option>
           </select>
         </div>
-        <button onClick={handleNextClick} className="button-black">
+        <button onClick={handleNextClick} className="button-black" >
           Continuar
         </button>
       </form>
@@ -286,8 +310,12 @@ export const CreateOffer = () => {
             <option value="keyword5">Palabra clave 5</option>
           </select>
         </div>
+
+          <button type="submit" className="button-black" >
+/*
         <Link to={"/congrats2"}>
           <button onClick={handleCreateOffer} className="button-black">
+*/
             Crear oferta
           </button>
         </Link>
@@ -307,6 +335,7 @@ export const CreateOffer = () => {
           <img src={vectorX} className="imgVector" alt=""></img>
         </Link>
       </div>
+
   </>
   );
 };
