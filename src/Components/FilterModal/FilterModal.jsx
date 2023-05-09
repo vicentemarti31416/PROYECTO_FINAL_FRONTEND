@@ -1,40 +1,50 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import './FilterModal.css';
+import Modal from "react-modal";
+import ReactModal from 'react-modal';
 
-export const FilterModal = () => {
-    const { handleSubmit } = useForm();
-    const [filters, setFilters] = useState({
-        ciudad: "",
-        ubicacion: "",
-        disponibilidad: "",
-        salario: "",
-        tipoJornada: "",
-    });
+Modal.setAppElement("#root");
 
-    useEffect(() => {
-        console.log(filters);
-    }, [filters]);
+export const FilterModal = ({ isOpen, closeModal }) => {
+  const { handleSubmit } = useForm();
+  const [filters, setFilters] = useState({
+    ciudad: "",
+    ubicacion: "",
+    disponibilidad: "",
+    salario: "",
+    tipoJornada: "",
+  });
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setFilters((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFilters((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const [open, setOpen] = useState(isOpen);
+//   const closeModal = () => {
+//     // setFilters({
+//     //   ciudad: "",
+//     //   ubicacion: "",
+//     //   disponibilidad: "",
+//     //   salario: "",
+//     //   tipoJornada: "",
+//     // });
+//     setOpen(false);
+//     console.log(open,"boton cerrar");
+//   };
+
 
     return (
-
+        <ReactModal className='position' isOpen={isOpen}>
         <div className='modal'>
         <div className='modal-header'>
             <h4>FILTROS</h4>
-            {/* <div onClick={() => closeModal()}> */}
-                {/* <button className='close-button'><img className='' src={close} alt='close' /></button> */}
-                <button className='close-button'><img className=''alt='close' /></button>
-            {/* </div> */}
+            <button onClick={closeModal} className=''>Cerrar</button>
         </div>
-        {/* <div className=''> */}
    
             <form className="" onSubmit={handleSubmit}>
                 <div className="">
@@ -125,7 +135,6 @@ export const FilterModal = () => {
                             ))}
                     </select>
                 </div>
-
                 <div className="">
                     <select className="dentroForm"
                         name="disponibilidad"
@@ -167,9 +176,15 @@ export const FilterModal = () => {
                 </div>
 
             </form>
-        {/* </div> */}
         </div>
+        </ReactModal>
     )
 }
+
+
+
+
+
+
 
 

@@ -44,16 +44,17 @@
 
 .buscadorhome{
     padding-left: 10px;
-    font-size: 15px;
+    padding-right: 10px;
+    font-size: 20px;
     font-family: var(--font-family);
-    width: 70%;
-    height: 35px;
+    width: 75%;
+    height: 38px;
     border-radius: 6px;
     background-color: var(--light-blue);
     display: flex; 
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    color: var(--blue-letter);
 
 }
 

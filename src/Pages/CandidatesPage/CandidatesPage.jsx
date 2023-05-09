@@ -41,7 +41,6 @@ export const CandidatesPage = () => {
         <div className="Buscador">
           <BiSearch className="lupa" />
           <Searcher></Searcher>
-          <TbAdjustmentsHorizontal />
         </div>
         <div className="filters">
           <p>

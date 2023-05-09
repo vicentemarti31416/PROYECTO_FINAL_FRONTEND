@@ -91,7 +91,7 @@ html {
   width: 80%;
   height: 38px;
   border-radius: 11px;
-  background-color: #d8eef7;
+  background-color: var(--light-blue);
   color: var(--blue-letter);
   margin-top: 36px;
   align-items: center;
@@ -162,14 +162,10 @@ html {
 }
 
 .homeoffers{
-  height: 520px;
+  height:480px;
   width: 90%;
   overflow-y: scroll;
   margin-top: 20px;
-}
-
-input::placeholder {
-  text-indent: 10px
 }
 
 /*------------------------------------TABLET-------------------------------------*/

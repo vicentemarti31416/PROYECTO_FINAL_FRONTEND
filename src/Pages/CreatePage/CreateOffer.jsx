@@ -2,8 +2,8 @@ import React, { useState, useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import { SearchContext } from "../../App";
-
+import flechaRetrocederNegra from "../../assets/flechaRetrocederNegra.png";
+import vectorX from "../../assets/vectorX.png";
 
 export const CreateOffer = () => {
  
@@ -72,7 +72,6 @@ export const CreateOffer = () => {
   
   return (
     <>
-
       <div className="">
         <h3>Descripción de la oferta</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -83,18 +82,18 @@ export const CreateOffer = () => {
         <h4 className="">Duplicar oferta</h4>
 
         <div>
-          {Array.isArray(offers) && offers.length > 0 ? (
-            offers.map((offer, index) => (
-              <div key={index}>
-                <button className="button-white" onClick={() => handleButton(offer.position)}>
-                  {offer.position}
-                </button>
-              </div>
-            ))
-          ) : (
-            <p>No hay ofertas disponibles</p>
-          )}
-        </div>
+  {Array.isArray(offers) && offers.length > 0 ? (
+    offers.map((offer, index) => (
+      <div key={index} className="create-offers">
+        <button className="button-blue" onClick={() => handleButton(offer.position)}>
+          {offer.position}
+        </button>
+      </div>
+    ))
+  ) : (
+    <p>No hay ofertas disponibles</p>
+  )}
+</div>
         <div className="">
           <h4 className="">Titulo de la nueva oferta</h4>
           <input
@@ -106,7 +105,7 @@ export const CreateOffer = () => {
           />
           <p>¿Cómo crear un título efectivo?</p>
         </div>
-        <button onClick={handleNextClick} className="button-black">
+        <button onClick={handleNextClick} className="button-white">
           Comenzar
         </button>
       
@@ -294,10 +293,12 @@ export const CreateOffer = () => {
           </button>
       
     </div>
-
       }
         </form>
+
       </div>
-    </>
+      {sheets[currentSheet]}
+    </div>
+  </>
   );
 };
