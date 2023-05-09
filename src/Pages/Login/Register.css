@@ -12,6 +12,7 @@
 }
 
 .register-form {
+  margin-top: 20px;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -19,19 +20,23 @@
 }
 
 .register-div {
+  gap: 5px;
   display: flex;
   flex-direction: column;
   width: 85%;
   margin: auto;
+  padding: 8px
 }
 .register-div1{
   display: flex;
   flex-direction: row-reverse;
   width: 85%;
   margin: auto;
+  padding-top: 35px;
 }
 .checkbox{
   margin: 15px;
+  
 }
 .register {
   display: flex;
@@ -50,3 +55,17 @@
   border: 1px solid var(--black);
 }
 
+/* label{
+  color: var(--blue-letter);
+} */
+.button-black{
+  margin-top: 50px;
+}
+.register-label{
+  margin-left: 10px;
+  color: var(--dark-blue-letter);
+  font-size: 20px;
+}
+.textBlue{
+  color: var(--blue);
+}

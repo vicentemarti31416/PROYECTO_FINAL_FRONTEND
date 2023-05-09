@@ -14,10 +14,12 @@ const RestablecerContrasenaEmail = () => {
   return (
     <div className="loginContainer loginContainerRest">
       <div className="loginRetroceder">
-        <img src={flechaRetroceder} className="imgFlecha" alt=""></img>
-        <Link to={"/login"} className="loginWhite">
-          Restablecer contraseña
+        <Link to={"/login"}>
+          <img src={flechaRetroceder} className="imgVector" alt=""></img>
         </Link>
+        <p>
+          Restablecer contraseña
+        </p>
       </div>
 
         <form className="loginForm loginFormRest" onSubmit={handleSubmit(onSubmit)}>

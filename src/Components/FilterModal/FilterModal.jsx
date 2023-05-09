@@ -1,38 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import './FilterModal.css';
+import Modal from "react-modal";
+import ReactModal from 'react-modal';
 
-export const FilterModal = () => {
-    const { handleSubmit } = useForm();
-    const [filters, setFilters] = useState({
-        ciudad: "",
-        ubicacion: "",
-        disponibilidad: "",
-        salario: "",
-        tipoJornada: "",
+Modal.setAppElement("#root");
+
+export const FilterModal = ({ isOpen }) => {
+  const { handleSubmit } = useForm();
+  const [filters, setFilters] = useState({
+    ciudad: "",
+    ubicacion: "",
+    disponibilidad: "",
+    salario: "",
+    tipoJornada: "",
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFilters((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const closeModal = () => {
+    setFilters({
+      ciudad: "",
+      ubicacion: "",
+      disponibilidad: "",
+      salario: "",
+      tipoJornada: "",
     });
+  };
 
-    useEffect(() => {
-        console.log(filters);
-    }, [filters]);
-
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setFilters((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
 
     return (
-
+        <ReactModal className='position' isOpen={isOpen}>
         <div className='modal'>
         <div className='modal-header'>
             <h4>FILTROS</h4>
-            {/* <div onClick={() => closeModal()}> */}
+            <div onClick={() => closeModal()}>
                 {/* <button className='close-button'><img className='' src={close} alt='close' /></button> */}
                 <button className='close-button'><img className=''alt='close' /></button>
-            {/* </div> */}
+            </div>
         </div>
         {/* <div className=''> */}
    
@@ -169,6 +179,7 @@ export const FilterModal = () => {
             </form>
         {/* </div> */}
         </div>
+        </ReactModal>
     )
 }
 
