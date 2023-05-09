@@ -24,10 +24,11 @@ export const SearchContext = React.createContext();
 function App() {
 
   const [searchText, setSearchText] = useState("");
+  const [oferta, setOferta] = useState({});
 
   return (
     <div>
-      <SearchContext.Provider value={{ searchText, setSearchText }}>
+      <SearchContext.Provider value={{ searchText, setSearchText, oferta, setOferta }}>
         <Router>
           <Routes>
             <Route path="/" element={<Welcome />} />

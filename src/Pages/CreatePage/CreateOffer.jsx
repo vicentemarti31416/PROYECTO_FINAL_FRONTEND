@@ -1,57 +1,56 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import axios from "axios";
+// import { SearchContext } from "../../App";
 
 
 export const CreateOffer = () => {
-  const [selectedCountry, setSelectedCountry] = useState("");
+ 
   const [currentSheet, setCurrentSheet] = useState(0);
   const [jobTitle, setJobTitle] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
+
+
   const [offers, setOffers] = useState([]);
   const { register, handleSubmit, getValues  } = useForm();
-  const onSubmit = (data) => console.log(data);
-
-  const handleCountryChange = (event) => {
-    setSelectedCountry(event.target.value);
-  };
-
+  
   const handleNextClick = () => {
-    const sheet = currentSheet === sheets.length - 1 ? 0 : currentSheet + 1;
+    const sheet = currentSheet + 1;
     setCurrentSheet(sheet);
   };
 
-  const handleCreateOffer = (e) => {
-    e.preventDefault()
-
-    const { position, company, description, requirements, salary, location, city } = getValues();
-
-    const offerData = {
-      position,
-      company,
-      description,
-      requirements,
-      salary,
-      location: selectedCountry,
-      city: selectedCity
-    }
-
+  const handleCreateOffer = () => {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ offerData })
+      body: JSON.stringify(getValues())
     };
-
+  
     fetch('http://localhost:8000/offers', requestOptions)
-      .then(response => response.json())
-      .then(data => console.log(data));
-  }
-
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("pusheado", data);
+        // Mostrar mensaje de éxito al usuario
+      })
+      .catch(error => {
+        console.error(error);
+        // Mostrar mensaje de error al usuario
+      });
+  };
+  
+  const onSubmit = (data) => {
+    handleCreateOffer();
+    console.log("hola holita", data);
+  };
+  
   const handleButton = (value) => {
     setJobTitle(value);
   };
-
 
   const getOffers = () => {
     axios
@@ -68,10 +67,19 @@ export const CreateOffer = () => {
     getOffers();
   }, []);
 
-  const sheets = [
-    //primera página
-    <div className="container-black">
-      <form onSubmit={handleSubmit(onSubmit)}>
+
+        
+  
+  return (
+    <>
+
+      <div className="">
+        <h3>Descripción de la oferta</h3>
+        <form onSubmit={handleSubmit(onSubmit)}>
+
+        {currentSheet == 0 &&
+        <div className="container-black">
+      
         <h4 className="">Duplicar oferta</h4>
 
         <div>
@@ -94,21 +102,24 @@ export const CreateOffer = () => {
             type="text"
             id="title"
             placeholder="Escribe el título"
-            {...register("jobTitle")}
+            {...register("position")}
           />
           <p>¿Cómo crear un título efectivo?</p>
         </div>
         <button onClick={handleNextClick} className="button-black">
           Comenzar
         </button>
-      </form>
-    </div>,
+      
+    </div>
 
-    //segunda página
+          }
+
+
+          {currentSheet == 1 &&
     <div className="">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      
         <div className="">
-          <select {...register("city")} value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
+          <select {...register("city")} defaultValue="">
             <option value="" disabled>
               Ciudad
             </option>
@@ -143,7 +154,7 @@ export const CreateOffer = () => {
             ]
               .sort()
               .map((city) => (
-                <option key={city} value={selectedCity}>
+                <option key={city} value={city}>
                   {city}
                 </option>
               ))}
@@ -151,7 +162,7 @@ export const CreateOffer = () => {
         </div>
 
         <div className="">
-          <select {...register("country")} value={selectedCountry} onChange={handleCountryChange}> defaultValue="">
+          <select {...register("location")} defaultValue="">
             <option value="" disabled>
               Ubicacion
             </option>
@@ -215,7 +226,7 @@ export const CreateOffer = () => {
         </div>
 
         <div className="">
-          <select {...register("work-schedule")} defaultValue="">
+          <select {...register("scheduleType")} defaultValue="">
             <option value="" disabled>
               Tipo de jornada
             </option>
@@ -226,7 +237,7 @@ export const CreateOffer = () => {
         </div>
 
         <div className="">
-          <select {...register("contract-type")} defaultValue="">
+          <select {...register("contractType")} defaultValue="">
             <option value="" disabled>
               Tipo de contrato
             </option>
@@ -241,34 +252,26 @@ export const CreateOffer = () => {
         <button onClick={handleNextClick} className="button-black">
           Continuar
         </button>
-      </form>
-    </div>,
+        {/* <button type="submit"> siguiente</button> */}
+      
+    </div>
+    }
 
-    //tercera página
+    {currentSheet == 2 &&
+
     <div className="">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      
         <h4 className="">Requisitos de candidato</h4>
         <div className="">
           <p className="">Descripción de requisitos</p>
           <input
-            {...register("requiresDescription")}
+            {...register("description")}
             type="text"
             placeholder="Descripción..."
           />
         </div>
-        <div className="">
-          {/* <label htmlFor="questions">Añadir preguntas</label> */}
-          <select {...register("questions")} defaultValue="">
-            <option value="" disabled>
-              Preguntas
-            </option>
-            <option value="question1">Pregunta 1</option>
-            <option value="question2">Pregunta 2</option>
-            <option value="question3">Pregunta 3</option>
-            <option value="question4">Pregunta 4</option>
-            <option value="question5">Pregunta 5</option>
-          </select>
-        </div>
+      
+
         <h4 className="">Codificaciones internas</h4>
         <div className="">
           {/* <label htmlFor="keywords">Añadir palabras clave</label> */}
@@ -276,28 +279,24 @@ export const CreateOffer = () => {
             <option value="" disabled>
               Palabras clave
             </option>
-            <option value="keyword1">Palabra clave 1</option>
-            <option value="keyword2">Palabra clave 2</option>
-            <option value="keyword3">Palabra clave 3</option>
-            <option value="keyword4">Palabra clave 4</option>
-            <option value="keyword5">Palabra clave 5</option>
+            <option value="Developer">Developer</option>
+            <option value="Javscript">Javscript</option>
+            <option value="Liderazgo">Liderazgo</option>
+            <option value="Oratoria">Oratoria</option>
+            <option value="Creatividad">Creatividad</option>
+            <option value="UX/UI">UX/UI</option>
+            <option value="Diseño">Diseño</option>
           </select>
         </div>
-        <Link to={"/congrats2"}>
-          <button onClick={handleCreateOffer} className="button-black">
+
+          <button type="submit" className="button-black">
             Crear oferta
           </button>
-        </Link>
-      </form>
-    </div>,
-  ];
+      
+    </div>
 
-  return (
-    <>
-
-      <div className="">
-        <h3>Descripción de la oferta</h3>
-        {sheets[currentSheet]}
+      }
+        </form>
       </div>
     </>
   );
