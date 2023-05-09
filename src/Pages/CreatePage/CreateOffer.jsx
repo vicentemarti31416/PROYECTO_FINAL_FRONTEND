@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import flechaRetrocederNegra from "../../assets/flechaRetrocederNegra.png";
+import vectorX from "../../assets/vectorX.png";
 
 export const CreateOffer = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -72,21 +73,21 @@ export const CreateOffer = () => {
     //primera página
     <div className="container-black">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h4 className="">Duplicar oferta</h4>
+        <h4 className="create-white">Duplicar oferta</h4>
 
         <div>
-          {Array.isArray(offers) && offers.length > 0 ? (
-            offers.map((offer, index) => (
-              <div key={index}>
-                <button className="button-white" onClick={() => handleButton(offer.position)}>
-                  {offer.position}
-                </button>
-              </div>
-            ))
-          ) : (
-            <p>No hay ofertas disponibles</p>
-          )}
-        </div>
+  {Array.isArray(offers) && offers.length > 0 ? (
+    offers.map((offer, index) => (
+      <div key={index} className="create-offers">
+        <button className="button-blue" onClick={() => handleButton(offer.position)}>
+          {offer.position}
+        </button>
+      </div>
+    ))
+  ) : (
+    <p>No hay ofertas disponibles</p>
+  )}
+</div>
         <div className="">
           <h4 className="">Titulo de la nueva oferta</h4>
           <input
@@ -98,7 +99,7 @@ export const CreateOffer = () => {
           />
           <p>¿Cómo crear un título efectivo?</p>
         </div>
-        <button onClick={handleNextClick} className="button-black">
+        <button onClick={handleNextClick} className="button-white">
           Comenzar
         </button>
       </form>
@@ -295,12 +296,19 @@ export const CreateOffer = () => {
   ];
 
   return (
-    <>
-
-      <div className="">
+    <>   
+    <div className="">
+      <div>
+        <Link to={"/login"}>
+          <img src={flechaRetrocederNegra} className="imgVector" alt=""></img>
+        </Link>
         <h3>Descripción de la oferta</h3>
-        {sheets[currentSheet]}
+        <Link to={"/login"}>
+          <img src={vectorX} className="imgVector" alt=""></img>
+        </Link>
       </div>
-    </>
+      {sheets[currentSheet]}
+    </div>
+  </>
   );
 };
