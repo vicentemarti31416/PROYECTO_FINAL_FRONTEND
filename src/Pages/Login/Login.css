@@ -82,8 +82,41 @@
     padding-bottom: 200px;
   }
 
+
+  .loginInput {
+    position: relative;
+  }
+  
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .eye-icon {
+    position: absolute;
+    top: 63%;
+    right: 50px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: black;
+  }
+  
+  .loginBloque {
+    position: relative;
+  }
+  
+  .eye-icon1 {
+    position: absolute;
+    top: 70%;
+    right: 65px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: black;
+  }
+
   .button100 {
     width: 100%;
   }
+
 
   

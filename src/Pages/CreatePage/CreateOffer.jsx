@@ -307,8 +307,6 @@ export const CreateOffer = () => {
           <img src={vectorX} className="imgVector" alt=""></img>
         </Link>
       </div>
-      {sheets[currentSheet]}
-    </div>
   </>
   );
 };
