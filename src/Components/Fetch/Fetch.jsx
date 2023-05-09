@@ -9,7 +9,7 @@ import { AiOutlineUser } from "react-icons/ai";
 
 export const Fetch = () => {
   const [offers, setOffers] = useState([]);
-  const { searchText, setSearchText } = useContext(SearchContext);
+  const { searchText } = useContext(SearchContext);
   const [abierto, setAbierto] = useState({});
   // const [cantidadOfertas] = useContext(offers.length);
 
@@ -19,6 +19,7 @@ export const Fetch = () => {
     axios
       .get("http://localhost:8000/offers")
       .then((res) => {
+        console.log(res.data)
         setOffers(res.data);
         const initialAbiertoState = res.data.reduce((acc, offer) => {
           acc[offer._id] =
@@ -49,8 +50,8 @@ export const Fetch = () => {
     <div className="offerdisplay">
       {offers && offers.length > 0 ? (
         offers
-          .filter((dataSearch) =>
-            dataSearch.position.toLowerCase().includes(searchText)
+          .filter((dataPosition) =>
+          dataPosition.position && dataPosition.position.toLowerCase().includes(searchText)
           )
           .map((offer, index) => (
             <div className="lockposition" key={offer._id}>

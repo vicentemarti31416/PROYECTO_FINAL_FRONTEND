@@ -8,7 +8,7 @@ export default function Searcher() {
   const location = useLocation();
   console.log(location.pathname);
 
-  const { searchText, setSearchText } = useContext(SearchContext);
+  const { setSearchText } = useContext(SearchContext);
 
   useEffect(() => {
     setSearchText("");

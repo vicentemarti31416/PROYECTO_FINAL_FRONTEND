@@ -32,9 +32,11 @@
 .job-news h3,
 .job-news h4 {
   color: black;
+  margin: 10px;
 }
 .job-news h5 {
   color: var(--grey-normal);
+  margin: 10px;
 }
 
 /*------------------------------------MOBILE-------------------------------------*/
