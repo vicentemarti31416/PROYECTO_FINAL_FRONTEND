@@ -17,6 +17,7 @@ export default function AuthButton () {
         localStorage.removeItem('token');
         localStorage.removeItem('name');
         localStorage.removeItem('email_verified');
+        localStorage.clear();
         setJwt(null);
         navigate("/");
     }

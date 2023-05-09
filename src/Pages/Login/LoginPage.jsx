@@ -1,5 +1,4 @@
-
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './Login.css';
 import group7 from '../../assets/group7.png';
 import { useForm } from "react-hook-form";
@@ -7,12 +6,21 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { API } from '../../shared/services/api';
 import { JwtContext } from '../../shared/contexts/JwtContext';
+import { AuthContext } from '../../shared/components/AuthProvider/AuthProvider';
 
 const LoginPage = () => {
 
+    const { isAuthenticated } = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const { setJwt } = useContext(JwtContext);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        console.log("isAuthenticated = " + isAuthenticated);
+        if (isAuthenticated) {
+            navigate("/home");
+        }
+    }, [isAuthenticated, navigate]);
 
     const onSubmit = (formData) => {
         API

@@ -1,25 +1,29 @@
-import React from "react";
+import React, { useContext, useEffect } from 'react'
 import "./Register.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
 import {AiOutlineEye} from "react-icons/ai";
-
 import { API } from '../../shared/services/api';
-
+import { AuthContext } from '../../shared/components/AuthProvider/AuthProvider';
+import { JwtContext } from '../../shared/contexts/JwtContext';
 
 const RegisterForm = () => {
+
+  const { isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { setJwt } = useContext(JwtContext);
+
+  useEffect(() => {
+      console.log("isAuthenticated = " + isAuthenticated);
+      if (isAuthenticated) {
+          navigate("/home");
+      }
+  }, [isAuthenticated, navigate]);
 
   const onSubmit = (formData) => {
     console.log(formData)
-    //if (formData.password === formData.repeatPassword) {
       API
       .post('user/register', formData)
       .then((res) => {
