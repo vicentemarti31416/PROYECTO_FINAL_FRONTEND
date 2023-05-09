@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useContext, useEffect } from 'react'
 import "./Login.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import flechaRetroceder from "../../assets/flechaRetroceder.png";
+import { API } from '../../shared/services/api';
+import { useNavigate } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import { AuthContext } from '../../shared/components/AuthProvider/AuthProvider';
+import { JwtContext } from '../../shared/contexts/JwtContext';
 
 const RestablecerContrasenaContrasena = () => {
+
+  const { isAuthenticated } = useContext(AuthContext);
+  const { userId, resetString } = useParams();
+  const navigate = useNavigate();
+  const { setJwt } = useContext(JwtContext);
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (dataF) => {
-    console.log(dataF);
+  useEffect(() => {
+    console.log("isAuthenticated = " + isAuthenticated);
+    if (isAuthenticated) {
+      navigate("/home");
+    }
+  }, [isAuthenticated, navigate]);
+
+  const onSubmit = (formData) => {
+    formData.userId = userId;
+    formData.resetString = resetString;
+    console.log("formData" + formData)
+    API
+      .post('user/resetPassword', formData)
+      .then((res) => {
+        console.log('Password update successfully:', res.data, 'Full AxiosResponse:', res);
+        navigate('/home');
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -44,13 +70,13 @@ const RestablecerContrasenaContrasena = () => {
             type="password"
             id="passwordConfirm"
             placeholder="Confirmar contraseña"
-            {...register("contraseña")}
+            {...register("newPassword")}
           />
         </div>
 
         <div className="loginBloque">
-          <button className="button-white">
-            <Link to="/login">Guardar</Link>
+          <button type="submit" className="button-white">
+            Guardar
           </button>
         </div>
       </form>
