@@ -99,7 +99,7 @@ html {
 
 .dentro-buscador{
   background-color: transparent;
-  width: 240px;
+  width: 200px;
   height: 20px;
   color: var(--blue-letter);
 }

@@ -24,7 +24,7 @@ export default function Searcher() {
 
   return (
     <>
-      {(location.pathname === "/candidates" ||
+      {(location.pathname === "/home" ||
         location.pathname === "/offers" ||
         location.pathname === "/candidates") && (
         <input
@@ -36,9 +36,6 @@ export default function Searcher() {
         />
       )}
       <div>
-        {/* <button onClick={openModal} className="">
-          Abrir filtro
-        </button> */}
         <TbAdjustmentsHorizontal onClick={openModal}/>
         <FilterModal isOpen={open} closeModal={closeModal} />
       </div>
