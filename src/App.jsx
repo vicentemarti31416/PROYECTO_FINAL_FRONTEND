@@ -11,7 +11,7 @@ import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import LoginPage from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
-import HomePage from "./Pages/Homepage/HomePage";
+import HomePage from "./Pages/HomePage/HomePage";
 import { Congrats } from "./Components/Congrats/Congrats";
 import Perfil from "./Pages/Profile/Perfil";
 import RestablecerContrasenaEmail from "./Pages/Login/RestablecerContrasenaEmail";
@@ -92,14 +92,7 @@ function AppContent() {
       <div className="App">
         <div className="App-header">
           <AuthButton />
-
-          <nav className="form-nav">
-            {!jwt && <NavLink className="b-btn" to="/register">Register</NavLink>}
-            {!jwt && <NavLink className="b-btn" to="/login">Login</NavLink>}
-          </nav>
-
           <Routes>
-
               <Route path="/" element={<Welcome />} />
               <Route path="/home" element={<RequireAuth><HomePage /></RequireAuth>} />
               <Route path="/candidates" element={<RequireAuth><CandidatesPage /></RequireAuth>} />
@@ -118,7 +111,6 @@ function AppContent() {
               <Route path="/Profile" element={<RequireAuth><Perfil /></RequireAuth>} />
               <Route path="/offers/:id" element={<RequireAuth><OffersDetails /></RequireAuth>} />
               <Route path="/candidates/:id" element={<RequireAuth><CandidateDetails /></RequireAuth>} />
-
           </Routes>
 
           {!jwt && <div id="signInDiv"></div>}

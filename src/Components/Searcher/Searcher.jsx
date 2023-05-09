@@ -6,12 +6,16 @@ import { TbAdjustmentsHorizontal } from "react-icons/tb";
 
 export default function Searcher() {
   const location = useLocation();
-  console.log(location.pathname);
 
   const { searchText, setSearchText } = useContext(SearchContext);
   const [open, setOpen] = useState(false);
-  const handleFilterClick = () => {
+
+  console.log(open, "estado de open");
+  const openModal = () => {
     setOpen(true);
+  };
+  const closeModal = () => {
+    setOpen(false);
   };
 
   useEffect(() => {
@@ -20,7 +24,7 @@ export default function Searcher() {
 
   return (
     <>
-      {(location.pathname === "/home" ||
+      {(location.pathname === "/candidates" ||
         location.pathname === "/offers" ||
         location.pathname === "/candidates") && (
         <input
@@ -32,13 +36,12 @@ export default function Searcher() {
         />
       )}
       <div>
-        <TbAdjustmentsHorizontal
-          onClick={handleFilterClick}
-          className=""
-        ></TbAdjustmentsHorizontal>
-        <FilterModal isOpen={open} />
+        {/* <button onClick={openModal} className="">
+          Abrir filtro
+        </button> */}
+        <TbAdjustmentsHorizontal onClick={openModal}/>
+        <FilterModal isOpen={open} closeModal={closeModal} />
       </div>
-
     </>
   );
 }
