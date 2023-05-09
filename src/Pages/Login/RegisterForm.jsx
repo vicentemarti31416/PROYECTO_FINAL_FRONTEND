@@ -2,7 +2,9 @@ import React from "react";
 import "./Register.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import {AiOutlineEye} from "react-icons/ai";
 import { API } from '../../shared/services/api';
+
 
 const RegisterForm = () => {
   const {
@@ -43,7 +45,7 @@ const RegisterForm = () => {
             {errors.nombre && (
               <span className="error-message">Campo requerido</span>
             )}
-          </div>
+          </div> 
           <div className="register-div">
             <label className="register-label" htmlFor="nif">
               NIF
@@ -73,18 +75,21 @@ const RegisterForm = () => {
             {errors.email && (
               <span className="error-message">Campo requerido</span>
             )}
-          </div>
+          </div> 
           <div className="register-div">
             <label className="register-label" htmlFor="contraseña">
               Contraseña
             </label>
-            <input
+            <div>
+            <input 
+          
               className="register-input"
               type="password"
               id="contraseña"
-              placeholder="Contraseña"
+              placeholder="Contraseña " 
               {...register("contraseña", { required: true })}
             />
+            </div>
             {errors.contraseña && (
               <span className="error-message">Campo requerido</span>
             )}
@@ -105,9 +110,13 @@ const RegisterForm = () => {
             )}
           </div>
           <div className="register-div1">
-            <label htmlFor="checkbox">
-              Al crear una cuenta, acepta los términos y condiciones
-              relacionados con meeTTalent
+            <label className="register-label" htmlFor="checkbox">
+              Al crear una cuenta, 
+              <Link to={"/"} className="textBlue">
+                acepta los términos y condiciones 
+              </Link> 
+              
+              relacionados con <Link to={"/"} className="textBlue">meeTTalent</Link> 
             </label>
             <input className="checkbox"
               type="checkbox"
