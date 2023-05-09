@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import "./Register.css";
 import { useForm } from "react-hook-form";
@@ -21,6 +22,50 @@ const RegisterForm = () => {
   };
   const togglePasswordVisibility1 = () => {
     setShowPassword1(!showPassword1);
+
+import React, { useContext, useEffect } from 'react'
+import "./Register.css";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {AiOutlineEye} from "react-icons/ai";
+import { API } from '../../shared/services/api';
+import { AuthContext } from '../../shared/components/AuthProvider/AuthProvider';
+import { JwtContext } from '../../shared/contexts/JwtContext';
+
+const RegisterForm = () => {
+
+  const { isAuthenticated } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { setJwt } = useContext(JwtContext);
+
+  useEffect(() => {
+      console.log("isAuthenticated = " + isAuthenticated);
+      if (isAuthenticated) {
+          navigate("/home");
+      }
+  }, [isAuthenticated, navigate]);
+
+  const onSubmit = (formData) => {
+    console.log(formData);
+    //if (formData.password === formData.repeatPassword) {
+    API.post("user/register", formData)
+
+      .then((res) => {
+        console.log(
+          "User registered successfully with response:",
+          res.data,
+          "Full AxiosResponse:",
+          res
+        );
+        navigate("/login");
+      })
+      .catch((error) => console.log(error));
+    /*} else {
+      console.log("Las contraseñas no coinciden")
+    }*/
+
   };
 
   const togglePasswordVisibility2 = () => {
@@ -29,6 +74,7 @@ const RegisterForm = () => {
   
   return (
     <div className="register_container">
+
       <h3>Crear Cuenta</h3>
       <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
         <div className="register">
@@ -81,6 +127,7 @@ const RegisterForm = () => {
             <label className="register-label" htmlFor="contraseña">
               Contraseña
             </label>
+
             <div className="password-input">
               <input
                 className="register-input"
@@ -100,6 +147,16 @@ const RegisterForm = () => {
                   onClick={togglePasswordVisibility1}
                 />
               )}
+/*
+            <div>
+              <input
+                className="register-input"
+                type="password"
+                id="password"
+                placeholder="Contraseña"
+                {...register("password", { required: true })}
+              />
+*/
             </div>
             {errors.contraseña && (
               <span className="error-message">Campo requerido</span>
@@ -134,9 +191,15 @@ const RegisterForm = () => {
             )}
           </div>
           <div className="register-div1">
+
             <label className="register-label1" htmlFor="checkbox">
               Al crear una cuenta,
               <Link to={"/"} className="textBlue" >
+/*
+            <label className="register-label" htmlFor="checkbox">
+              Al crear una cuenta,{" "}
+              <Link to={"/"} className="textBlue">
+*/
                 acepta los términos y condiciones{" "}
               </Link>
               relacionados con{" "}
@@ -155,6 +218,9 @@ const RegisterForm = () => {
               </span>
             )}
           </div>
+          <button type="submit" className="button-black">
+            Continuar
+          </button>
         </div>
       </form>
       <button className="button-black">

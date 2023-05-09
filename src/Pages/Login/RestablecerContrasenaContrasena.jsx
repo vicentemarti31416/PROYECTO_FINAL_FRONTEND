@@ -1,17 +1,48 @@
+
 import React, { useState } from "react";
+import React, { useContext, useEffect } from 'react'
 import "./Login.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import flechaRetroceder from "../../assets/flechaRetroceder.png";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { API } from '../../shared/services/api';
+import { useNavigate } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import { AuthContext } from '../../shared/components/AuthProvider/AuthProvider';
+import { JwtContext } from '../../shared/contexts/JwtContext';
 
 const RestablecerContrasenaContrasena = () => {
+
+  const { isAuthenticated } = useContext(AuthContext);
+  const { userId, resetString } = useParams();
+  const navigate = useNavigate();
+  const { setJwt } = useContext(JwtContext);
   const { register, handleSubmit } = useForm();
   const [showPassword1, setShowPassword1] = useState(false); 
   const [showPassword2, setShowPassword2] = useState(false); 
  
   const onSubmit = (dataF) => {
     console.log(dataF);
+
+  useEffect(() => {
+    console.log("isAuthenticated = " + isAuthenticated);
+    if (isAuthenticated) {
+      navigate("/home");
+    }
+  }, [isAuthenticated, navigate]);
+
+  const onSubmit = (formData) => {
+    formData.userId = userId;
+    formData.resetString = resetString;
+    console.log("formData" + formData)
+    API
+      .post('user/resetPassword', formData)
+      .then((res) => {
+        console.log('Password update successfully:', res.data, 'Full AxiosResponse:', res);
+        navigate('/home');
+      })
+      .catch((error) => console.log(error));
   };
 
   const togglePasswordVisibility1 = () => {
@@ -28,10 +59,37 @@ const RestablecerContrasenaContrasena = () => {
         <Link to={"/RestablecerContrasenaEmail"}>
           <img src={flechaRetroceder} className="imgVector" alt=""></img>
         </Link>
-        <p>
-          Restablecer contraseña
-        </p>
+        <p>Restablecer contraseña</p>
       </div>
+      <div className="loginInputsRest">
+        <form
+          className="loginForm loginFormRest"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className="loginBloque">
+            <label className="loginLabelRest" htmlFor="password">
+              Nueva contraseña
+            </label>
+            <input
+              className="button-blue button100"
+              type="password"
+              id="password"
+              placeholder="Nueva contraseña"
+            />
+          </div>
+
+          <div className="loginBloque">
+            <label className="loginLabelRest" htmlFor="passwordConfirm">
+              Confirmar
+            </label>
+            <input
+              className="button-blue button100"
+              type="password"
+              id="passwordConfirm"
+              placeholder="Confirmar contraseña"
+              {...register("contraseña")}
+            />
+          </div>
 
       <form className="loginForm loginFormRest" onSubmit={handleSubmit(onSubmit)}>
         <div className="loginBloque">
@@ -57,6 +115,16 @@ const RestablecerContrasenaContrasena = () => {
               )}
         </div>
 
+
+          <div className="loginBloque">
+            <button className="button-white button100">
+              <Link to="/login">Guardar</Link>
+            </button>
+          </div>
+        </form>
+      </div>
+
+ /*
         <div className="loginBloque">
           <label className="loginLabelRest" htmlFor="passwordConfirm">
             Confirmar
@@ -66,7 +134,7 @@ const RestablecerContrasenaContrasena = () => {
             type={showPassword2 ? "text" : "password"}
             id="passwordConfirm"
             placeholder="Confirmar contraseña"
-            {...register("contraseña")}
+            {...register("newPassword")}
           />
        {showPassword2 ? (
                 <AiOutlineEyeInvisible
@@ -82,11 +150,12 @@ const RestablecerContrasenaContrasena = () => {
         </div>
 
         <div className="loginBloque">
-          <button className="button-white">
-            <Link to="/login">Guardar</Link>
+          <button type="submit" className="button-white">
+            Guardar
           </button>
         </div>
-      </form>
+      </form>*/
+
     </div>
   );
 };

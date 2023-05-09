@@ -1,5 +1,6 @@
 
 import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './Login.css';
 import group7 from '../../assets/group7.png';
 import { useForm } from "react-hook-form";
@@ -7,17 +8,32 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { API } from '../../shared/services/api';
 import { JwtContext } from '../../shared/contexts/JwtContext';
+
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const LoginPage = () => {
     const [showPassword, setShowPassword] = useState(false);
+
+import { AuthContext } from '../../shared/components/AuthProvider/AuthProvider';
+
+const LoginPage = () => {
+
+    const { isAuthenticated } = useContext(AuthContext);
+
     const { register, handleSubmit } = useForm();
     const { setJwt } = useContext(JwtContext);
     const navigate = useNavigate();
 
+
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
       };
+    useEffect(() => {
+        console.log("isAuthenticated = " + isAuthenticated);
+        if (isAuthenticated) {
+            navigate("/home");
+        }
+    }, [isAuthenticated, navigate]);
 
     const onSubmit = (formData) => {
         API
@@ -46,8 +62,9 @@ const LoginPage = () => {
                 <form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
                     <div className='loginImput pt50'>
                         <label className='loginLabel' htmlFor='email'>Email ID</label>
-                        <input className='button-blue' type="email" id='email' placeholder="Email ID" {...register("email")} />
+                        <input className='button-blue button100' type="email" id='email' placeholder="Email ID" {...register("email")} />
                     </div>
+
                     <div className='loginInput'>
   <label className='loginLabel' htmlFor='password'>Contraseña</label>
   <div className="input-wrapper">
@@ -59,8 +76,14 @@ const LoginPage = () => {
     )}
   </div>
 </div>
+/*
+                    <div className='loginImput'>
+                        <label className='loginLabel' htmlFor='password'>Contraseña</label>
+                        <input className='button-blue button100' type="password" id='password' placeholder="Contraseña" {...register("password")} />
+                    </div>
+*/
                     <div>
-                        <button className='button-white' type='submit'>Comenzar</button>
+                        <button className='button-white button100' type='submit'>Comenzar</button>
                     </div>
                 </form>
             </div>
