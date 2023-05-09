@@ -297,8 +297,6 @@ export const CreateOffer = () => {
         </form>
 
       </div>
-      {sheets[currentSheet]}
-    </div>
   </>
   );
 };

@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import flechaRetroceder from "../../assets/flechaRetroceder.png";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const RestablecerContrasenaContrasena = () => {
   const { register, handleSubmit } = useForm();
-
+  const [showPassword1, setShowPassword1] = useState(false); 
+  const [showPassword2, setShowPassword2] = useState(false); 
+ 
   const onSubmit = (dataF) => {
     console.log(dataF);
+  };
+
+  const togglePasswordVisibility1 = () => {
+    setShowPassword1(!showPassword1);
+  };
+
+  const togglePasswordVisibility2 = () => {
+    setShowPassword2(!showPassword2);
   };
 
   return (
@@ -29,10 +40,21 @@ const RestablecerContrasenaContrasena = () => {
           </label>
           <input
             className="button-blue"
-            type="password"
+            type={showPassword1 ? "text" : "password"}
             id="password"
             placeholder="Nueva contraseña"
           />
+            {showPassword1 ? (
+                <AiOutlineEyeInvisible
+                  className="eye-icon1"
+                  onClick={togglePasswordVisibility1}
+                />
+              ) : (
+                <AiOutlineEye
+                  className="eye-icon1"
+                  onClick={togglePasswordVisibility1}
+                />
+              )}
         </div>
 
         <div className="loginBloque">
@@ -41,11 +63,22 @@ const RestablecerContrasenaContrasena = () => {
           </label>
           <input
             className="button-blue"
-            type="password"
+            type={showPassword2 ? "text" : "password"}
             id="passwordConfirm"
             placeholder="Confirmar contraseña"
             {...register("contraseña")}
           />
+       {showPassword2 ? (
+                <AiOutlineEyeInvisible
+                  className="eye-icon"
+                  onClick={togglePasswordVisibility2}
+                />
+              ) : (
+                <AiOutlineEye
+                  className="eye-icon"
+                  onClick={togglePasswordVisibility2}
+                />
+              )}
         </div>
 
         <div className="loginBloque">
@@ -59,3 +92,63 @@ const RestablecerContrasenaContrasena = () => {
 };
 
 export default RestablecerContrasenaContrasena;
+
+
+
+
+// <div className="register-div">
+// <label className="register-label" htmlFor="contraseña">
+//   Contraseña
+// </label>
+// <div className="password-input">
+//   <input
+//     className="register-input"
+//     type={showPassword1 ? "text" : "password"}
+//     id="contraseña"
+//     placeholder="Contraseña"
+//     {...register("contraseña", { required: true })}
+//   />
+//   {showPassword1 ? (
+//     <AiOutlineEyeInvisible
+//       className="eye-icon"
+//       onClick={togglePasswordVisibility1}
+//     />
+//   ) : (
+//     <AiOutlineEye
+//       className="eye-icon"
+//       onClick={togglePasswordVisibility1}
+//     />
+//   )}
+// </div>
+// {errors.contraseña && (
+//   <span className="error-message">Campo requerido</span>
+// )}
+// </div>
+// <div className="register-div">
+// <label className="register-label" htmlFor="confirmar-contraseña">
+//   Confirmar Contraseña
+// </label>
+// <div className="password-input">
+//   <input
+//     className="register-input"
+//     type={showPassword2 ? "text" : "password"}
+//     id="confirmar-contraseña"
+//     placeholder="Confirmar Contraseña"
+//     {...register("confirmar-contraseña", { required: true })}
+//   />
+//    {showPassword2 ? (
+//     <AiOutlineEyeInvisible
+//       className="eye-icon"
+//       onClick={togglePasswordVisibility2}
+//     />
+//   ) : (
+//     <AiOutlineEye
+//       className="eye-icon"
+//       onClick={togglePasswordVisibility2}
+//     />
+//   )}
+// </div>
+// {errors["confirmar-contraseña"] && (
+//   <span className="error-message">Campo requerido</span>
+// )}
+// </div>
