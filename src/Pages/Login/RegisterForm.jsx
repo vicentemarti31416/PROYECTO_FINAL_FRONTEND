@@ -2,6 +2,9 @@ import React from "react";
 import "./Register.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import {AiOutlineEye} from "react-icons/ai";
+import { API } from '../../shared/services/api';
+
 
 const RegisterForm = () => {
   const {
@@ -10,8 +13,17 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (dataF) => {
-    console.log(dataF);
+  const onSubmit = (formData) => {
+    if (formData.password === formData.repeatPassword) {
+      API
+      .post('user/register', formData)
+      .then((res) => {
+        console.log('User registered successfully with response:', res.data, 'Full AxiosResponse:', res);
+      })
+      .catch((error) => console.log(error));
+    } else {
+      console.log("Las contraseñas no coinciden")
+    }
   };
 
   return (
@@ -33,7 +45,7 @@ const RegisterForm = () => {
             {errors.nombre && (
               <span className="error-message">Campo requerido</span>
             )}
-          </div>
+          </div> 
           <div className="register-div">
             <label className="register-label" htmlFor="nif">
               NIF
@@ -63,18 +75,21 @@ const RegisterForm = () => {
             {errors.email && (
               <span className="error-message">Campo requerido</span>
             )}
-          </div>
+          </div> 
           <div className="register-div">
             <label className="register-label" htmlFor="contraseña">
               Contraseña
             </label>
-            <input
+            <div>
+            <input 
+          
               className="register-input"
               type="password"
               id="contraseña"
-              placeholder="Contraseña"
+              placeholder="Contraseña " 
               {...register("contraseña", { required: true })}
             />
+            </div>
             {errors.contraseña && (
               <span className="error-message">Campo requerido</span>
             )}
@@ -94,12 +109,16 @@ const RegisterForm = () => {
               <span className="error-message">Campo requerido</span>
             )}
           </div>
-          <div className="register-div">
-            <label htmlFor="checkbox">
-              Al crear una cuenta, acepta los términos y condiciones
-              relacionados con meeTTalent
+          <div className="register-div1">
+            <label className="register-label" htmlFor="checkbox">
+              Al crear una cuenta, 
+              <Link to={"/"} className="textBlue">
+                acepta los términos y condiciones 
+              </Link> 
+              
+              relacionados con <Link to={"/"} className="textBlue">meeTTalent</Link> 
             </label>
-            <input
+            <input className="checkbox"
               type="checkbox"
               {...register("terminos", { required: true })}
             />

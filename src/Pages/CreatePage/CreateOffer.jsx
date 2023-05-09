@@ -6,34 +6,53 @@ import flechaRetrocederNegra from "../../assets/flechaRetrocederNegra.png";
 import vectorX from "../../assets/vectorX.png";
 
 export const CreateOffer = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [selectedCountry, setSelectedCountry] = useState("");
   const [currentSheet, setCurrentSheet] = useState(0);
+  const [jobTitle, setJobTitle] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+  const [offers, setOffers] = useState([]);
+  const { register, handleSubmit, getValues  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
+  const handleCountryChange = (event) => {
+    setSelectedCountry(event.target.value);
+  };
+
   const handleNextClick = () => {
     const sheet = currentSheet === sheets.length - 1 ? 0 : currentSheet + 1;
     setCurrentSheet(sheet);
   };
 
-  const { getValues } = useForm();
-  const handleCreateOffer = () => {
-    const { position, company, description, requirements, salary, location } = getValues();
+  const handleCreateOffer = (e) => {
+    e.preventDefault()
+
+    const { position, company, description, requirements, salary, location, city } = getValues();
+
+    const offerData = {
+      position,
+      company,
+      description,
+      requirements,
+      salary,
+      location: selectedCountry,
+      city: selectedCity
+    }
+
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ position, company, description, requirements, salary, location })
+      body: JSON.stringify({ offerData })
     };
-  
-    fetch('/offers', requestOptions)
+
+    fetch('http://localhost:8000/offers', requestOptions)
       .then(response => response.json())
       .then(data => console.log(data));
   }
-  
-  const [jobTitle, setJobTitle] = useState("");
+
   const handleButton = (value) => {
     setJobTitle(value);
   };
 
-  const [offers, setOffers] = useState([]);
 
   const getOffers = () => {
     axios
@@ -69,8 +88,6 @@ export const CreateOffer = () => {
     <p>No hay ofertas disponibles</p>
   )}
 </div>
-
-
         <div className="">
           <h4 className="">Titulo de la nueva oferta</h4>
           <input
@@ -92,7 +109,7 @@ export const CreateOffer = () => {
     <div className="">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="">
-          <select {...register("city")} defaultValue="">
+          <select {...register("city")} value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
             <option value="" disabled>
               Ciudad
             </option>
@@ -127,7 +144,7 @@ export const CreateOffer = () => {
             ]
               .sort()
               .map((city) => (
-                <option key={city} value={city}>
+                <option key={city} value={selectedCity}>
                   {city}
                 </option>
               ))}
@@ -135,7 +152,9 @@ export const CreateOffer = () => {
         </div>
 
         <div className="">
-          <select {...register("country")} defaultValue="">
+
+          <select {...register("country")} value={selectedCountry} onChange={handleCountryChange}> defaultValue="">
+
             <option value="" disabled>
               Ubicacion
             </option>
@@ -268,17 +287,16 @@ export const CreateOffer = () => {
           </select>
         </div>
         <Link to={"/congrats2"}>
-        <button onClick={handleCreateOffer} className="button-black">
-          Crear oferta
-        </button>
+          <button onClick={handleCreateOffer} className="button-black">
+            Crear oferta
+          </button>
         </Link>
       </form>
     </div>,
   ];
 
   return (
-    <>    
-    
+    <>   
     <div className="">
       <div>
         <Link to={"/login"}>
