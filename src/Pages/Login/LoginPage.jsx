@@ -43,34 +43,27 @@ const LoginPage = () => {
             <div className='loginImages'>
                 <img src={group7} alt='group7'></img>
             </div>
-
             <div className='loginInputs'>
                 <form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
                     <div className='loginImput pt50'>
                         <label className='loginLabel' htmlFor='email'>Email ID</label>
                         <input className='button-blue' type="email" id='email' placeholder="Email ID" {...register("email")} />
                     </div>
-
                     <div className='loginImput'>
                         <label className='loginLabel' htmlFor='password'>Contraseña</label>
                         <input className='button-blue' type="password" id='password' placeholder="Contraseña" {...register("password")} />
                     </div>
-
                     <div>
                         <button className='button-white' type='submit'>Comenzar</button>
                     </div>
                 </form>
             </div>
-
             <div className='loginError'>
                 <p className='loginErrorP'>No puedes iniciar sesión?</p>
                 <Link to={'/RestablecerContrasenaEmail'} className='loginErrorLink'>Restablecer la contraseña</Link>
             </div>
-
             <div className='loginLine'>
-
             </div>
-
             <div className='loginNew'>
                 <Link to={'/register'} className='loginWhite'><h3>Crear nueva cuenta</h3></Link>
             </div>

@@ -3,10 +3,13 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { JwtContext } from "../../contexts/JwtContext";
 
+export default function AuthButton() {
+  const { jwt, setJwt } = useContext(JwtContext);
 
-export default function AuthButton () {
+  let navigate = useNavigate();
 
-    const {jwt, setJwt} = useContext(JwtContext);
+  const userJSON = localStorage.getItem("name");
+  const user = userJSON ? JSON.parse(userJSON) : null;
 
     let navigate = useNavigate();
 
@@ -22,4 +25,5 @@ export default function AuthButton () {
         navigate("/");
     }
     return jwt && user ? (<p> Welcome! {user} <button onClick={signOut}>Sign out</button></p>) : (<p>You are not logged in.</p>);
+
 }

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Modal from "react-modal";
@@ -5,7 +6,7 @@ import ReactModal from 'react-modal';
 
 Modal.setAppElement("#root");
 
-export const FilterModal = ({ isOpen }) => {
+export const FilterModal = ({ isOpen, closeModal }) => {
   const { handleSubmit } = useForm();
   const [filters, setFilters] = useState({
     ciudad: "",
@@ -23,15 +24,18 @@ export const FilterModal = ({ isOpen }) => {
     }));
   };
 
-  const closeModal = () => {
-    setFilters({
-      ciudad: "",
-      ubicacion: "",
-      disponibilidad: "",
-      salario: "",
-      tipoJornada: "",
-    });
-  };
+  const [open, setOpen] = useState(isOpen);
+//   const closeModal = () => {
+//     // setFilters({
+//     //   ciudad: "",
+//     //   ubicacion: "",
+//     //   disponibilidad: "",
+//     //   salario: "",
+//     //   tipoJornada: "",
+//     // });
+//     setOpen(false);
+//     console.log(open,"boton cerrar");
+//   };
 
 
     return (
@@ -39,12 +43,8 @@ export const FilterModal = ({ isOpen }) => {
         <div className='modal'>
         <div className='modal-header'>
             <h4>FILTROS</h4>
-            <div onClick={() => closeModal()}>
-                {/* <button className='close-button'><img className='' src={close} alt='close' /></button> */}
-                <button className='close-button'><img className=''alt='close' /></button>
-            </div>
+            <button onClick={closeModal} className=''>Cerrar</button>
         </div>
-        {/* <div className=''> */}
    
             <form className="" onSubmit={handleSubmit}>
                 <div className="">
@@ -135,7 +135,6 @@ export const FilterModal = ({ isOpen }) => {
                             ))}
                     </select>
                 </div>
-
                 <div className="">
                     <select className="dentroForm"
                         name="disponibilidad"
@@ -177,10 +176,15 @@ export const FilterModal = ({ isOpen }) => {
                 </div>
 
             </form>
-        {/* </div> */}
         </div>
         </ReactModal>
     )
 }
+
+
+
+
+
+
 
 

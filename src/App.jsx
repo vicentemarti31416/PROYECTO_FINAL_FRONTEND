@@ -11,7 +11,7 @@ import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import LoginPage from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
-import HomePage from "./Pages/Homepage/HomePage";
+import HomePage from "./Pages/HomePage/HomePage";
 import { Congrats } from "./Components/Congrats/Congrats";
 import Perfil from "./Pages/Profile/Perfil";
 import RestablecerContrasenaEmail from "./Pages/Login/RestablecerContrasenaEmail";
@@ -32,6 +32,7 @@ function AppContent() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const [searchText, setSearchText] = useState("");
+  const [oferta, setOferta] = useState({});
 
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID Token" + response.credential);
