@@ -16,6 +16,7 @@ export const Fetch = () => {
     axios
       .get("http://localhost:8000/offers")
       .then((res) => {
+        console.log(res.data)
         setOffers(res.data);
         const initialAbiertoState = res.data.reduce((acc, offer) => {
           acc[offer._id] =
