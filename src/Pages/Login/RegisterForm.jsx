@@ -1,12 +1,16 @@
 import React from "react";
 import "./Register.css";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
+
 import {AiOutlineEye} from "react-icons/ai";
+
 import { API } from '../../shared/services/api';
 
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -14,16 +18,18 @@ const RegisterForm = () => {
   } = useForm();
 
   const onSubmit = (formData) => {
-    if (formData.password === formData.repeatPassword) {
+    console.log(formData)
+    //if (formData.password === formData.repeatPassword) {
       API
       .post('user/register', formData)
       .then((res) => {
         console.log('User registered successfully with response:', res.data, 'Full AxiosResponse:', res);
+        navigate('/login');
       })
       .catch((error) => console.log(error));
-    } else {
+    /*} else {
       console.log("Las contraseñas no coinciden")
-    }
+    }*/
   };
 
   return (
@@ -32,15 +38,15 @@ const RegisterForm = () => {
       <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
         <div className="register">
           <div className="register-div">
-            <label className="register-label" htmlFor="nombre">
+            <label className="register-label" htmlFor="name">
               Nombre de la empresa
             </label>
             <input
               className="register-input"
               type="text"
-              id="nombre"
+              id="name"
               placeholder="Nombre de la empresa"
-              {...register("nombre", { required: true })}
+              {...register("name", { required: true })}
             />
             {errors.nombre && (
               <span className="error-message">Campo requerido</span>
@@ -77,7 +83,7 @@ const RegisterForm = () => {
             )}
           </div> 
           <div className="register-div">
-            <label className="register-label" htmlFor="contraseña">
+            <label className="register-label" htmlFor="password">
               Contraseña
             </label>
             <div>
@@ -85,9 +91,9 @@ const RegisterForm = () => {
           
               className="register-input"
               type="password"
-              id="contraseña"
-              placeholder="Contraseña " 
-              {...register("contraseña", { required: true })}
+              id="password"
+              placeholder="Contraseña"
+              {...register("password", { required: true })}
             />
             </div>
             {errors.contraseña && (
@@ -103,7 +109,7 @@ const RegisterForm = () => {
               type="password"
               id="confirmar-contraseña"
               placeholder="Confirmar Contraseña"
-              {...register("confirmar-contraseña", { required: true })}
+              {...register("repeatPassword", { required: true })}
             />
             {errors["confirmar-contraseña"] && (
               <span className="error-message">Campo requerido</span>
@@ -129,12 +135,8 @@ const RegisterForm = () => {
             )}
           </div>
         </div>
+        <button type="submit" className="button-black">Continuar</button>
       </form>
-      <button className="button-black">
-        <Link className="loginWhite" to={"/congrats"}>
-          Continuar
-        </Link>
-      </button>
     </div>
   );
 };
