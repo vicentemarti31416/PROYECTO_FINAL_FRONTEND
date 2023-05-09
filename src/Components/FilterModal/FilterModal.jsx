@@ -25,18 +25,6 @@ export const FilterModal = ({ isOpen, closeModal }) => {
   };
 
   const [open, setOpen] = useState(isOpen);
-//   const closeModal = () => {
-//     // setFilters({
-//     //   ciudad: "",
-//     //   ubicacion: "",
-//     //   disponibilidad: "",
-//     //   salario: "",
-//     //   tipoJornada: "",
-//     // });
-//     setOpen(false);
-//     console.log(open,"boton cerrar");
-//   };
-
 
     return (
         <ReactModal className='position' isOpen={isOpen}>

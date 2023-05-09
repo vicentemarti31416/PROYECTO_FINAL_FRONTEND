@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import Searcher from "../../Components/Searcher/Searcher";
 import { AbiertoContext } from "../../Components/Fetch/AbiertoContext";
-import { TbAdjustmentsHorizontal } from "react-icons/tb";
 
 const HomePage = () => {
   const [abierto, setAbierto] = useState({});
