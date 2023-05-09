@@ -14,46 +14,46 @@ const RestablecerContrasenaContrasena = () => {
   return (
     <div className="loginContainer loginContainerRest">
       <div className="loginRetroceder">
-        <img src={flechaRetroceder} className="imgFlecha" alt=""></img>
-        <Link to={"/RestablecerContrasenaEmail"} className="loginWhite">
-          Restablecer contraseña
+        <Link to={"/RestablecerContrasenaEmail"}>
+          <img src={flechaRetroceder} className="imgVector" alt=""></img>
         </Link>
+        <p>
+          Restablecer contraseña
+        </p>
       </div>
 
-      <div className="loginInputsRest">
-        <form className="loginFormRest" onSubmit={handleSubmit(onSubmit)}>
-          <div className="loginImput pt50">
-            <label className="loginLabelRest" htmlFor="password">
-              Nueva contraseña
-            </label>
-            <input
-              className="button-blue"
-              type="password"
-              id="password"
-              placeholder="Nueva contraseña"
-            />
-          </div>
+      <form className="loginForm loginFormRest" onSubmit={handleSubmit(onSubmit)}>
+        <div className="loginBloque">
+          <label className="loginLabelRest" htmlFor="password">
+            Nueva contraseña
+          </label>
+          <input
+            className="button-blue"
+            type="password"
+            id="password"
+            placeholder="Nueva contraseña"
+          />
+        </div>
 
-          <div className="loginImput">
-            <label className="loginLabelRest" htmlFor="passwordConfirm">
-              Confirmar
-            </label>
-            <input
-              className="button-blue"
-              type="password"
-              id="passwordConfirm"
-              placeholder="Confirmar contraseña"
-              {...register("contraseña")}
-            />
-          </div>
+        <div className="loginBloque">
+          <label className="loginLabelRest" htmlFor="passwordConfirm">
+            Confirmar
+          </label>
+          <input
+            className="button-blue"
+            type="password"
+            id="passwordConfirm"
+            placeholder="Confirmar contraseña"
+            {...register("contraseña")}
+          />
+        </div>
 
-          <div>
-            <button className="button-white">
-              <Link to="/login">Guardar</Link>
-            </button>
-          </div>
-        </form>
-      </div>
+        <div className="loginBloque">
+          <button className="button-white">
+            <Link to="/login">Guardar</Link>
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
