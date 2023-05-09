@@ -112,7 +112,7 @@ export const CreateOffer = () => {
         </div>
 
         <div className="">
-          <select {...register("country")} defaultValue="">
+          <select {...register("location")} defaultValue="">
             <option value="" disabled>
               Ubicacion
             </option>

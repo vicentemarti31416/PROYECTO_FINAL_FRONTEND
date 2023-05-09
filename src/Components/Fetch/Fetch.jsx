@@ -13,6 +13,7 @@ export const Fetch = () => {
     axios
       .get("http://localhost:8000/offers")
       .then((res) => {
+        console.log(res.data)
         setOffers(res.data);
       })
       .catch((error) => {
@@ -28,8 +29,8 @@ export const Fetch = () => {
     <div className="offerdisplay">
       {offers && offers.length > 0 ? (
         offers
-          .filter((dataSearch) =>
-            dataSearch.position.toLowerCase().includes(searchText)
+          .filter((dataPosition) =>
+          dataPosition.position && dataPosition.position.toLowerCase().includes(searchText)
           )
           .map((offer, index) => (
             <div className="job-offer-detail" key={index}>
