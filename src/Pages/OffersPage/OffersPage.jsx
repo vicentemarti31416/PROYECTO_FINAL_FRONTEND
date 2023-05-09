@@ -11,7 +11,7 @@ import { BiSearch } from "react-icons/bi";
 
 
 
-export const OffersPage = () => {
+export const OffersPage = (openModal, closeModal) => {
 
   const [abierto, setAbierto] = useState({});
 
@@ -25,9 +25,13 @@ export const OffersPage = () => {
         <div></div>
       </h3>
       <div className="container-black">
-      <div className="Buscador">
+        <div className="Buscador">
           <BiSearch className="lupa" />
-          <Searcher></Searcher>
+          <Searcher
+            openModal={openModal}
+            closeModal={closeModal}>
+          </Searcher>
+          <TbAdjustmentsHorizontal />
         </div>
         <div className="botones-principales">
           <button className="botonera-message-1">Abiertas</button>

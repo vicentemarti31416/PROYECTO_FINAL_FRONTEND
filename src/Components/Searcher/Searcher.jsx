@@ -10,7 +10,6 @@ export default function Searcher() {
 
   const { searchText, setSearchText } = useContext(SearchContext);
   const [open, setOpen] = useState(false);
-
   const handleFilterClick = () => {
     setOpen(true);
   };
@@ -39,6 +38,7 @@ export default function Searcher() {
         ></TbAdjustmentsHorizontal>
         <FilterModal isOpen={open} />
       </div>
+
     </>
   );
 }

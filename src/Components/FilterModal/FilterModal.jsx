@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import ReactModal from "react-modal";
 
+
 Modal.setAppElement("#root");
 
 export const FilterModal = ({ isOpen }) => {
   const { handleSubmit } = useForm();
-
   const [isModalOpen, setIsModalOpen] = useState(isOpen); // Nuevo estado para controlar si la modal está abierta o cerrada
 
   const [filters, setFilters] = useState({
@@ -34,7 +34,6 @@ export const FilterModal = ({ isOpen }) => {
       salario: "",
       tipoJornada: "",
     });
-
     setIsModalOpen(false); // Cambiar el estado de isModalOpen a false para cerrar la modal
   };
 
