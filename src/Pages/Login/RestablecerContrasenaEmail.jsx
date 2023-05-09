@@ -19,7 +19,6 @@ const RestablecerContrasenaEmail = () => {
           Restablecer contraseña
         </Link>
       </div>
-
       <div className="loginInputsRest">
         <form className="loginFormRest" onSubmit={handleSubmit(onSubmit)}>
           <div className="loginImput pt50">

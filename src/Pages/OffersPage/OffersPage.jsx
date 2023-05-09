@@ -28,7 +28,6 @@ export const OffersPage = () => {
       <div className="Buscador">
           <BiSearch className="lupa" />
           <Searcher></Searcher>
-          <TbAdjustmentsHorizontal />
         </div>
         <div className="botones-principales">
           <button className="botonera-message-1">Abiertas</button>
