@@ -99,6 +99,7 @@ function AppContent() {
           </nav>
 
           <Routes>
+
               <Route path="/" element={<Welcome />} />
               <Route path="/home" element={<RequireAuth><HomePage /></RequireAuth>} />
               <Route path="/candidates" element={<RequireAuth><CandidatesPage /></RequireAuth>} />
@@ -117,6 +118,7 @@ function AppContent() {
               <Route path="/Profile" element={<RequireAuth><Perfil /></RequireAuth>} />
               <Route path="/offers/:id" element={<RequireAuth><OffersDetails /></RequireAuth>} />
               <Route path="/candidates/:id" element={<RequireAuth><CandidateDetails /></RequireAuth>} />
+
           </Routes>
 
           {!jwt && <div id="signInDiv"></div>}

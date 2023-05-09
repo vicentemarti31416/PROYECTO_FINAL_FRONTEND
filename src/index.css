@@ -36,6 +36,9 @@
   height: 80vh;
 }
 
+.page-negativo {
+ background-color: var(--black);
+}
 .button-black {
   text-align: center;
   font-size: 20px;
@@ -71,6 +74,7 @@
 }
 
 html {
+  margin: 0;
   scroll-behavior: smooth;
   font-family: var(--font-family);
 }
@@ -121,13 +125,19 @@ html {
   display: flex;
   margin-bottom: 24px;
   color: var(--black);
-  margin-top: 90px;
+  padding-top: 70px;
   justify-content: space-between;
   height: 20px;
   width: 80%;
-margin-left:  auto;
-margin-right:  auto;
+  margin-left:  auto;
+  margin-right:  auto;
+  text-align: center;
 }
+
+.backheader-negativo {
+  color: var(--white);
+}
+
 
 .botones-principales {
   gap: 26px;
@@ -146,14 +156,20 @@ margin-right:  auto;
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  width: 100%
+  width: 100%;
+  height: 100%;
 
 }
 
 .homeoffers{
-  height: 500px;
+  height: 520px;
   width: 90%;
   overflow-y: scroll;
+  margin-top: 20px;
+}
+
+input::placeholder {
+  text-indent: 10px
 }
 
 /*------------------------------------TABLET-------------------------------------*/

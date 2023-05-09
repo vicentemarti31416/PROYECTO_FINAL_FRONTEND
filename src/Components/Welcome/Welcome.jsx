@@ -27,15 +27,21 @@ function Welcome() {
     const pages = [
         isLoading ? (
             <div className="welcome__container welcome__container--black">
-                <img className="img-welcome" src={group7} alt="logo" />
+                <img className="img-welcome img-welcome-0" src={group7} alt="logo" />
             </div>
         ) : (
             <div className="welcome__container welcome__container--black">
                 <Link to={'/login'} className="welcome__text">saltar</Link>
-                <img className="img-welcome " src={logoT} alt="" />
+                <img className="img-welcome img-welcome-logo" src={logoT} alt="" />
                 <p className="welcome__text--1 welcome__text--bold">Nos encanta verte por</p>
-                <img className="img-welcome" src={whitelogo} alt="" />
+                <img className="img-welcome img-welcome-texto" src={whitelogo} alt="" />
                 <p className="welcome__text">Atrae y enamora a los mejores candidatos</p>
+                <div className="slider__circles">
+                    <span className="slider__circle slider__circle-active"></span>
+                    <span className="slider__circle"></span>
+                    <span className="slider__circle"></span>
+                    <span className="slider__circle"></span>
+                </div>
                 <button onClick={handleNextClick} className="button-white">Comenzar</button>
             </div>
         ),
@@ -44,20 +50,37 @@ function Welcome() {
             <Link to={'/login'} className="welcome__text--1">saltar</Link>
             <img className="img-welcome" src={welcom1} alt="" />
             <p className="welcome__text--1">Meettalent es una herramienta que te ayuda a conectar con el mejor talento</p>
+            <div className="slider__circles">
+                <span className="slider__circle"></span>
+                <span className="slider__circle slider__circle-active"></span>
+                <span className="slider__circle"></span>
+                <span className="slider__circle"></span>
+            </div>
             <button onClick={handleNextClick} className="button-black">Continuar</button>
         </div>,
 
         <div className="welcome__container" >
             <Link to={'/login'} className="welcome__text--1">saltar</Link>
             <img className="img-welcome2" src={welcom2} alt="" />
-            <p className="welcome__text--1">Crear eventos únicos para interactuar con los candidatos desde cualquier lugar</p>
+            <p className="welcome__text--1 welcome__text1__2">Crear eventos únicos para interactuar con los candidatos desde cualquier lugar</p>
+            <div className="slider__circles">
+                <span className="slider__circle"></span>
+                <span className="slider__circle"></span>
+                <span className="slider__circle slider__circle-active"></span>
+                <span className="slider__circle"></span>
+            </div>
             <button onClick={handleNextClick} className="button-black">Continuar</button>
         </div>,
 
-        <div className="welcome__container" >
-            <Link to={'/login'} className="welcome__text--1">saltar</Link>
+        <div className="welcome__container welcome__container--4" >
             <img className="img-welcome" src={welcom3} alt="" />
             <p className="welcome__text--1">Agilizar tus procesos de selección de una manera sencilla, potente y rápida</p>
+            <div className="slider__circles">
+                <span className="slider__circle"></span>
+                <span className="slider__circle"></span>
+                <span className="slider__circle"></span>
+                <span className="slider__circle slider__circle-active"></span>
+            </div>
             <Link to={'/login'} className="button-black"><button className="button-black" >Unirme ahora</button></Link>
         </div>
     ];
@@ -69,12 +92,7 @@ function Welcome() {
                 <div className="slider">
                     {pages[currentPage]}
                 </div>
-                <div className="slider__circles">
-                    <span className="slider__circle"></span>
-                    <span className="slider__circle"></span>
-                    <span className="slider__circle"></span>
-                    {/* <!-- Se agregarían más elementos span si se necesitan más círculos --> */}
-                </div>
+                
             </div>
 
         </div>

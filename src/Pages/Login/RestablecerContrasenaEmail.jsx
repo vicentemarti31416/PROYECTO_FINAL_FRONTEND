@@ -20,9 +20,8 @@ const RestablecerContrasenaEmail = () => {
         </Link>
       </div>
 
-      <div className="loginInputsRest">
-        <form className="loginFormRest" onSubmit={handleSubmit(onSubmit)}>
-          <div className="loginImput pt50">
+        <form className="loginForm loginFormRest" onSubmit={handleSubmit(onSubmit)}>
+          <div className="loginBloque">
             <label className="loginLabelRest" htmlFor="email">
               Email ID
             </label>
@@ -34,7 +33,7 @@ const RestablecerContrasenaEmail = () => {
             />
           </div>
 
-          <div className="loginImput">
+          <div className="loginBloque">
             <label className="loginLabelRest" htmlFor="emailConfirm">
               Confirmar
             </label>
@@ -46,13 +45,12 @@ const RestablecerContrasenaEmail = () => {
               {...register("email")}
             />
           </div>
-          <div>
+          <div className="loginBloque">
             <button className="button-white">
               <Link to={"/RestablecerContrasenaContrasena"}>Enviar enlace</Link>
             </button>
           </div>
         </form>
-      </div>
     </div>
   );
 };

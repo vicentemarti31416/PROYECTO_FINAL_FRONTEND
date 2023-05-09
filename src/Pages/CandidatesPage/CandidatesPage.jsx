@@ -8,6 +8,7 @@ import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import "./CandidatesPage.css";
 import { AiOutlineUser } from "react-icons/ai";
 import { BiMap } from "react-icons/bi";
+import Searcher from "../../Components/Searcher/Searcher";
 
 export const CandidatesPage = () => {
   const [candidates, setCandidates] = useState([]);
@@ -34,17 +35,12 @@ export const CandidatesPage = () => {
           <IoIosArrowBack></IoIosArrowBack>
         </Link>
         Candidatos
-        <div></div>
+        {/* <div></div> */}
       </h3>
       <div className="container-black">
         <div className="Buscador">
           <BiSearch className="lupa" />
-          <input
-            className="dentro-buscador"
-            type="text"
-            id="buscar"
-            placeholder="Buscar"
-          />
+          <Searcher></Searcher>
           <TbAdjustmentsHorizontal />
         </div>
         <div className="filters">

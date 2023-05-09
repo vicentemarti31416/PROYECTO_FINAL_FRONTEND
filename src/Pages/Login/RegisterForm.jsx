@@ -104,12 +104,12 @@ const RegisterForm = () => {
               <span className="error-message">Campo requerido</span>
             )}
           </div>
-          <div className="register-div">
+          <div className="register-div1">
             <label htmlFor="checkbox">
               Al crear una cuenta, acepta los términos y condiciones
               relacionados con meeTTalent
             </label>
-            <input
+            <input className="checkbox"
               type="checkbox"
               {...register("terminos", { required: true })}
             />

@@ -1,3 +1,4 @@
+
 import React, { useContext } from 'react'
 import './Login.css';
 import group7 from '../../assets/group7.png';
@@ -69,4 +70,5 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage
+
+export default LoginPage;
