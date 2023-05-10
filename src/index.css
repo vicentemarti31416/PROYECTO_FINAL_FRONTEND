@@ -54,7 +54,7 @@
   text-align: center;
   font-size: 20px;
   font-family: var(--font-family);
-  width: 90%;
+  width: 92%;
   height: 50px;
   border-radius: 11px;
   background-color: var(--white);
@@ -117,6 +117,7 @@ html {
   border-top-right-radius: 29px;
   border-top-left-radius: 29px;
   bottom: 0;
+  color: white;
 }
 
 .backheader {
@@ -162,8 +163,20 @@ html {
   margin-top: 20px;
 }
 
-input::placeholder {
-  text-indent: 10px; /* Establece un margen izquierdo de 10px para el placeholder */
+input {
+  padding-left: 10px;
+}
+
+/* input::placeholder {
+  text-indent: 10px;
+} */
+
+.button100 {
+  width: 100%;
+}
+
+.button98 {
+  width: 98%;
 }
 
 /*------------------------------------TABLET-------------------------------------*/

@@ -4,7 +4,16 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import './CandidateDetails.css';
 import { IoIosArrowBack } from "react-icons/io";
-import { FilterModal } from "../FilterModal/FilterModal";
+import {AiOutlineHeart} from "react-icons/ai";
+import { BsTwitter } from "react-icons/bs";
+import{AiOutlineInstagram} from "react-icons/ai"
+import{FaFacebookF} from "react-icons/fa";
+import {MdOutlineDateRange} from "react-icons/md";
+import {FiMapPin} from "react-icons/fi";
+import {AiOutlineMail} from "react-icons/ai";
+import {BsTelephone} from "react-icons/bs";
+
+
 
 export const CandidateDetails = () => {
   const [candidate, setCandidate] = useState(null);
@@ -27,21 +36,23 @@ export const CandidateDetails = () => {
 
   return (
     <div className="page page-negativo">
-    <h3 className="backheader backheader-negativo">
-        <Link to={"/candidates"}>
-          <IoIosArrowBack className="white"></IoIosArrowBack>
+    <div>
+    <h3  className="barra_candidato">
+    <Link to= {"/candidates"}>
+          <IoIosArrowBack className="flexa"></IoIosArrowBack>
         </Link>
         Candidatos
-        <div></div>
+        <AiOutlineHeart className ="heart"></AiOutlineHeart>
       </h3>
+       </div>
 
 
       <div className="container">
 
           {candidate && (
-            <div className="">
+            <div className="contenedor_candidato_letras">
             <img className="cand-image" src={candidate.image} alt="candidate" />
-              <h3 >
+              <h3 className="nombre_candidato" >
                 {candidate.name} {candidate.surname}
               </h3>
               <h3>{candidate.profession}</h3>
@@ -53,13 +64,22 @@ export const CandidateDetails = () => {
                       {key}: <a href={value}>{value}</a>
                     </p>
                   ))}
+                  <div className="redes_sociales_candidatos">
+                  <BsTwitter className="twitter_candidatos"></BsTwitter>
+                  <AiOutlineInstagram className="insta_candidatos"></AiOutlineInstagram>
+                  <FaFacebookF className="face_candidatos"></FaFacebookF>
+                  </div>
+
               </div>
-              <div className="datos">
-                <p>Datos personales</p>
-                <p>{candidate.age}</p>
-                <p>{candidate.location}</p>
-                <p>{candidate.email}</p>
-                <p>{candidate.phone}</p>
+              <div className="datoscand">
+                <p className="datospersonales">Datos personales</p>
+              <div className="iconospersonales">
+               
+              </div>
+              <p><MdOutlineDateRange className="i1"/>{candidate.age}</p>
+              <p><FiMapPin className="i2"/>{candidate.location}</p>
+              <p><AiOutlineMail className="i3"/>{candidate.email}</p>
+              <p><BsTelephone className="i4"/>{candidate.phone}</p>
               </div>
               <div className="keywords">
                 <p>Palabras clave del perfil</p>

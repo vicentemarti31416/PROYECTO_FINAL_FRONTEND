@@ -3,19 +3,30 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import flechaRetrocederNegra from "../../assets/flechaRetrocederNegra.png";
+import vectorX from "../../assets/vectorX.png";
+
+
 
 export const CreateOffer = () => {
+  const [selectedCountry, setSelectedCountry] = useState("");
   const navigate = useNavigate();
-
   const [currentSheet, setCurrentSheet] = useState(0);
   const [jobTitle, setJobTitle] = useState("");
+  const [jobCompany, setJobCompany] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
   const [offers, setOffers] = useState([]);
   const [formData, setFormData] = useState({});
 
   const { register, handleSubmit, getValues } = useForm();
+  const onSubmit = (data) => console.log(data);
+
+  const handleCountryChange = (event) => {
+    setSelectedCountry(event.target.value);
+  };
 
   const handleNextClick = () => {
-    const sheet = currentSheet + 1;
+    const sheet = currentSheet === sheets.length - 1 ? 0 : currentSheet + 1;
     setCurrentSheet(sheet);
   };
 
@@ -52,10 +63,12 @@ export const CreateOffer = () => {
       .catch((error) => {
         console.error(error);
       });
+
   };
 
   const handleButton = (value) => {
     setJobTitle(value);
+    setJobCompany(value);
   };
 
   const getOffers = () => {
@@ -72,6 +85,7 @@ export const CreateOffer = () => {
   useEffect(() => {
     getOffers();
   }, []);
+
 
   return (
     <>
@@ -296,5 +310,6 @@ export const CreateOffer = () => {
         </form>
       </div>
     </>
+
   );
 };

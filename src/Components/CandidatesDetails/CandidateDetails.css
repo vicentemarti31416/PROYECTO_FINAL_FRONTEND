@@ -37,14 +37,118 @@
 }
 
 .cand-image {
-    height: 150px;
-    width: 150px;
-    border-radius: 78px;
+    height: 206px;
+    width: 205px;
+    border-radius: 130px;
     object-fit: cover;
     position: absolute;
-    left: 31%;
-    bottom: 95%;
+    left: 25%;
+    bottom: 570px;
 }
 
+.heart{
+    display: flex;
+    width: 60px;
+    height: 30px;
+    color: var(--light-green);
+}
 
+.barra_candidato{
+    width: 432px;
+    display: flex;
+    justify-content: space-around;
+    color:var(--white);
+    padding-top: 75px;
+    align-items: center;
+}
+.flexa{
+    margin-right: -1px;
+    width: 51px;
+    height: 26px;
+    display: flex;
+    color:var(--white);
+}
 
+.contenedor_candidato_letras{
+    padding-top: 95px;
+    display: flex;
+    width: 443px;
+    height: 45px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.nombre_candidato{
+    display: flex;
+    font-size: xx-large;
+    
+}
+
+.redes_sociales_candidatos{
+    display: flex;
+    padding-top: 20px;
+    
+    
+
+}
+
+.twitter_candidatos{
+    width: 59px;
+    height: 39px;
+    color:var(--dark-blue-letter)
+}
+.insta_candidatos{
+    width: 59px;
+    height: 39px;
+    color:var(--dark-blue-letter)
+
+}
+
+.face_candidatos{
+    width: 59px;
+    height: 39px;
+    color:var(--dark-blue-letter)
+
+}
+
+.datoscand{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 19px;
+}
+
+.datospersonales{
+    color: var(--dark-blue-letter);
+    font-size:large;
+
+}
+
+.iconospersonales{
+    width: 174px;
+    height: 122px;
+    display: flex;
+    flex-direction: column;
+}
+
+.i1{
+    color:var(--blue);
+    width: 44px;
+    height: 29px;
+}
+.i2{
+    width: 44px;
+    height: 29px;
+    color:var(--blue)
+}
+.i3{
+    width: 44px;
+    height: 29px;
+    color:var(--blue)
+}
+.i4{
+    width: 44px;
+    height: 29px;
+    color:var(--blue)
+}
