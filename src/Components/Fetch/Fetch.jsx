@@ -115,46 +115,47 @@ export const Fetch = ({ abierto }) => {
           })}
 
       {location.pathname === "/offers" &&
-        offers.filter((offer) => offer.lock === abierto && offer)
-        .map((offer) => {
-          return (
-            <div className="lockposition" key={offer._id}>
-              <div
-                className="locklogo"
-                onClick={() => toggleAbierto(offer._id)}
-              >
-                {offer.lock === true ? <BiLockOpenAlt /> : <BiLockAlt />}
-              </div>
-              <Link className="job-offer-detail" to={`/offers/${offer._id}`}>
-                <div className="fechacreacion">17/04</div>
-                <h3>{offer.position}</h3>
-                <div className="city">
-                  <div>
-                    <BiMap /> {offer.location}
-                  </div>
-                  <div>
-                    1 <AiOutlineUser className="logouser" />
-                  </div>
-                  <div>
-                    <AiOutlineEye />
-                    <span> </span>
-                    02/02/2023
-                  </div>
+        offers
+          .filter((offer) => offer.lock === abierto && offer)
+          .map((offer) => {
+            return (
+              <div className="lockposition" key={offer._id}>
+                <div
+                  className="locklogo"
+                  onClick={() => toggleAbierto(offer._id)}
+                >
+                  {offer.lock === true ? <BiLockOpenAlt /> : <BiLockAlt />}
                 </div>
-                <div className="line"></div>
-                <div className="process">
-                  <div className="processperc">
-                    <div>Proceso</div>
-                    <div className="percent">{percent}%</div>
+                <Link className="job-offer-detail" to={`/offers/${offer._id}`}>
+                  <div className="fechacreacion">17/04</div>
+                  <h3>{offer.position}</h3>
+                  <div className="city">
+                    <div>
+                      <BiMap /> {offer.location}
+                    </div>
+                    <div>
+                      1 <AiOutlineUser className="logouser" />
+                    </div>
+                    <div>
+                      <AiOutlineEye />
+                      <span> </span>
+                      02/02/2023
+                    </div>
                   </div>
-                  <div className="progress-bar">
-                    <div
-                      className="progress"
-                      style={{ width: `${percent}%` }}
-                    ></div>
+                  <div className="line"></div>
+                  <div className="process">
+                    <div className="processperc">
+                      <div>Proceso</div>
+                      <div className="percent">{percent}%</div>
+                    </div>
+                    <div className="progress-bar">
+                      <div
+                        className="progress"
+                        style={{ width: `${percent}%` }}
+                      ></div>
+                    </div>
                   </div>
-
-                </div>
+                </Link>
                 <Link className="job-offer-detail" to={`/offers/${offer._id}`}>
                   <div className="fechacreacion">17/04</div>
                   <h3>{offer.position}</h3>

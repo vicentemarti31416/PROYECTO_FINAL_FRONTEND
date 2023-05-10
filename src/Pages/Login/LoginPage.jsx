@@ -4,48 +4,23 @@ import group7 from "../../assets/group7.png";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { API } from '../../shared/services/api';
-import { JwtContext } from '../../shared/contexts/JwtContext';
-import { AuthContext } from '../../shared/components/AuthProvider/AuthProvider';
-import GoogleAuth from '../../shared/components/GoogleAuth/GoogleAuth';
+import { API } from "../../shared/services/api";
+import { JwtContext } from "../../shared/contexts/JwtContext";
+import { AuthContext } from "../../shared/components/AuthProvider/AuthProvider";
+import GoogleAuth from "../../shared/components/GoogleAuth/GoogleAuth";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
- const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const { setJwt } = useContext(JwtContext);
   const navigate = useNavigate();
 
-
-     useEffect(() => {
-        console.log("isAuthenticated = " + isAuthenticated);
-        if (isAuthenticated) {
-            navigate("/home");
-        }
-    }, [isAuthenticated, navigate]);
-
-    const onSubmit = (formData) => {
-        API
-            .post('user/login', formData)
-            .then((res) => {
-                console.log('Login with response:', res.data, 'Full AxiosResponse:', res);
-                localStorage.setItem('token', res.data.token);
-                localStorage.setItem('name', JSON.stringify(res.data.userInfo.name));
-                localStorage.setItem('email_verified', JSON.stringify(res.data.userInfo.email_verified));
-                setIsAuthenticated(true);
-                setJwt(true);
-                navigate('/home');
-            })
-            .catch((error) => {
-                console.log('Error logging in:', error);
-            });
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
+  useEffect(() => {
+    console.log("isAuthenticated = " + isAuthenticated);
+    if (isAuthenticated) {
+      navigate("/home");
     }
   }, [isAuthenticated, navigate]);
 
@@ -64,6 +39,7 @@ const LoginPage = () => {
           "email_verified",
           JSON.stringify(res.data.userInfo.email_verified)
         );
+        setIsAuthenticated(true);
         setJwt(true);
         navigate("/home");
       })
@@ -71,6 +47,11 @@ const LoginPage = () => {
         console.log("Error logging in:", error);
       });
   };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
 
   return (
     <div className="loginContainer">
@@ -98,7 +79,6 @@ const LoginPage = () => {
             <div className="input-wrapper">
               <input
                 className="button-blue button100 "
-
                 type={showPassword ? "text" : "password"}
                 id="password"
                 placeholder="Contraseña"
@@ -117,20 +97,6 @@ const LoginPage = () => {
               )}
             </div>
           </div>
-          {/*           
-          <div className="loginImput">
-            <label className="loginLabel" htmlFor="password">
-              Contraseña
-            </label>
-            <input
-              className="button-blue button100"
-              type="password"
-              id="password"
-              placeholder="Contraseña"
-              {...register("password")}
-            />
-          </div> */}
-
           <div>
             <button className="button-white button100" type="submit">
               Comenzar
@@ -150,7 +116,7 @@ const LoginPage = () => {
           <h3>Crear nueva cuenta</h3>
         </Link>
       </div>
-<GoogleAuth />
+      <GoogleAuth />
     </div>
   );
 };

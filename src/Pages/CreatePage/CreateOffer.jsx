@@ -20,12 +20,8 @@ export const CreateOffer = () => {
   const { setNewOffer } = useContext(SearchContext);
 
   const { register, handleSubmit, getValues } = useForm();
-  const onSubmit = (data) => console.log(data);
   
   
-  const handleCountryChange = (event) => {
-    setSelectedCountry(event.target.value);
-  };
 
   const handleNextClick = () => {
     const sheet = currentSheet + 1;
@@ -96,23 +92,6 @@ export const CreateOffer = () => {
 
               <div className="createImputs">
                 <h4 className="">Titulo de la nueva oferta</h4>
-                {/* <div>
-
-                  {Array.isArray(offers) && offers.length > 0 ? (
-                    offers.map((offer, index) => (
-                      <div key={index} className="create-offers">
-                        <button
-                          className="button-blue"
-                          onClick={() => handleButton(offer.position)}
-                        >
-                          {offer.position}
-                        </button>
-                      </div>
-                    ))
-                  ) : (
-                    <p>No hay ofertas disponibles</p>
-                  )}
-                </div> */}
                   <input
                     className="button-blue button98"
                     type="text"
