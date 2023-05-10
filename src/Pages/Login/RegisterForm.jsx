@@ -147,7 +147,7 @@ const RegisterForm = () => {
               </span>
             )}
           </div>
-          <button type="submit" className="button-black">
+          <button type="submit" className="button-black mt40">
             Continuar
           </button>
         </div>

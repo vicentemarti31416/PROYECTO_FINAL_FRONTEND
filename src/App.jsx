@@ -20,7 +20,6 @@ import RegisterForm from "./Pages/Login/RegisterForm";
 import { CreateOffer } from "./Pages/CreatePage/CreateOffer";
 import { CandidateDetails } from "./Components/CandidatesDetails/CandidateDetails";
 import Congrats2 from "./Components/Congrats/Congrats2";
-import AuthButton from "./shared/components/AuthButton/AuthButton";
 import { AuthProvider } from "./shared/components/AuthProvider/AuthProvider";
 
 
@@ -95,7 +94,6 @@ function AppContent() {
         <SearchContext.Provider value={{ searchText, setSearchText }}>
           <div className="App">
             <div className="App-header">
-              <AuthButton />
 
               <Routes>
 
