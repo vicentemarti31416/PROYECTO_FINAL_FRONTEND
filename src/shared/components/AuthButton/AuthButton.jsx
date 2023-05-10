@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { JwtContext } from "../../contexts/JwtContext";
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import "./AuthButton.css";
+
 
 export default function AuthButton() {
   const { jwt, setJwt } = useContext(JwtContext);
@@ -30,6 +32,7 @@ export default function AuthButton() {
       navigate("/login");
   }
 
-  return jwt ? (<p> Welcome! {user} <button onClick={signOut}>Sign out</button></p>) : (<p>You are not logged in.</p>);
 
+
+return jwt ? (<p> Welcome! {user} <button onClick={signOut}>Sign out</button></p>) : (<p>You are not logged in.</p>);
 }

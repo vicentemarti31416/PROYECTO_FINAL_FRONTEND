@@ -3,7 +3,7 @@ import { JwtContext } from "./shared/contexts/JwtContext";
 import RequireAuth from "./shared/components/RequireAuth/RequireAuth";
 import jwt_decode from "jwt-decode";
 import Welcome from "./Components/Welcome/Welcome";
-import { BrowserRouter, Navigate, NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import { CandidatesPage } from "./Pages/CandidatesPage/CandidatesPage";
 import { OffersPage } from './Pages/OffersPage/OffersPage';
 import { OffersDetails } from "./Components/OffersDetails/OffersDetails";
@@ -11,7 +11,7 @@ import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import LoginPage from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
-import HomePage from "./Pages/Homepage/HomePage";
+import HomePage from "./Pages/HomePage/HomePage";
 import { Congrats } from "./Components/Congrats/Congrats";
 import Perfil from "./Pages/Profile/Perfil";
 import RestablecerContrasenaEmail from "./Pages/Login/RestablecerContrasenaEmail";
@@ -20,32 +20,42 @@ import RegisterForm from "./Pages/Login/RegisterForm";
 import { CreateOffer } from "./Pages/CreatePage/CreateOffer";
 import { CandidateDetails } from "./Components/CandidatesDetails/CandidateDetails";
 import Congrats2 from "./Components/Congrats/Congrats2";
-import AuthButton from "./shared/components/AuthButton/AuthButton";
 import { AuthProvider } from "./shared/components/AuthProvider/AuthProvider";
 import { AuthContext } from "./shared/components/AuthProvider/AuthProvider";
+
+
 
 export const SearchContext = React.createContext();
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 function AppContent() {
+  const [filtros, setFiltros] = useState({
+    location: '',
+    city: '',
+    availability: '',
+    salary: '',
+    scheduleType: '',
+    keywords: []
+});
+
+  const [newOffer, setNewOffer] = useState(null);
   const [jwt, setJwt] = useState(localStorage.getItem("token") || null);
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const [searchText, setSearchText] = useState("");
-  const [oferta, setOferta] = useState({});
+  // const [oferta, setOferta] = useState({});
 
 
 
   return (
+
     <AuthProvider>
       <JwtContext.Provider value={{ jwt, setJwt }}>
-        <SearchContext.Provider value={{ searchText, setSearchText }}>
+        <SearchContext.Provider value={{ searchText, setSearchText, newOffer, setNewOffer, filtros, setFiltros }}>
           <div className="App">
             <div className="App-header">
-
               <Routes>
-
                 <Route path="/" element={<Welcome />} />
                 <Route path="/home" element={<RequireAuth><HomePage /></RequireAuth>} />
                 <Route path="/candidates" element={<RequireAuth><CandidatesPage /></RequireAuth>} />
@@ -64,14 +74,13 @@ function AppContent() {
                 <Route path="/Profile" element={<RequireAuth><Perfil /></RequireAuth>} />
                 <Route path="/offers/:id" element={<RequireAuth><OffersDetails /></RequireAuth>} />
                 <Route path="/candidates/:id" element={<RequireAuth><CandidateDetails /></RequireAuth>} />
-
               </Routes>
-
             </div>
           </div>
         </SearchContext.Provider>
       </JwtContext.Provider>
     </AuthProvider>
+
   );
 }
 
