@@ -10,6 +10,8 @@ import vectorX from "../../assets/vectorX.png";
 
 export const CreateOffer = () => {
   
+  const [selectedCountry, setSelectedCountry] = useState("");
+
   const navigate = useNavigate();
   const [currentSheet, setCurrentSheet] = useState(0);
   const [jobTitle, setJobTitle] = useState("");
@@ -18,8 +20,12 @@ export const CreateOffer = () => {
   const { setNewOffer } = useContext(SearchContext);
 
   const { register, handleSubmit, getValues } = useForm();
-
-  // const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => console.log(data);
+  
+  
+  const handleCountryChange = (event) => {
+    setSelectedCountry(event.target.value);
+  };
 
   const handleNextClick = () => {
     const sheet = currentSheet + 1;
@@ -87,9 +93,11 @@ export const CreateOffer = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           {currentSheet === 0 && (
             <div className="container-black">
+
               <div className="createImputs">
                 <h4 className="">Titulo de la nueva oferta</h4>
                 {/* <div>
+
                   {Array.isArray(offers) && offers.length > 0 ? (
                     offers.map((offer, index) => (
                       <div key={index} className="create-offers">
@@ -127,7 +135,8 @@ export const CreateOffer = () => {
             </div>
           )}
 
-          {currentSheet === 1 && (
+          {currentSheet == 1 && (
+
             <div className="">
               <div className="">
                 <select {...register("city")} defaultValue="">
@@ -267,6 +276,7 @@ export const CreateOffer = () => {
                   <option value="Contrato en prácticas">
                     Contrato en prácticas
                   </option>
+
                 </select>
               </div>
               <button onClick={handleNextClick} className="button-black">
@@ -340,5 +350,6 @@ export const CreateOffer = () => {
         </form>
       </div>
     </>
+
   );
 };
