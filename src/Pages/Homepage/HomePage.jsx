@@ -19,7 +19,7 @@ const HomePage = () => {
 
   return (
     <div className="homecontainer">
-      <AuthButton />
+      {/* <AuthButton /> */}
       
       <div className="homehead">
         <img src={image} className="hometitle" alt="" />

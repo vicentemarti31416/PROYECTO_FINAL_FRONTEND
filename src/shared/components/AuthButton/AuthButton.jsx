@@ -2,17 +2,11 @@ import React from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { JwtContext } from "../../contexts/JwtContext";
-import './AuthButton.css';
+import "./AuthButton.css";
 
 export default function AuthButton() {
   const { jwt, setJwt } = useContext(JwtContext);
-
-  let navigate = useNavigate();
-
-  const userJSON = localStorage.getItem("name");
-  const user = userJSON ? JSON.parse(userJSON) : null;
-
-/*  const signOut = () => {
+  /*  const signOut = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("name");
     localStorage.removeItem("email_verified");
@@ -27,18 +21,27 @@ export default function AuthButton() {
       </div>
   );
 */
-    let navigate = useNavigate();
+  let navigate = useNavigate();
 
-    const userJSON = localStorage.getItem("name");
-    const user = userJSON ? JSON.parse(userJSON) : null;
-    
-    const signOut = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('name');
-        localStorage.removeItem('email_verified');
-        localStorage.clear();
-        setJwt(null);
-        navigate("/");
-    }
-    return jwt && user ? (<p> Welcome! {user} <button onClick={signOut}>Sign out</button></p>) : (<p>You are not logged in.</p>);
+  const userJSON = localStorage.getItem("name");
+  const user = userJSON ? JSON.parse(userJSON) : null;
+
+  const signOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    localStorage.removeItem("email_verified");
+    localStorage.clear();
+    setJwt(null);
+    navigate("/");
+  };
+  return jwt && user ? (
+    <div className="welcome-post">
+      <p> Welcome! {user} <button className="logout" onClick={signOut}>Sign out</button>
+      </p>
+    </div>
+  ) : (
+    <div className="welcome-post">
+      <p>You are not logged in.</p>
+    </div>
+  );
 }
