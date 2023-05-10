@@ -3,7 +3,7 @@ import { JwtContext } from "./shared/contexts/JwtContext";
 import RequireAuth from "./shared/components/RequireAuth/RequireAuth";
 import jwt_decode from "jwt-decode";
 import Welcome from "./Components/Welcome/Welcome";
-import { BrowserRouter, Navigate, NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import { CandidatesPage } from "./Pages/CandidatesPage/CandidatesPage";
 import { OffersPage } from './Pages/OffersPage/OffersPage';
 import { OffersDetails } from "./Components/OffersDetails/OffersDetails";
@@ -11,7 +11,7 @@ import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import LoginPage from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
-import HomePage from "./Pages/HomePage/HomePage";
+import Homepage from "./Pages/Homepage/HomePage";
 import { Congrats } from "./Components/Congrats/Congrats";
 import Perfil from "./Pages/Profile/Perfil";
 import RestablecerContrasenaEmail from "./Pages/Login/RestablecerContrasenaEmail";
@@ -21,6 +21,8 @@ import { CreateOffer } from "./Pages/CreatePage/CreateOffer";
 import { CandidateDetails } from "./Components/CandidatesDetails/CandidateDetails";
 import Congrats2 from "./Components/Congrats/Congrats2";
 import AuthButton from "./shared/components/AuthButton/AuthButton";
+
+
 
 export const SearchContext = React.createContext();
 
@@ -96,7 +98,7 @@ function AppContent() {
           <AuthButton />
           <Routes>
               <Route path="/" element={<Welcome />} />
-              <Route path="/home" element={<RequireAuth><HomePage /></RequireAuth>} />
+              <Route path="/home" element={<RequireAuth><Homepage /></RequireAuth>} />
               <Route path="/candidates" element={<RequireAuth><CandidatesPage /></RequireAuth>} />
               <Route path="/offers" element={<RequireAuth><OffersPage /></RequireAuth>} />
               <Route path="/notifications" element={<RequireAuth><NotificationsPage /></RequireAuth>} />
@@ -113,6 +115,7 @@ function AppContent() {
               <Route path="/Profile" element={<RequireAuth><Perfil /></RequireAuth>} />
               <Route path="/offers/:id" element={<RequireAuth><OffersDetails /></RequireAuth>} />
               <Route path="/candidates/:id" element={<RequireAuth><CandidateDetails /></RequireAuth>} />
+              
           </Routes>
           {!jwt && <div id="signInDiv"></div>}
         </div>
