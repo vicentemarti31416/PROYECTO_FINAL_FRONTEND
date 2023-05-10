@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { JwtContext } from "./shared/contexts/JwtContext";
 import RequireAuth from "./shared/components/RequireAuth/RequireAuth";
 import jwt_decode from "jwt-decode";
@@ -21,7 +21,7 @@ import { CreateOffer } from "./Pages/CreatePage/CreateOffer";
 import { CandidateDetails } from "./Components/CandidatesDetails/CandidateDetails";
 import Congrats2 from "./Components/Congrats/Congrats2";
 import { AuthProvider } from "./shared/components/AuthProvider/AuthProvider";
-
+import { AuthContext } from "./shared/components/AuthProvider/AuthProvider";
 
 export const SearchContext = React.createContext();
 
@@ -44,59 +44,7 @@ function AppContent() {
   const [searchText, setSearchText] = useState("");
   // const [oferta, setOferta] = useState({});
 
-  function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID Token" + response.credential);
-    let userObject = jwt_decode(response.credential);
-    console.log(userObject);
 
-    localStorage.setItem("token", response.credential);
-    localStorage.setItem("name", JSON.stringify(userObject.name));
-    localStorage.setItem("email_verified", JSON.stringify(userObject.email_verified));
-
-    setJwt(response.credential);
-    setUser(userObject);
-
-    navigate('/home');
-  }
-
-  function handleStorageChange(event) {
-    if (event.key === "token") {
-      setJwt(localStorage.getItem("token") || null);
-    }
-  }
-
-  function initGoogleOneTap() {
-    /* global google */
-    google.accounts.id.initialize({
-      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-      callback: handleCallbackResponse,
-    });
-    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-      theme: "outline",
-      size: "large",
-    });
-  }
-
-  useEffect(() => {
-    if (window.google && window.google.accounts) {
-      initGoogleOneTap();
-    } else {
-      window.addEventListener("google-loaded", initGoogleOneTap);
-    }
-
-    window.addEventListener("storage", handleStorageChange);
-
-    return () => {
-      window.removeEventListener("google-loaded", initGoogleOneTap);
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!jwt) {
-      initGoogleOneTap();
-    }
-  }, [jwt]);
 
   return (
 
@@ -124,10 +72,7 @@ function AppContent() {
                 <Route path="/Profile" element={<RequireAuth><Perfil /></RequireAuth>} />
                 <Route path="/offers/:id" element={<RequireAuth><OffersDetails /></RequireAuth>} />
                 <Route path="/candidates/:id" element={<RequireAuth><CandidateDetails /></RequireAuth>} />
-
               </Routes>
-
-              {!jwt && <div id="signInDiv"></div>}
             </div>
           </div>
         </SearchContext.Provider>

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom"; // Importar useHistory
@@ -8,6 +9,7 @@ import flechaRetrocederNegra from "../../assets/flechaRetrocederNegra.png";
 import vectorX from "../../assets/vectorX.png";
 
 export const CreateOffer = () => {
+  
   const navigate = useNavigate();
   const [currentSheet, setCurrentSheet] = useState(0);
   const [jobTitle, setJobTitle] = useState("");
@@ -38,8 +40,9 @@ export const CreateOffer = () => {
       body: JSON.stringify(data),
     };
 
-    fetch("http://localhost:8000/offers", requestOptions)
-      .then((response) => {
+
+    fetch('http://localhost:8000/offers', requestOptions)
+      .then(response => {
         if (!response.ok) {
           throw new Error(response.statusText);
         }
@@ -206,7 +209,6 @@ export const CreateOffer = () => {
                     ))}
                 </select>
               </div>
-
               <div className="">
                 <select {...register("availability")} defaultValue="">
                   <option value="" disabled>
@@ -253,7 +255,6 @@ export const CreateOffer = () => {
                   <option value="" disabled>
                     Tipo de contrato
                   </option>
-
                   <option value="Temporal">Temporal</option>
                   <option value="Permanente">Permanente</option>
                   <option value="Freelance">Freelance</option>
@@ -272,6 +273,7 @@ export const CreateOffer = () => {
                 Continuar
               </button>
               {/* <button type="submit"> siguiente</button> */}
+
             </div>
           )}
 
@@ -282,6 +284,7 @@ export const CreateOffer = () => {
               <div className="">
                 <p className="">Descripción</p>
                 <textarea
+
                   {...register("description")}
                   type="text"
                   placeholder="Descripción..."
@@ -297,6 +300,7 @@ export const CreateOffer = () => {
                 />
               </div>
 
+
               <h4 className="">Codificaciones internas</h4>
               <div className="">
                 {/* <label htmlFor="keywords">Añadir palabras clave</label> */}
@@ -305,6 +309,7 @@ export const CreateOffer = () => {
                     Palabras clave
                   </option>
                   <option value="Developer">Developer</option>
+
                   <option value="JavaScript">JavaScript</option>
                   <option value="Frontend">Frontend</option>
                   <option value="Backend">Backend</option>

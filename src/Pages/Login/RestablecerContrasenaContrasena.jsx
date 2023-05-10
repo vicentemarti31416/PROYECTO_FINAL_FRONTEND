@@ -10,16 +10,27 @@ const RestablecerContrasenaContrasena = () => {
   const [showPassword1, setShowPassword1] = useState(false); 
   const [showPassword2, setShowPassword2] = useState(false); 
  
-  const onSubmit = (dataF) => {
-    console.log(dataF);
-  };
 
   const togglePasswordVisibility1 = () => {
     setShowPassword1(!showPassword1);
   };
 
+
+  const onSubmit = (formData) => {
+    formData.userId = userId;
+    formData.resetString = resetString;
+    console.log("formData" + formData)
+    API
+      .post('user/resetPassword', formData)
+      .then((res) => {
+        console.log('Password updated successfully:', res.data, 'Full AxiosResponse:', res);
+        navigate('/home');
+      })
+      .catch((error) => console.log(error));
+
   const togglePasswordVisibility2 = () => {
     setShowPassword2(!showPassword2);
+
   };
 
   return (

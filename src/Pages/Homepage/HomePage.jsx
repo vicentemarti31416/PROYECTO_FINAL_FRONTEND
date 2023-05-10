@@ -12,15 +12,14 @@ import { AbiertoContext } from "../../Components/Fetch/AbiertoContext";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import AuthButton from "../../shared/components/AuthButton/AuthButton";
 
-
 const HomePage = () => {
   const [abierto, setAbierto] = useState({});
 
 
   return (
     <div className="homecontainer">
-      <AuthButton />
-      
+    <AuthButton />
+
       <div className="homehead">
         <img src={image} className="hometitle" alt="" />
         <div className="homenav">
