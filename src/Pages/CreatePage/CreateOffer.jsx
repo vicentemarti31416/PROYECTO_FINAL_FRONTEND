@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom"; // Importar useHistory
+import { SearchContext } from "../../App";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import flechaRetrocederNegra from "../../assets/flechaRetrocederNegra.png";
 import vectorX from "../../assets/vectorX.png";
 
 
-export const CreateOffer = () => {
-  // const history = useHistory(); // Inicializar useHistory
+export const CreateOffer = (props) => {
   const navigate = useNavigate(); // Inicializar useNavigate
 
   const [currentSheet, setCurrentSheet] = useState(0);
   const [jobTitle, setJobTitle] = useState("");
   const [offers, setOffers] = useState([]);
+
+  const { setNewOffer } = useContext(SearchContext);
   const { register, handleSubmit, getValues } = useForm();
 
   const handleNextClick = () => {
@@ -38,6 +40,7 @@ export const CreateOffer = () => {
       })
       .then(data => {
         console.log(data);
+        setNewOffer(data);
         navigate('/congrats2');
         // Mostrar mensaje de éxito al usuario
       })
@@ -206,12 +209,12 @@ export const CreateOffer = () => {
                   <option value="" disabled>
                     Disponibilidad
                   </option>
-                  <option value="full-time">Tiempo completo</option>
-                  <option value="part-time">Medio tiempo</option>
-                  <option value="week-end">Fines de semana</option>
-                  <option value="remote-time">Trabajo remoto</option>
-                  <option value="proyect-time">Trabajo por proyectos</option>
-                  <option value="flexible">Flexible</option>
+                  <option value="Jornada Completa">Completa completo</option>
+                  <option value="Media Jornada">Media jornada</option>
+                  <option value="Fines de semana">Fines de semana</option>
+                  <option value="Trabajo remoto">Trabajo remoto</option>
+                  <option value="Trabajo por proyectos">Trabajo por proyectos</option>
+                  <option value="Flexible">Flexible</option>
                 </select>
               </div>
 
@@ -221,9 +224,11 @@ export const CreateOffer = () => {
                   <option value="" disabled>
                     Salario anual
                   </option>
-                  <option value="16000-20000">16000-20000€</option>
-                  <option value="20000-30000">20000-30000€</option>
-                  <option value="30000-40000">30000-40000€</option>
+                  <option value="15000-20000€">15000-20000€</option>
+                  <option value="25000-30000€">25000-30000€</option>
+                  <option value="35000-40000€">35000-40000€</option>
+                  <option value="45000-50000€">45000-50000€</option>
+                  <option value="55000-60000€">55000-60000€</option>
                 </select>
               </div>
 
@@ -232,9 +237,9 @@ export const CreateOffer = () => {
                   <option value="" disabled>
                     Tipo de jornada
                   </option>
-                  <option value="morning">Mañana</option>
-                  <option value="afternoon">Tarde</option>
-                  <option value="evening">Noche</option>
+                  <option value="Mañanas">Mañanas</option>
+                  <option value="Tardes">Tardes</option>
+                  <option value="Nocturno">Nocturno</option>
                 </select>
               </div>
 
@@ -243,12 +248,12 @@ export const CreateOffer = () => {
                   <option value="" disabled>
                     Tipo de contrato
                   </option>
-                  <option value="temporary">Temporal</option>
-                  <option value="permanent">Permanente</option>
-                  <option value="freelance">Freelance</option>
-                  <option value="parcial-time">Contrato por tiempo parcial</option>
-                  <option value="formation">Contrato de formación</option>
-                  <option value="practice">Contrato en prácticas</option>
+                  <option value="Temporal">Temporal</option>
+                  <option value="Permanente">Permanente</option>
+                  <option value="Freelance">Freelance</option>
+                  <option value="Contrato por tiempo parcial">Contrato por tiempo parcial</option>
+                  <option value="Contrato de formación">Contrato de formación</option>
+                  <option value="pContrato en prácticas">Contrato en prácticas</option>
                 </select>
               </div>
               <button onClick={handleNextClick} className="button-black" >
@@ -263,13 +268,22 @@ export const CreateOffer = () => {
 
             <div className="">
 
-              <h4 className="">Requisitos de candidato</h4>
+              <h4 className="">Descripcion de candidato</h4>
               <div className="">
-                <p className="">Descripción de requisitos</p>
-                <input
+                <p className="">Descripción</p>
+                <textarea
                   {...register("description")}
                   type="text"
                   placeholder="Descripción..."
+                />
+              </div>
+              <h4 className="">Requisitos de candidato</h4>
+              <div className="">
+                <p className="">Requisitos</p>
+                <textarea
+                  {...register("requirements")}
+                  type="text"
+                  placeholder="requisitos..."
                 />
               </div>
 
@@ -282,12 +296,23 @@ export const CreateOffer = () => {
                     Palabras clave
                   </option>
                   <option value="Developer">Developer</option>
-                  <option value="Javscript">Javscript</option>
-                  <option value="Liderazgo">Liderazgo</option>
-                  <option value="Oratoria">Oratoria</option>
-                  <option value="Creatividad">Creatividad</option>
-                  <option value="UX/UI">UX/UI</option>
+                  <option value="JavaScript">JavaScript</option>
+                  <option value="Frontend">Frontend</option>
+                  <option value="Backend">Backend</option>
+                  <option value="Fullstack">Fullstack</option>
+                  <option value="Mobile">Mobile</option>
+                  <option value="DevOps">DevOps</option>
+                  <option value="Big Data">Big Data</option>
+                  <option value="Inteligencia Artificial">Inteligencia Artificial</option>
+                  <option value="Ciberseguridad">Ciberseguridad</option>
+                  <option value="Cloud">Cloud</option>
+                  <option value="Redes">Redes</option>
+                  <option value="Base de datos">Base de datos</option>
+                  <option value="UI/UX">UI/UX</option>
                   <option value="Diseño">Diseño</option>
+                  <option value="Gestión de proyectos">Gestión de proyectos</option>
+                  <option value="Agilismo">Agilismo</option>
+
                 </select>
               </div>
 

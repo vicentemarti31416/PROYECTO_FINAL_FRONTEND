@@ -29,11 +29,21 @@ export const SearchContext = React.createContext();
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 function AppContent() {
+  const [filtros, setFiltros] = useState({
+    location: '',
+    city: '',
+    availability: '',
+    salary: '',
+    scheduleType: '',
+    keywords: []
+});
+
+  const [newOffer, setNewOffer] = useState(null);
   const [jwt, setJwt] = useState(localStorage.getItem("token") || null);
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const [searchText, setSearchText] = useState("");
-  const [oferta, setOferta] = useState({});
+  // const [oferta, setOferta] = useState({});
 
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID Token" + response.credential);
@@ -92,7 +102,7 @@ function AppContent() {
   return (
     <AuthProvider>
       <JwtContext.Provider value={{ jwt, setJwt }}>
-        <SearchContext.Provider value={{ searchText, setSearchText }}>
+        <SearchContext.Provider value={{ searchText, setSearchText, newOffer, setNewOffer, filtros, setFiltros }}>
           <div className="App">
             <div className="App-header">
               <AuthButton />
