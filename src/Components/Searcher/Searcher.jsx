@@ -23,7 +23,7 @@ export default function Searcher() {
 
   return (
     <>
-      {(location.pathname === "/candidates" ||
+      {(location.pathname === "/home" ||
         location.pathname === "/offers" ||
         location.pathname === "/candidates") && (
         <input

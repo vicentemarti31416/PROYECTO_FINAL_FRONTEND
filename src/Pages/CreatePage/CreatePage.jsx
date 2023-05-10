@@ -11,20 +11,22 @@ function CreatePage() {
     <div className="createpage">
       <img className="createtitle" src={image} alt="" />
       <div className="container-black">
-        <div className="crear">
-          <div className="circle">
-            <AiOutlineFileText className="logo" />
+        <div className="container-buttons">
+          <div className="crear">
+            <div className="circle">
+              <AiOutlineFileText className="logo" />
+            </div>
+            <Link to={"/createoffer"} className="createlink">
+              <button className="button-white">Crear oferta</button>
+            </Link>
           </div>
-          <Link to={"/createoffer"} className="createlink">
-            <button className="button-white">Crear oferta</button>
-          </Link>
-        </div>
-        <div className="line"></div>
-        <div className="crear">
-          <div className="circle">
-            <AiOutlineVideoCamera className="logo" />
+          <div className="line"></div>
+          <div className="crear">
+            <div className="circle">
+              <AiOutlineVideoCamera className="logo" />
+            </div>
+            <button className="button-white">Crear prueba</button>
           </div>
-          <button className="button-white">Crear prueba</button>
         </div>
       </div>
       <Nav></Nav>

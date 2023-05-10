@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import ReactModal from 'react-modal';
 import { useLocation } from "react-router-dom";
+import "./FilterModal.css";
 
 Modal.setAppElement("#root");
 
 export const FilterModal = ({ isOpen, closeModal }) => {
+
     const location = useLocation();
     const [filtros, setFiltros] = useContext(SearchContext);
 
@@ -150,7 +152,7 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                         <option value="afternoon">Tarde</option>
                         <option value="evening">Noche</option>
                     </select>
-
+ <div className="keyword-checkboxes">
                     <label>
                         <input type="checkbox" name="keywords" value="Developer" onChange={handleInputChange} />
                         Developer
@@ -179,11 +181,10 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                         <input type="checkbox" name="keywords" value="Diseño" onChange={handleInputChange} />
                         Diseño
                     </label>
-
-                    <button type="submit">Filtrar</button>
+</div>
+                    <button type="submit" className="filter-button">Filtrar</button>
                 </form>
             </div>
         </ReactModal>
     )
 }
-

@@ -107,14 +107,13 @@
 }
 
 .progress-bar {
-    background-color: #eee;
     height: 20px;
     border-radius: 10px;
 }
 
 .progress {
     background-color: var(--light-green);
-    height: 20px;
+    height: 10px;
     border-radius: 10px;
     transition: width 0.5s ease-in-out;
 }
