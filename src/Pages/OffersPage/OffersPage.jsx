@@ -3,7 +3,6 @@ import Nav from "../../Components/Nav/Nav";
 import { Link } from "react-router-dom";
 import "./OffersPage.css";
 import { IoIosArrowBack } from "react-icons/io";
-import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import Searcher from "../../Components/Searcher/Searcher";
 import { AbiertoContext } from "../../Components/Fetch/AbiertoContext";
 import { Fetch } from "../../Components/Fetch/Fetch";
@@ -13,7 +12,7 @@ import { BiSearch } from "react-icons/bi";
 
 export const OffersPage = (openModal, closeModal) => {
 
-  const [abierto, setAbierto] = useState({});
+  const [abierto, setAbierto] = useState(true);
 
   return (
     <div className="page user home">
@@ -33,13 +32,11 @@ export const OffersPage = (openModal, closeModal) => {
           </Searcher>
         </div>
         <div className="botones-principales">
-          <button className="botonera-message-1">Abiertas</button>
-          <button className="botonera-message-1">Cerradas</button>
+          <button onClick={()=>setAbierto(true)} className="botonera-message-1">Abiertas</button>
+          <button onClick={()=>setAbierto(false)} className="botonera-message-1">Cerradas</button>
         </div>
         <div className="homeoffers">
-          <AbiertoContext.Provider value={{ abierto, setAbierto }}>
-            <Fetch></Fetch>
-          </AbiertoContext.Provider>
+            <Fetch abierto={abierto}></Fetch>
         </div>
       </div>
       <Nav />

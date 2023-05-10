@@ -77,6 +77,16 @@
     height: 20px;
 }
 
+
+  .imgVector {
+    height: 20px;
+  }
+
+  .pepe{
+    height: 600px;
+    overflow-y: scroll;
+  }
+
 .createHeader {
     display: flex;
     flex-direction: row;
@@ -99,3 +109,4 @@
     gap: 30px;
     padding-bottom: 200px;
 }
+
