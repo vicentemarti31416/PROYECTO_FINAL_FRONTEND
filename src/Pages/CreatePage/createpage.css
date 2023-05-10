@@ -77,3 +77,8 @@
   .imgVector {
     height: 20px;
   }
+
+  .pepe{
+    height: 600px;
+    overflow-y: scroll;
+  }
