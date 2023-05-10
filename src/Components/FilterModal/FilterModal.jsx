@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import ReactModal from 'react-modal';
 import { useLocation } from "react-router-dom";
 import { SearchContext } from "../../App";
+import "./FilterModal.css";
 
 Modal.setAppElement("#root");
 
@@ -41,8 +42,7 @@ export const FilterModal = ({ isOpen, closeModal }) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        // hacer algo con los filtros seleccionados, por ejemplo:
-        console.log("estos son los filtros", filtros);
+        closeModal();
     };
 
     return (
@@ -50,11 +50,10 @@ export const FilterModal = ({ isOpen, closeModal }) => {
             <div className='modal'>
                 <div className='modal-header'>
                     <h4>FILTROS</h4>
-                    <button onClick={closeModal} className=''>Cerrar</button>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <select name="location" value={filtros.location} onChange={handleInputChange}>
-                        <option value="" disabled>Pais</option>
+                <div className="select">
+                    <select name="location" value={filtros.location} onChange={handleInputChange} defaultValue="">
                         <option value="" disabled>Pais</option>
                         {[
                             "Alemania",
@@ -88,7 +87,7 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                             ))}
                     </select>
 
-                    <select name="city" value={filtros.city} onChange={handleInputChange}>
+                    <select name="city" value={filtros.city} onChange={handleInputChange} defaultValue="">
                         <option value="" disabled>Ciudad</option>
                         {[
                             "A Coruña",
@@ -127,7 +126,7 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                             ))}
                     </select>
 
-                    <select name="availability" value={filtros.availability} onChange={handleInputChange}>
+                    <select name="availability" value={filtros.availability} onChange={handleInputChange} defaultValue="">
                         <option value="" disabled>Disponibilidad</option>
                         <option value="full-time">Tiempo completo</option>
                         <option value="part-time">Medio tiempo</option>
@@ -137,7 +136,7 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                         <option value="flexible">Flexible</option>
                     </select>
 
-                    <select name="salary" value={filtros.salary} onChange={handleInputChange}>
+                    <select name="salary" value={filtros.salary} onChange={handleInputChange} defaultValue="">
                         <option value="" disabled>Salario anual</option>
                         <option value="" disabled>Salario anual</option>
                         <option value="16000-20000">16000-20000€</option>
@@ -145,33 +144,34 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                         <option value="30000-40000">30000-40000€</option>
                     </select>
 
-                    <select name="scheduleType" value={filtros.scheduleType} onChange={handleInputChange}>
+                    <select name="scheduleType" value={filtros.scheduleType} onChange={handleInputChange} defaultValue="">
                         <option value="" disabled>Tipo de jornada</option>
                         <option value="" disabled>Tipo de jornada</option>
                         <option value="morning">Mañana</option>
                         <option value="afternoon">Tarde</option>
                         <option value="evening">Noche</option>
                     </select>
-
-                    <label><input type="checkbox" name="keywords" value="Developer" onChange={handleInputChange} />Developer</label>
-                    <label><input type="checkbox" name="keywords" value="JavaScript" onChange={handleInputChange} />JavaScript</label>
-                    <label><input type="checkbox" name="keywords" value="Frontend" onChange={handleInputChange} />Frontend</label>
-                    <label><input type="checkbox" name="keywords" value="Backend" onChange={handleInputChange} />Backend</label>
-                    <label><input type="checkbox" name="keywords" value="Fullstack" onChange={handleInputChange} />Fullstack</label>
-                    <label><input type="checkbox" name="keywords" value="Mobile" onChange={handleInputChange} />Mobile</label>
-                    <label><input type="checkbox" name="keywords" value="DevOps" onChange={handleInputChange} />DevOps</label>
-                    <label><input type="checkbox" name="keywords" value="Big Data" onChange={handleInputChange} />Big Data</label>
-                    <label><input type="checkbox" name="keywords" value="Inteligencia Artificial" onChange={handleInputChange} />Inteligencia Artificial</label>
-                    <label><input type="checkbox" name="keywords" value="Ciberseguridad" onChange={handleInputChange} />Ciberseguridad</label>
-                    <label><input type="checkbox" name="keywords" value="Cloud" onChange={handleInputChange} />Cloud</label>
-                    <label><input type="checkbox" name="keywords" value="Redes" onChange={handleInputChange} />Redes</label>
-                    <label><input type="checkbox" name="keywords" value="Base de datos" onChange={handleInputChange} />Base de datos</label>
-                    <label><input type="checkbox" name="keywords" value="UI/UX" onChange={handleInputChange} />UI/UX</label>
-                    <label><input type="checkbox" name="keywords" value="Diseño" onChange={handleInputChange} />Diseño</label>
-                    <label><input type="checkbox" name="keywords" value="Gestión de proyectos" onChange={handleInputChange} />Gestión de proyectos</label>
-                    <label><input type="checkbox" name="keywords" value="Agilismo" onChange={handleInputChange} />Agilismo</label>
-
-                    <button type="submit">Filtrar</button>
+                    </div>
+                    <div className="keyword-checkboxes">
+                        <label><input type="checkbox" name="keywords" value="Developer" onChange={handleInputChange} />Developer</label>
+                        <label><input type="checkbox" name="keywords" value="JavaScript" onChange={handleInputChange} />JavaScript</label>
+                        <label><input type="checkbox" name="keywords" value="Frontend" onChange={handleInputChange} />Frontend</label>
+                        <label><input type="checkbox" name="keywords" value="Backend" onChange={handleInputChange} />Backend</label>
+                        <label><input type="checkbox" name="keywords" value="Fullstack" onChange={handleInputChange} />Fullstack</label>
+                        <label><input type="checkbox" name="keywords" value="Mobile" onChange={handleInputChange} />Mobile</label>
+                        <label><input type="checkbox" name="keywords" value="DevOps" onChange={handleInputChange} />DevOps</label>
+                        <label><input type="checkbox" name="keywords" value="Big Data" onChange={handleInputChange} />Big Data</label>
+                        <label><input type="checkbox" name="keywords" value="Inteligencia Artificial" onChange={handleInputChange} />Inteligencia Artificial</label>
+                        <label><input type="checkbox" name="keywords" value="Ciberseguridad" onChange={handleInputChange} />Ciberseguridad</label>
+                        <label><input type="checkbox" name="keywords" value="Cloud" onChange={handleInputChange} />Cloud</label>
+                        <label><input type="checkbox" name="keywords" value="Redes" onChange={handleInputChange} />Redes</label>
+                        <label><input type="checkbox" name="keywords" value="Base de datos" onChange={handleInputChange} />Base de datos</label>
+                        <label><input type="checkbox" name="keywords" value="UI/UX" onChange={handleInputChange} />UI/UX</label>
+                        <label><input type="checkbox" name="keywords" value="Diseño" onChange={handleInputChange} />Diseño</label>
+                        <label><input type="checkbox" name="keywords" value="Gestión de proyectos" onChange={handleInputChange} />Gestión de proyectos</label>
+                        <label><input type="checkbox" name="keywords" value="Agilismo" onChange={handleInputChange} />Agilismo</label>
+                    </div>
+                    <button type="submit" className="button-blue">Filtrar</button>
                 </form>
             </div>
         </ReactModal>
