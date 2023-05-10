@@ -157,11 +157,10 @@ const RegisterForm = () => {
           </div>
         </div>
       </form>
-      <button className="button-black">
-        <Link className="loginWhite" to={"/congrats"}>
-          Continuar
-        </Link>
-      </button>
+          <button type="submit" className="button-black mt40">
+            Continuar
+          </button>
+
     </div>
   );
 };

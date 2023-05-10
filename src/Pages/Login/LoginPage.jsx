@@ -76,6 +76,7 @@ const LoginPage = () => {
             <div className="input-wrapper">
               <input
                 className="button-blue button100 "
+
                 type={showPassword ? "text" : "password"}
                 id="password"
                 placeholder="Contraseña"
