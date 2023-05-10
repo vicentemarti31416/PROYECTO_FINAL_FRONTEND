@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom"; // Importar useHistory
@@ -10,6 +11,7 @@ import vectorX from "../../assets/vectorX.png";
 
 
 export const CreateOffer = () => {
+  
   const [selectedCountry, setSelectedCountry] = useState("");
   const navigate = useNavigate();
   const [currentSheet, setCurrentSheet] = useState(0);
@@ -20,14 +22,13 @@ export const CreateOffer = () => {
   const { setNewOffer } = useContext(SearchContext);
   const [formData, setFormData] = useState({});
   const { register, handleSubmit, getValues } = useForm();
-  
-  
   const onSubmit = (data) => console.log(data);
   
   
   const handleCountryChange = (event) => {
     setSelectedCountry(event.target.value);
   };
+
   const handleNextClick = () => {
     const sheet = currentSheet === sheets.length - 1 ? 0 : currentSheet + 1;
     setCurrentSheet(sheet);
@@ -47,8 +48,9 @@ export const CreateOffer = () => {
       body: JSON.stringify(data),
     };
 
-    fetch("http://localhost:8000/offers", requestOptions)
-      .then((response) => {
+
+    fetch('http://localhost:8000/offers', requestOptions)
+      .then(response => {
         if (!response.ok) {
           throw new Error(response.statusText);
         }
@@ -90,7 +92,6 @@ export const CreateOffer = () => {
     getOffers();
   }, []);
 
-
   return (
     <>
       <div>
@@ -100,7 +101,6 @@ export const CreateOffer = () => {
             <div className="container-black">
               <div className="pepe">
                 <h4 className="">Duplicar oferta</h4>
-
                 <div>
                   {Array.isArray(offers) && offers.length > 0 ? (
                     offers.map((offer, index) => (
@@ -134,7 +134,6 @@ export const CreateOffer = () => {
               </div>
             </div>
           )}
-
           {currentSheet == 1 && (
             <div className="">
               <div className="">
@@ -217,7 +216,6 @@ export const CreateOffer = () => {
                     ))}
                 </select>
               </div>
-
               <div className="">
                 <select {...register("availability")} defaultValue="">
                   <option value="" disabled>
@@ -262,19 +260,20 @@ export const CreateOffer = () => {
                   <option value="" disabled>
                     Tipo de contrato
                   </option>
-
                   <option value="Temporal">Temporal</option>
                   <option value="Permanente">Permanente</option>
                   <option value="Freelance">Freelance</option>
                   <option value="Contrato por tiempo parcial">Contrato por tiempo parcial</option>
                   <option value="Contrato de formación">Contrato de formación</option>
                   <option value="Contrato en prácticas">Contrato en prácticas</option>
+
                 </select>
               </div>
               <button onClick={handleNextClick} className="button-black">
                 Continuar
               </button>
               {/* <button type="submit"> siguiente</button> */}
+
             </div>
           )}
 
@@ -285,6 +284,7 @@ export const CreateOffer = () => {
               <div className="">
                 <p className="">Descripción</p>
                 <textarea
+
                   {...register("description")}
                   type="text"
                   placeholder="Descripción..."
@@ -300,6 +300,7 @@ export const CreateOffer = () => {
                 />
               </div>
 
+
               <h4 className="">Codificaciones internas</h4>
               <div className="">
                 {/* <label htmlFor="keywords">Añadir palabras clave</label> */}
@@ -308,6 +309,7 @@ export const CreateOffer = () => {
                     Palabras clave
                   </option>
                   <option value="Developer">Developer</option>
+
                   <option value="JavaScript">JavaScript</option>
                   <option value="Frontend">Frontend</option>
                   <option value="Backend">Backend</option>
@@ -324,7 +326,6 @@ export const CreateOffer = () => {
                   <option value="Diseño">Diseño</option>
                   <option value="Gestión de proyectos">Gestión de proyectos</option>
                   <option value="Agilismo">Agilismo</option>
-
                 </select>
               </div>
 
@@ -335,8 +336,7 @@ export const CreateOffer = () => {
           )}
         </form>
       </div>
-
-    </>
+  </>
 
   );
 };
