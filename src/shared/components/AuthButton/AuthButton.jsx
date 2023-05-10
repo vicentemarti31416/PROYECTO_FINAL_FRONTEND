@@ -6,21 +6,7 @@ import "./AuthButton.css";
 
 export default function AuthButton() {
   const { jwt, setJwt } = useContext(JwtContext);
-  /*  const signOut = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("name");
-    localStorage.removeItem("email_verified");
-    setJwt(null);
-    navigate("/");
-  };
-  return jwt && user ? (<div className="userInfo"> <p>Welcome! {user}</p> <button onClick={signOut} className="button-signOut">Sign out</button>
-      </div>
-  ) : (
-      <div className="userInfo">
-        <p>You are not logged in.</p>
-      </div>
-  );
-*/
+
   let navigate = useNavigate();
 
   const userJSON = localStorage.getItem("name");
@@ -34,13 +20,14 @@ export default function AuthButton() {
     setJwt(null);
     navigate("/");
   };
+
   return jwt && user ? (
-    <div className="welcome-post">
-      <p> Welcome! {user} <button className="logout" onClick={signOut}>Sign out</button>
-      </p>
+    <div className="userInfo">
+      <p> Welcome! {user} </p>
+      <button className="button-logout" onClick={signOut}>logout</button>
     </div>
   ) : (
-    <div className="welcome-post">
+    <div className="userInfo">
       <p>You are not logged in.</p>
     </div>
   );
