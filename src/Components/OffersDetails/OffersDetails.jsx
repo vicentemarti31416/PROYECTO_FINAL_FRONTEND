@@ -1,25 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Nav from "../Nav/Nav";
 import { useParams } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import "./OffersDetails.css";
+import { SearchContext } from "../../App";
 
 export const OffersDetails = () => {
+  // const newOffer = useContext(SearchContext);
+  const { newOffer } = useContext(SearchContext);
   const [offer, setOffer] = useState(null);
   const { id } = useParams();
+  // const lastOffer = newOffer.find((lastOffer) => lastOffer.id === id);
+  
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/offers/${id}`)
-      .then((res) => {
-        setOffer(res.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [id]);
+    if (newOffer && newOffer._id === id) {
+      // Si la última oferta creada tiene la misma ID que la actual, la usamos
+      setOffer(newOffer);
+    } else {
+      axios
+        .get(`http://localhost:8000/offers/${id}`)
+        .then((res) => {
+          setOffer(res.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [id, newOffer]);
 
   return (
     <div className="page">
@@ -45,6 +55,10 @@ export const OffersDetails = () => {
               </p>
               <p> {offer.requirements}</p>
               <p>
+                <strong>Palabras Clave:</strong>
+              </p>
+              <p> {offer.keywords}</p>
+              <p>
                 <strong>Salario:</strong>
               </p>
               <p> {offer.salary}</p>
@@ -52,6 +66,18 @@ export const OffersDetails = () => {
                 <strong>Ubicación:</strong>
               </p>
               <p> {offer.location}</p>
+              <p>
+                <strong>Tipo de Jornada:</strong>
+              </p>
+              <p> {offer.scheduleType}</p>
+              <p>
+                <strong>Tipo de Contrato:</strong>
+              </p>
+              <p> {offer.contractType}</p>
+              <p>
+                <strong>Disponibilidad</strong>
+              </p>
+              <p> {offer.availability}</p>
             </div>
           ) : (
             <p>Cargando...</p>
