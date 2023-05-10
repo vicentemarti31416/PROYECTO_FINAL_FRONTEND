@@ -339,6 +339,7 @@ export const CreateOffer = () => {
         </div>
         {sheets[currentSheet]}
       </div>
-    </>
+  </>
+
   );
 };

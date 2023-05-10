@@ -3,7 +3,7 @@ import { JwtContext } from "./shared/contexts/JwtContext";
 import RequireAuth from "./shared/components/RequireAuth/RequireAuth";
 import jwt_decode from "jwt-decode";
 import Welcome from "./Components/Welcome/Welcome";
-import { BrowserRouter, Navigate, NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import { CandidatesPage } from "./Pages/CandidatesPage/CandidatesPage";
 import { OffersPage } from './Pages/OffersPage/OffersPage';
 import { OffersDetails } from "./Components/OffersDetails/OffersDetails";
@@ -11,7 +11,7 @@ import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import LoginPage from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
-import HomePage from "./Pages/HomePage/HomePage";
+import Homepage from "./Pages/Homepage/HomePage";
 import { Congrats } from "./Components/Congrats/Congrats";
 import Perfil from "./Pages/Profile/Perfil";
 import RestablecerContrasenaEmail from "./Pages/Login/RestablecerContrasenaEmail";
@@ -21,6 +21,8 @@ import { CreateOffer } from "./Pages/CreatePage/CreateOffer";
 import { CandidateDetails } from "./Components/CandidatesDetails/CandidateDetails";
 import Congrats2 from "./Components/Congrats/Congrats2";
 import { AuthProvider } from "./shared/components/AuthProvider/AuthProvider";
+
+
 
 
 export const SearchContext = React.createContext();
@@ -89,6 +91,7 @@ function AppContent() {
   }, [jwt]);
 
   return (
+
     <AuthProvider>
       <JwtContext.Provider value={{ jwt, setJwt }}>
         <SearchContext.Provider value={{ searchText, setSearchText }}>
@@ -124,6 +127,7 @@ function AppContent() {
         </SearchContext.Provider>
       </JwtContext.Provider>
     </AuthProvider>
+
   );
 }
 
