@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -6,50 +6,61 @@ import flechaRetrocederNegra from "../../assets/flechaRetrocederNegra.png";
 import vectorX from "../../assets/vectorX.png";
 
 export const CreateOffer = () => {
- 
+  const [selectedCountry, setSelectedCountry] = useState("");
   const [currentSheet, setCurrentSheet] = useState(0);
   const [jobTitle, setJobTitle] = useState("");
-
-
+  const [jobCompany, setJobCompany] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
   const [offers, setOffers] = useState([]);
-  const { register, handleSubmit, getValues  } = useForm();
-  
+  const { register, handleSubmit, getValues } = useForm();
+  const onSubmit = (data) => console.log(data);
+
+  const handleCountryChange = (event) => {
+    setSelectedCountry(event.target.value);
+  };
+
   const handleNextClick = () => {
-    const sheet = currentSheet + 1;
+    const sheet = currentSheet === sheets.length - 1 ? 0 : currentSheet + 1;
     setCurrentSheet(sheet);
   };
 
-  const handleCreateOffer = () => {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(getValues())
+  const handleCreateOffer = (e) => {
+    e.preventDefault();
+
+    const {
+      position,
+      company,
+      description,
+      requirements,
+      salary,
+      location,
+      city,
+    } = getValues();
+
+    const offerData = {
+      position,
+      company,
+      description,
+      requirements,
+      salary,
+      location: selectedCountry,
+      city: selectedCity,
     };
-  
-    fetch('http://localhost:8000/offers', requestOptions)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log("pusheado", data);
-        // Mostrar mensaje de éxito al usuario
-      })
-      .catch(error => {
-        console.error(error);
-        // Mostrar mensaje de error al usuario
-      });
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ offerData }),
+    };
+
+    fetch("http://localhost:8000/offers", requestOptions)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   };
-  
-  const onSubmit = (data) => {
-    handleCreateOffer();
-    console.log("hola holita", data);
-  };
-  
+
   const handleButton = (value) => {
     setJobTitle(value);
+    setJobCompany(value);
   };
 
   const getOffers = () => {
@@ -67,19 +78,11 @@ export const CreateOffer = () => {
     getOffers();
   }, []);
 
-
-        
-  
-  return (
-    <>
-      <div className="">
-        <h3>Descripción de la oferta</h3>
-        <form onSubmit={handleSubmit(onSubmit)}>
-
-        {currentSheet == 0 &&
-        <div className="container-black">
-      
-        <h4 className="">Duplicar oferta</h4>
+  const sheets = [
+    //primera página
+    <div className="container-black">
+      <form onSubmit={handleSubmit(onSubmit)} className="createForm">
+        {/* <h4 className="create-white">Duplicar oferta</h4>
 
         <div>
   {Array.isArray(offers) && offers.length > 0 ? (
@@ -93,32 +96,47 @@ export const CreateOffer = () => {
   ) : (
     <p>No hay ofertas disponibles</p>
   )}
-</div>
-        <div className="">
+        </div> */}
+        <div className="createImputs">
+
           <h4 className="">Titulo de la nueva oferta</h4>
           <input
-            className=""
+            className="button-blue button98"
             type="text"
             id="title"
             placeholder="Escribe el título"
-            {...register("position")}
+            {...register("jobTitle")}
           />
-          <p>¿Cómo crear un título efectivo?</p>
+          
+          <Link to={"/createoffer"} className="loginErrorLink">
+            ¿Cómo crear un título efectivo?
+          </Link>
+
+          <h4 className="">Compañía de la nueva oferta</h4>
+          <input
+            className="button-blue button98"
+            type="text"
+            id="company"
+            placeholder="Escribe la compañía"
+            {...register("jobCompany")}
+          />
+
         </div>
-        <button onClick={handleNextClick} className="button-white">
+        <button onClick={handleNextClick} className="button-white button100">
           Comenzar
         </button>
-      
-    </div>
+      </form>
+    </div>,
 
-          }
-
-
-          {currentSheet == 1 &&
+    //segunda página
     <div className="">
-      
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="">
-          <select {...register("city")} defaultValue="">
+          <select
+            {...register("city")}
+            value={selectedCity}
+            onChange={(e) => setSelectedCity(e.target.value)}
+          >
             <option value="" disabled>
               Ciudad
             </option>
@@ -153,7 +171,7 @@ export const CreateOffer = () => {
             ]
               .sort()
               .map((city) => (
-                <option key={city} value={city}>
+                <option key={city} value={selectedCity}>
                   {city}
                 </option>
               ))}
@@ -161,7 +179,12 @@ export const CreateOffer = () => {
         </div>
 
         <div className="">
-          <select {...register("location")} defaultValue="">
+          <select
+            {...register("country")}
+            value={selectedCountry}
+            onChange={handleCountryChange}
+            defaultValue=""
+          >
             <option value="" disabled>
               Ubicacion
             </option>
@@ -225,7 +248,7 @@ export const CreateOffer = () => {
         </div>
 
         <div className="">
-          <select {...register("scheduleType")} defaultValue="">
+          <select {...register("work-schedule")} defaultValue="">
             <option value="" disabled>
               Tipo de jornada
             </option>
@@ -236,7 +259,7 @@ export const CreateOffer = () => {
         </div>
 
         <div className="">
-          <select {...register("contractType")} defaultValue="">
+          <select {...register("contract-type")} defaultValue="">
             <option value="" disabled>
               Tipo de contrato
             </option>
@@ -251,26 +274,34 @@ export const CreateOffer = () => {
         <button onClick={handleNextClick} className="button-black">
           Continuar
         </button>
-        {/* <button type="submit"> siguiente</button> */}
-      
-    </div>
-    }
+      </form>
+    </div>,
 
-    {currentSheet == 2 &&
-
+    //tercera página
     <div className="">
-      
+      <form onSubmit={handleSubmit(onSubmit)}>
         <h4 className="">Requisitos de candidato</h4>
         <div className="">
           <p className="">Descripción de requisitos</p>
           <input
-            {...register("description")}
+            {...register("requiresDescription")}
             type="text"
             placeholder="Descripción..."
           />
         </div>
-      
-
+        <div className="">
+          {/* <label htmlFor="questions">Añadir preguntas</label> */}
+          <select {...register("questions")} defaultValue="">
+            <option value="" disabled>
+              Preguntas
+            </option>
+            <option value="question1">Pregunta 1</option>
+            <option value="question2">Pregunta 2</option>
+            <option value="question3">Pregunta 3</option>
+            <option value="question4">Pregunta 4</option>
+            <option value="question5">Pregunta 5</option>
+          </select>
+        </div>
         <h4 className="">Codificaciones internas</h4>
         <div className="">
           {/* <label htmlFor="keywords">Añadir palabras clave</label> */}
@@ -278,26 +309,37 @@ export const CreateOffer = () => {
             <option value="" disabled>
               Palabras clave
             </option>
-            <option value="Developer">Developer</option>
-            <option value="Javscript">Javscript</option>
-            <option value="Liderazgo">Liderazgo</option>
-            <option value="Oratoria">Oratoria</option>
-            <option value="Creatividad">Creatividad</option>
-            <option value="UX/UI">UX/UI</option>
-            <option value="Diseño">Diseño</option>
+            <option value="keyword1">Palabra clave 1</option>
+            <option value="keyword2">Palabra clave 2</option>
+            <option value="keyword3">Palabra clave 3</option>
+            <option value="keyword4">Palabra clave 4</option>
+            <option value="keyword5">Palabra clave 5</option>
           </select>
         </div>
-
-          <button type="submit" className="button-black">
+        <Link to={"/congrats2"}>
+          <button onClick={handleCreateOffer} className="button-black">
             Crear oferta
           </button>
-      
-    </div>
-      }
-        </form>
+        </Link>
+      </form>
+    </div>,
+  ];
 
+  return (
+    <>
+      <div className="createContainer">
+        <div className="createHeader">
+          <Link to={"/create"}>
+            <img src={flechaRetrocederNegra} className="imgVector" alt=""></img>
+          </Link>
+          <h3>Descripción de la oferta</h3>
+          <Link to={"/login"}>
+            <img src={vectorX} className="imgVector" alt=""></img>
+          </Link>
+        </div>
+        {sheets[currentSheet]}
       </div>
-
   </>
+
   );
 };

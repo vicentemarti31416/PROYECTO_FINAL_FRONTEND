@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { JwtContext } from "../../contexts/JwtContext";
+import "./AuthButton.css";
 
 export default function AuthButton() {
   const { jwt, setJwt } = useContext(JwtContext);
@@ -15,15 +16,19 @@ export default function AuthButton() {
     localStorage.removeItem("token");
     localStorage.removeItem("name");
     localStorage.removeItem("email_verified");
+    localStorage.clear();
     setJwt(null);
     navigate("/");
   };
+
   return jwt && user ? (
-    <p>
-      {" "}
-      Welcome! {user} <button onClick={signOut}>Sign out</button>
-    </p>
+    <div className="userInfo">
+      <p> Welcome! {user} </p>
+      <button className="button-logout" onClick={signOut}>logout</button>
+    </div>
   ) : (
-    <p>You are not logged in.</p>
+    <div className="userInfo">
+      <p>You are not logged in.</p>
+    </div>
   );
 }

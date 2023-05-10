@@ -20,7 +20,8 @@ import RegisterForm from "./Pages/Login/RegisterForm";
 import { CreateOffer } from "./Pages/CreatePage/CreateOffer";
 import { CandidateDetails } from "./Components/CandidatesDetails/CandidateDetails";
 import Congrats2 from "./Components/Congrats/Congrats2";
-import AuthButton from "./shared/components/AuthButton/AuthButton";
+import { AuthProvider } from "./shared/components/AuthProvider/AuthProvider";
+
 
 
 
@@ -91,37 +92,42 @@ function AppContent() {
 
   return (
 
-    <JwtContext.Provider value={{ jwt, setJwt }}>
-      <SearchContext.Provider value={{ searchText, setSearchText, oferta, setOferta }}>
-      <div className="App">
-        <div className="App-header">
-          <AuthButton />
-          <Routes>
-              <Route path="/" element={<Welcome />} />
-              <Route path="/home" element={<RequireAuth><Homepage /></RequireAuth>} />
-              <Route path="/candidates" element={<RequireAuth><CandidatesPage /></RequireAuth>} />
-              <Route path="/offers" element={<RequireAuth><OffersPage /></RequireAuth>} />
-              <Route path="/notifications" element={<RequireAuth><NotificationsPage /></RequireAuth>} />
-              <Route path="/create" element={<RequireAuth><CreatePage /></RequireAuth>} />
-              <Route path="/createoffer" element={<RequireAuth><CreateOffer /></RequireAuth>} />
-              <Route path="/congrats" element={<RequireAuth><Congrats /></RequireAuth>} />
-              <Route path="/congrats2" element={<RequireAuth><Congrats2 /></RequireAuth>} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/restablecerContrasenaEmail" element={<RestablecerContrasenaEmail />} />
-              <Route path="/restablecerContrasenaContrasena" element={<RestablecerContrasenaContrasena />} />
-              <Route path="/register" element={<RegisterForm />} />
-              <Route path="/messages" element={<RequireAuth><MessagePage /></RequireAuth>} />
-              <Route path="/offersdetails" element={<RequireAuth><OffersDetails /></RequireAuth>} />
-              <Route path="/Profile" element={<RequireAuth><Perfil /></RequireAuth>} />
-              <Route path="/offers/:id" element={<RequireAuth><OffersDetails /></RequireAuth>} />
-              <Route path="/candidates/:id" element={<RequireAuth><CandidateDetails /></RequireAuth>} />
-              
-          </Routes>
-          {!jwt && <div id="signInDiv"></div>}
-        </div>
-      </div>
-      </SearchContext.Provider>
-    </JwtContext.Provider>
+    <AuthProvider>
+      <JwtContext.Provider value={{ jwt, setJwt }}>
+        <SearchContext.Provider value={{ searchText, setSearchText }}>
+          <div className="App">
+            <div className="App-header">
+
+              <Routes>
+
+                <Route path="/" element={<Welcome />} />
+                <Route path="/home" element={<RequireAuth><HomePage /></RequireAuth>} />
+                <Route path="/candidates" element={<RequireAuth><CandidatesPage /></RequireAuth>} />
+                <Route path="/offers" element={<RequireAuth><OffersPage /></RequireAuth>} />
+                <Route path="/notifications" element={<RequireAuth><NotificationsPage /></RequireAuth>} />
+                <Route path="/create" element={<RequireAuth><CreatePage /></RequireAuth>} />
+                <Route path="/createoffer" element={<RequireAuth><CreateOffer /></RequireAuth>} />
+                <Route path="/congrats" element={<RequireAuth><Congrats /></RequireAuth>} />
+                <Route path="/congrats2" element={<RequireAuth><Congrats2 /></RequireAuth>} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/restablecerContrasenaEmail" element={<RestablecerContrasenaEmail />} />
+                <Route path="/restablecerContrasenaContrasena/:userId/:resetString" element={<RestablecerContrasenaContrasena />} />
+                <Route path="/register" element={<RegisterForm />} />
+                <Route path="/messages" element={<RequireAuth><MessagePage /></RequireAuth>} />
+                <Route path="/offersdetails" element={<RequireAuth><OffersDetails /></RequireAuth>} />
+                <Route path="/Profile" element={<RequireAuth><Perfil /></RequireAuth>} />
+                <Route path="/offers/:id" element={<RequireAuth><OffersDetails /></RequireAuth>} />
+                <Route path="/candidates/:id" element={<RequireAuth><CandidateDetails /></RequireAuth>} />
+
+              </Routes>
+
+              {!jwt && <div id="signInDiv"></div>}
+            </div>
+          </div>
+        </SearchContext.Provider>
+      </JwtContext.Provider>
+    </AuthProvider>
+
   );
 }
 
