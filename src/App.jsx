@@ -22,9 +22,6 @@ import { CandidateDetails } from "./Components/CandidatesDetails/CandidateDetail
 import Congrats2 from "./Components/Congrats/Congrats2";
 import { AuthProvider } from "./shared/components/AuthProvider/AuthProvider";
 import { AuthContext } from "./shared/components/AuthProvider/AuthProvider";
-
-
-
 export const SearchContext = React.createContext();
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;

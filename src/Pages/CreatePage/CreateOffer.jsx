@@ -8,19 +8,17 @@ import axios from "axios";
 import flechaRetrocederNegra from "../../assets/flechaRetrocederNegra.png";
 import vectorX from "../../assets/vectorX.png";
 
-
-
 export const CreateOffer = () => {
   
   const [selectedCountry, setSelectedCountry] = useState("");
+
   const navigate = useNavigate();
   const [currentSheet, setCurrentSheet] = useState(0);
   const [jobTitle, setJobTitle] = useState("");
   const [jobCompany, setJobCompany] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
   const [offers, setOffers] = useState([]);
   const { setNewOffer } = useContext(SearchContext);
-  const [formData, setFormData] = useState({});
+
   const { register, handleSubmit, getValues } = useForm();
   const onSubmit = (data) => console.log(data);
   
@@ -30,7 +28,7 @@ export const CreateOffer = () => {
   };
 
   const handleNextClick = () => {
-    const sheet = currentSheet === sheets.length - 1 ? 0 : currentSheet + 1;
+    const sheet = currentSheet + 1;
     setCurrentSheet(sheet);
   };
 
@@ -57,19 +55,15 @@ export const CreateOffer = () => {
         return response.json();
       })
       .then((data) => {
-
         console.log(data);
         setNewOffer(data);
-        navigate('/congrats2');
-        const offersData = data.map((data) => (  {...data, lock: true,
-        }));
+        navigate("/congrats2");
+        const offersData = data.map((data) => ({ ...data, lock: true }));
         setOffers(offersData);
-
       })
       .catch((error) => {
         console.error(error);
       });
-
   };
 
   const handleButton = (value) => {
@@ -99,9 +93,11 @@ export const CreateOffer = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           {currentSheet === 0 && (
             <div className="container-black">
-              <div className="pepe">
-                <h4 className="">Duplicar oferta</h4>
-                <div>
+
+              <div className="createImputs">
+                <h4 className="">Titulo de la nueva oferta</h4>
+                {/* <div>
+
                   {Array.isArray(offers) && offers.length > 0 ? (
                     offers.map((offer, index) => (
                       <div key={index} className="create-offers">
@@ -116,25 +112,31 @@ export const CreateOffer = () => {
                   ) : (
                     <p>No hay ofertas disponibles</p>
                   )}
-                </div>
-                <div className="">
-                  <h4 className="">Titulo de la nueva oferta</h4>
+                </div> */}
                   <input
-                    className=""
+                    className="button-blue button98"
                     type="text"
                     id="title"
                     placeholder="Escribe el título"
                     {...register("position")}
                   />
-                  <p>¿Cómo crear un título efectivo?</p>
-                </div>
-                <button onClick={handleNextClick} className="button-white">
+                <h4 className="">Compañia de la nueva oferta</h4>
+                <input
+                    className="button-blue button98"
+                    type="text"
+                    id="title"
+                    placeholder="Escribe el nombre de la compañia"
+                    {...register("company")}
+                  />
+              </div>
+                <button onClick={handleNextClick} className="button-white button100">
                   Comenzar
                 </button>
-              </div>
             </div>
           )}
+
           {currentSheet == 1 && (
+
             <div className="">
               <div className="">
                 <select {...register("city")} defaultValue="">
@@ -225,7 +227,9 @@ export const CreateOffer = () => {
                   <option value="Media Jornada">Media jornada</option>
                   <option value="Fines de semana">Fines de semana</option>
                   <option value="Trabajo remoto">Trabajo remoto</option>
-                  <option value="Trabajo por proyectos">Trabajo por proyectos</option>
+                  <option value="Trabajo por proyectos">
+                    Trabajo por proyectos
+                  </option>
                   <option value="Flexible">Flexible</option>
                 </select>
               </div>
@@ -263,9 +267,15 @@ export const CreateOffer = () => {
                   <option value="Temporal">Temporal</option>
                   <option value="Permanente">Permanente</option>
                   <option value="Freelance">Freelance</option>
-                  <option value="Contrato por tiempo parcial">Contrato por tiempo parcial</option>
-                  <option value="Contrato de formación">Contrato de formación</option>
-                  <option value="Contrato en prácticas">Contrato en prácticas</option>
+                  <option value="Contrato por tiempo parcial">
+                    Contrato por tiempo parcial
+                  </option>
+                  <option value="Contrato de formación">
+                    Contrato de formación
+                  </option>
+                  <option value="Contrato en prácticas">
+                    Contrato en prácticas
+                  </option>
 
                 </select>
               </div>
@@ -317,18 +327,21 @@ export const CreateOffer = () => {
                   <option value="Mobile">Mobile</option>
                   <option value="DevOps">DevOps</option>
                   <option value="Big Data">Big Data</option>
-                  <option value="Inteligencia Artificial">Inteligencia Artificial</option>
+                  <option value="Inteligencia Artificial">
+                    Inteligencia Artificial
+                  </option>
                   <option value="Ciberseguridad">Ciberseguridad</option>
                   <option value="Cloud">Cloud</option>
                   <option value="Redes">Redes</option>
                   <option value="Base de datos">Base de datos</option>
                   <option value="UI/UX">UI/UX</option>
                   <option value="Diseño">Diseño</option>
-                  <option value="Gestión de proyectos">Gestión de proyectos</option>
+                  <option value="Gestión de proyectos">
+                    Gestión de proyectos
+                  </option>
                   <option value="Agilismo">Agilismo</option>
                 </select>
               </div>
-
               <button type="submit" className="button-black">
                 Crear oferta
               </button>
@@ -336,7 +349,7 @@ export const CreateOffer = () => {
           )}
         </form>
       </div>
-  </>
+    </>
 
   );
 };
