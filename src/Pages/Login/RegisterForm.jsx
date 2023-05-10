@@ -3,12 +3,15 @@ import "./Register.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { API } from '../../shared/services/api';
+import { useNavigate } from "react-router-dom";
 
 
 const RegisterForm = () => {
   const [showPassword1, setShowPassword1] = useState(false); 
   const [showPassword2, setShowPassword2] = useState(false); 
 
+  const navigate = useNavigate();
 
   const {
     register,
@@ -16,9 +19,21 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (dataF) => {
-    console.log(dataF);
+  const onSubmit = (formData) => {
+    console.log(formData)
+    //if (formData.password === formData.repeatPassword) {
+      API
+      .post('user/register', formData)
+      .then((res) => {
+        console.log('User registered successfully with response:', res.data, 'Full AxiosResponse:', res);
+        navigate('/login');
+      })
+      .catch((error) => console.log(error));
+    /*} else {
+      console.log("Las contraseñas no coinciden")
+    }*/
   };
+
   const togglePasswordVisibility1 = () => {
     setShowPassword1(!showPassword1);
   };
@@ -41,7 +56,7 @@ const RegisterForm = () => {
               type="text"
               id="nombre"
               placeholder="Nombre de la empresa"
-              {...register("nombre", { required: true })}
+              {...register("name", { required: true })}
             />
             {errors.nombre && (
               <span className="error-message">Campo requerido</span>
@@ -87,7 +102,7 @@ const RegisterForm = () => {
                 type={showPassword1 ? "text" : "password"}
                 id="contraseña"
                 placeholder="Contraseña"
-                {...register("contraseña", { required: true })}
+                {...register("password", { required: true })}
               />
               {showPassword1 ? (
                 <AiOutlineEyeInvisible
@@ -117,8 +132,8 @@ const RegisterForm = () => {
                 placeholder="Confirmar Contraseña"
                 {...register("confirmar-contraseña", { required: true })}
               />
-               {showPassword2 ? (
-                <AiOutlineEyeInvisible
+                {/*showPassword2 ? (
+               <AiOutlineEyeInvisible
                   className="eye-icon2"
                   onClick={togglePasswordVisibility2}
                 />
@@ -127,7 +142,7 @@ const RegisterForm = () => {
                   className="eye-icon2"
                   onClick={togglePasswordVisibility2}
                 />
-              )}
+              )*/}
             </div>
             {errors["confirmar-contraseña"] && (
               <span className="error-message">Campo requerido</span>
@@ -156,11 +171,10 @@ const RegisterForm = () => {
             )}
           </div>
         </div>
-      </form>
-          <button type="submit" className="button-black mt40">
+        <button type="submit" className="button-black mt40">
             Continuar
           </button>
-
+      </form>
     </div>
   );
 };
