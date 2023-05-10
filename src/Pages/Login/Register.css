@@ -80,10 +80,21 @@
 }
 
 .eye-icon {
+  color: black;
   position: absolute;
-  top: 50%;
-  right: 10px;
+  top: 64%;
+  right: 23px;
   transform: translateY(-50%);
   cursor: pointer;
+
 }
 
+.eye-icon2 {
+  color: black;
+  position: absolute;
+  top: 50%;
+  right: 23px;
+  transform: translateY(-50%);
+  cursor: pointer;
+
+}
