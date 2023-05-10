@@ -31,7 +31,7 @@ const RestablecerContrasenaContrasena = () => {
     API
       .post('user/resetPassword', formData)
       .then((res) => {
-        console.log('Password update successfully:', res.data, 'Full AxiosResponse:', res);
+        console.log('Password updated successfully:', res.data, 'Full AxiosResponse:', res);
         navigate('/home');
       })
       .catch((error) => console.log(error));

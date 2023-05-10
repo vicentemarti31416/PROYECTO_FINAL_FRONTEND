@@ -87,7 +87,7 @@ export const Fetch = () => {
                   </div>
                   <div className="progress-bar">
                     <div
-                      class="progress"
+                      className="progress"
                       style={{ width: `${percent}%` }}
                     ></div>
                   </div>

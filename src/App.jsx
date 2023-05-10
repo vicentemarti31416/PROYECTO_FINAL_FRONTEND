@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { JwtContext } from "./shared/contexts/JwtContext";
 import RequireAuth from "./shared/components/RequireAuth/RequireAuth";
 import jwt_decode from "jwt-decode";
@@ -11,7 +11,7 @@ import NotificationsPage from "./Pages/NotificationsPage/NotificationsPage";
 import LoginPage from "./Pages/Login/LoginPage";
 import { MessagePage } from "./Pages/MessagesPage/MessagePage";
 import CreatePage from "./Pages/CreatePage/CreatePage";
-import HomePage from "./Pages/HomePage/HomePage";
+import HomePage from "./Pages/Homepage/HomePage";
 import { Congrats } from "./Components/Congrats/Congrats";
 import Perfil from "./Pages/Profile/Perfil";
 import RestablecerContrasenaEmail from "./Pages/Login/RestablecerContrasenaEmail";
@@ -22,6 +22,7 @@ import { CandidateDetails } from "./Components/CandidatesDetails/CandidateDetail
 import Congrats2 from "./Components/Congrats/Congrats2";
 import AuthButton from "./shared/components/AuthButton/AuthButton";
 import { AuthProvider } from "./shared/components/AuthProvider/AuthProvider";
+import { AuthContext } from "./shared/components/AuthProvider/AuthProvider";
 
 export const SearchContext = React.createContext();
 
@@ -34,59 +35,7 @@ function AppContent() {
   const [searchText, setSearchText] = useState("");
   const [oferta, setOferta] = useState({});
 
-  function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID Token" + response.credential);
-    let userObject = jwt_decode(response.credential);
-    console.log(userObject);
 
-    localStorage.setItem("token", response.credential);
-    localStorage.setItem("name", JSON.stringify(userObject.name));
-    localStorage.setItem("email_verified", JSON.stringify(userObject.email_verified));
-
-    setJwt(response.credential);
-    setUser(userObject);
-
-    navigate('/home');
-  }
-
-  function handleStorageChange(event) {
-    if (event.key === "token") {
-      setJwt(localStorage.getItem("token") || null);
-    }
-  }
-
-  function initGoogleOneTap() {
-    /* global google */
-    google.accounts.id.initialize({
-      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-      callback: handleCallbackResponse,
-    });
-    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-      theme: "outline",
-      size: "large",
-    });
-  }
-
-  useEffect(() => {
-    if (window.google && window.google.accounts) {
-      initGoogleOneTap();
-    } else {
-      window.addEventListener("google-loaded", initGoogleOneTap);
-    }
-
-    window.addEventListener("storage", handleStorageChange);
-
-    return () => {
-      window.removeEventListener("google-loaded", initGoogleOneTap);
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!jwt) {
-      initGoogleOneTap();
-    }
-  }, [jwt]);
 
   return (
     <AuthProvider>
@@ -94,7 +43,6 @@ function AppContent() {
         <SearchContext.Provider value={{ searchText, setSearchText }}>
           <div className="App">
             <div className="App-header">
-              <AuthButton />
 
               <Routes>
 
@@ -119,7 +67,6 @@ function AppContent() {
 
               </Routes>
 
-              {!jwt && <div id="signInDiv"></div>}
             </div>
           </div>
         </SearchContext.Provider>

@@ -7,10 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { API } from '../../shared/services/api';
 import { JwtContext } from '../../shared/contexts/JwtContext';
 import { AuthContext } from '../../shared/components/AuthProvider/AuthProvider';
+import GoogleAuth from '../../shared/components/GoogleAuth/GoogleAuth';
 
 const LoginPage = () => {
 
-    const { isAuthenticated } = useContext(AuthContext);
+    const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const { setJwt } = useContext(JwtContext);
     const navigate = useNavigate();
@@ -30,6 +31,7 @@ const LoginPage = () => {
                 localStorage.setItem('token', res.data.token);
                 localStorage.setItem('name', JSON.stringify(res.data.userInfo.name));
                 localStorage.setItem('email_verified', JSON.stringify(res.data.userInfo.email_verified));
+                setIsAuthenticated(true);
                 setJwt(true);
                 navigate('/home');
             })
@@ -64,9 +66,12 @@ const LoginPage = () => {
             </div>
             <div className='loginLine'>
             </div>
+            
+            <GoogleAuth />
             <div className='loginNew'>
                 <Link to={'/register'} className='loginWhite'><h3>Crear nueva cuenta</h3></Link>
             </div>
+         
         </div>
     )
 }
