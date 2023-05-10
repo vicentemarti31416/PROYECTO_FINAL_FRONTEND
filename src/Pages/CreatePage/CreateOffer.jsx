@@ -309,6 +309,7 @@ export const CreateOffer = () => {
           )}
         </form>
       </div>
+
     </>
 
   );

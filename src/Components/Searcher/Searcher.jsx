@@ -7,10 +7,9 @@ import { TbAdjustmentsHorizontal } from "react-icons/tb";
 export default function Searcher() {
   const location = useLocation();
 
-  const { searchText, setSearchText } = useContext(SearchContext);
+  const { setSearchText } = useContext(SearchContext);
   const [open, setOpen] = useState(false);
 
-  console.log(open, "estado de open");
   const openModal = () => {
     setOpen(true);
   };
